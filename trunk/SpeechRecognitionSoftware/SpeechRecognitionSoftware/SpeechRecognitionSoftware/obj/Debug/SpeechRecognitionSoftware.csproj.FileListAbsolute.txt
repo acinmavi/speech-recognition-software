@@ -1,0 +1,21 @@
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.csprojResolveAssemblyReference.cache
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.MainForm.resources
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.csproj.GenerateResource.Cache
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\SpeechRecognitionSoftware.exe
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\SpeechRecognitionSoftware.pdb
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\CUETools.Codecs.dll
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\CUETools.Codecs.FLAKE.dll
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\GMailSend.dll
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\Ionic.Utils.Zip.dll
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\NAudio.dll
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\Nini.dll
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\NAudio.xml
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.exe
+C:\Users\BT\Documents\SharpDevelop Projects\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.pdb
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\SpeechRecognitionSoftware.exe
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\SpeechRecognitionSoftware.pdb
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.csprojResolveAssemblyReference.cache
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.MainForm.resources
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.csproj.GenerateResource.Cache
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.exe
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.pdb
