@@ -27,6 +27,9 @@ namespace SpeechRecognitionSoftware
 		int deviceSelected;
 		List<string> list;
 		int index;
+		AudioRecorder recorder;
+		float lastPeak;
+		string fileRecord;
 		public MainForm()
 		{
 			//
@@ -260,9 +263,21 @@ namespace SpeechRecognitionSoftware
 				                                            subject,message,username,password,saveFolder,
 				                                            googleRequestString,interval,day,hour,minute,second,
 				                                            specialWords,isAddToStartup,deviceSelected);
+				if(deviceSelected == -1)
+				{
+					MessageBox.Show("Not found any recording device!");
+					return;
+				}
 				MessageBox.Show("Save done!");
 				tabControl1.TabPages[0].Enabled =false;
 				tabControl1.SelectedIndex=1;
+				
+				
+				fileRecord = Configuration.GetConfiguration().getSaveFolder() + "\\" + String.Format("{0:yyyy-MM-dd-HH-mm-ss}",DateTime.Now)+ ".wav";
+				recorder = new AudioRecorder();
+				recorder.SampleAggregator.MaximumCalculated+=OnRecorderMaximumCalculated;
+				recorder.BeginMonitoring(Configuration.GetConfiguration().getDeviceSelected());
+				recorder.BeginRecording(fileRecord);
 			}catch(Exception ex)
 			{
 				MessageBox.Show(ex.Message);
@@ -278,5 +293,14 @@ namespace SpeechRecognitionSoftware
 				Utilities.RemoveFromStartUp(Application.ProductName);
 			}
 		}
+		
+		void OnRecorderMaximumCalculated(object sender, MaxSampleEventArgs e)
+		{
+			lastPeak = Math.Max(e.MaxSample, Math.Abs(e.MinSample));
+			Utilities.WriteLine(lastPeak.ToString());
+			PeakLevelProgressBar.Value = (int)lastPeak*100;
+		}
+		
+		
 	}
 }
