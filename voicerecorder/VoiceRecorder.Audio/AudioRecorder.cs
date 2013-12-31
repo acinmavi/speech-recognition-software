@@ -3,24 +3,29 @@ using System.IO;
 using System.Linq;
 using NAudio.Wave;
 using NAudio.Mixer;
+using Service;
+using Services;
 
-namespace Services
+namespace VoiceRecorder.Audio
 {
 	public class AudioRecorder : IAudioRecorder
 	{
-		WaveIn  waveIn;
+		WaveIn waveIn;
+		readonly SampleAggregator sampleAggregator;
 		UnsignedMixerControl volumeControl;
 		double desiredVolume = 100;
 		RecordingState recordingState;
 		WaveFileWriter writer;
-		WaveFileWriter realWriter;
 		WaveFormat recordingFormat;
-		double AudioThresh = 0.2;
-		public event EventHandler Stopped = delegate { };
+		WaveFileWriter realWriter;
 		string folderName;
-		MemoryStream ms;
+		double AudioThresh = 0.2;
+		
+		public event EventHandler Stopped = delegate { };
+		
 		public AudioRecorder()
 		{
+			sampleAggregator = new SampleAggregator();
 			RecordingFormat = new WaveFormat(44100, 1);
 		}
 
@@ -33,6 +38,7 @@ namespace Services
 			set
 			{
 				recordingFormat = value;
+				sampleAggregator.NotificationCount = value.SampleRate / 10;
 			}
 		}
 
@@ -137,6 +143,14 @@ namespace Services
 			}
 		}
 
+		public SampleAggregator SampleAggregator
+		{
+			get
+			{
+				return sampleAggregator;
+			}
+		}
+
 		public RecordingState RecordingState
 		{
 			get
@@ -161,9 +175,15 @@ namespace Services
 		{
 			byte[] buffer = e.Buffer;
 			int bytesRecorded = e.BytesRecorded;
-//			Utilities.WriteLine("got data to record "+bytesRecorded +" bytes");
 			WriteToFile(buffer, bytesRecorded);
 			WriteToTempFile(buffer,bytesRecorded,10);
+			for (int index = 0; index < e.BytesRecorded; index += 2)
+			{
+				short sample = (short)((buffer[index + 1] << 8) |
+				                       buffer[index + 0]);
+				float sample32 = sample / 32768f;
+				sampleAggregator.Add(sample32);
+			}
 		}
 
 		private void WriteToFile(byte[] buffer, int bytesRecorded)
@@ -174,11 +194,9 @@ namespace Services
 				realWriter.Write(buffer, 0, bytesRecorded);
 			}
 		}
-		
 		private void WriteToTempFile(byte[] buffer, int bytesRecorded,int maxlength)
 		{
 			long maxFileLength = this.recordingFormat.AverageBytesPerSecond * maxlength;
-			if(ms==null) ms =new MemoryStream();
 			if (recordingState == RecordingState.Recording
 			    || recordingState == RecordingState.RequestedStop)
 			{
@@ -186,7 +204,6 @@ namespace Services
 				if (toWrite > 0)
 				{
 					writer.Write(buffer, 0, bytesRecorded);
-//					ms.Write(buffer,0,bytesRecorded);
 				}
 				else
 				{
@@ -199,18 +216,10 @@ namespace Services
 					SpeechRecognitionService.GetSpeechRecognitionService().Add(memory);
 					File.Delete(tempName);
 					writer = new WaveFileWriter(folderName+"\\"+ Guid.NewGuid().ToString()+".wav",recordingFormat);
-//					ms = new MemoryStream();
 				}
 			}
 		}
 		
-		private byte[] AppendArrays(byte[] a, byte[] b)
-		{
-			byte[] c = new byte[a.Length + b.Length]; // just one array
-			Buffer.BlockCopy(a, 0, c, 0, a.Length);
-			Buffer.BlockCopy(b, 0, c, a.Length, b.Length);
-			return c;
-		}
 		//silent detection
 		private bool ProcessData(WaveInEventArgs e)
 		{

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-# SharpDevelop 4.3
+# SharpDevelop 4.2.1.8805
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeechRecognitionSoftware", "SpeechRecognitionSoftware\SpeechRecognitionSoftware.csproj", "{D41AD80C-D497-4AA0-B714-7EAA8C35B59B}"
 EndProject
 Global

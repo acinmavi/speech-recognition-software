@@ -95,12 +95,14 @@ namespace SpeechRecognitionSoftware
 			this.label6 = new System.Windows.Forms.Label();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+			this.PeakLevelProgressBar = new System.Windows.Forms.ProgressBar();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBox4.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			this.groupBox2.SuspendLayout();
+			this.tabPage2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -655,6 +657,7 @@ namespace SpeechRecognitionSoftware
 			// 
 			// tabPage2
 			// 
+			this.tabPage2.Controls.Add(this.PeakLevelProgressBar);
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -662,6 +665,13 @@ namespace SpeechRecognitionSoftware
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Main";
 			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// PeakLevelProgressBar
+			// 
+			this.PeakLevelProgressBar.Location = new System.Drawing.Point(232, 39);
+			this.PeakLevelProgressBar.Name = "PeakLevelProgressBar";
+			this.PeakLevelProgressBar.Size = new System.Drawing.Size(318, 23);
+			this.PeakLevelProgressBar.TabIndex = 0;
 			// 
 			// MainForm
 			// 
@@ -684,8 +694,10 @@ namespace SpeechRecognitionSoftware
 			this.groupBox3.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
+			this.tabPage2.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.ProgressBar PeakLevelProgressBar;
 		private System.Windows.Forms.CheckBox cbAddToStartup;
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.TabPage tabPage1;

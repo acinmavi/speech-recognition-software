@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NAudio.Wave;
 
-namespace Services
+namespace VoiceRecorder.Audio
 {
     public interface IAudioRecorder
     {
@@ -13,6 +13,7 @@ namespace Services
         void Stop();
         double MicrophoneLevel { get; set; }
         RecordingState RecordingState { get; }
+        SampleAggregator SampleAggregator { get; }
         event EventHandler Stopped;
         WaveFormat RecordingFormat { get; set; }
         TimeSpan RecordedTime { get; }
