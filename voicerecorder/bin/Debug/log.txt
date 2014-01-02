@@ -2465,3 +2465,82 @@
 2014-01-01 20:00:42,353 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
 2014-01-01 20:00:42,353 [1] INFO RollingFileAppenderInfo - AddToStartUp = False
 2014-01-01 20:00:45,225 [1] INFO RollingFileAppenderInfo - No value exists with that name.
+2014-01-02 11:04:33,282 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com,dasd@dad
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - Cc = nhan.lam.do.an.java.csharp@gmail.com
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - Bcc = lampt.dce@gmail.com
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - Subject = No-reply
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - Message = Find word match :
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - UserName = noreplyteacher@gmail.com
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - Password = 123456789a@
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Temp
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;fat;man;he;get;tell;lose;month;eat;no
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-02 11:04:33,290 [1] INFO RollingFileAppenderInfo - AddToStartUp = False
+2014-01-02 11:04:33,314 [1] INFO RollingFileAppenderInfo - No value exists with that name.
+2014-01-02 11:09:13,554 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com,dasd@dad
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - Cc = nhan.lam.do.an.java.csharp@gmail.com
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - Bcc = lampt.dce@gmail.com
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - Subject = No-reply
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - Message = Find word match :
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - UserName = noreplyteacher@gmail.com
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - Password = 123456789a@
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Temp
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;fat;man;he;get;tell;lose;month;eat;no
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-02 11:09:13,562 [1] INFO RollingFileAppenderInfo - AddToStartUp = False
+2014-01-02 11:09:13,565 [1] INFO RollingFileAppenderInfo - No value exists with that name.
+2014-01-02 11:09:18,495 [3] INFO RollingFileAppenderInfo - Init speech recognition service
+2014-01-02 11:09:18,496 [4] INFO RollingFileAppenderInfo - Init comparation service
+2014-01-02 11:09:18,496 [4] INFO RollingFileAppenderInfo - list speacial words:email,phone,number,trial,hello,skype,fat,man,he,get,tell,lose,month,eat,no
+2014-01-02 11:09:18,499 [6] INFO RollingFileAppenderInfo - Init file delete service
+2014-01-02 11:09:18,499 [6] INFO RollingFileAppenderInfo - checking folder:D:\Temp
+2014-01-02 11:09:18,499 [6] INFO RollingFileAppenderInfo - Delete file if older than 1.00:00:00
+2014-01-02 11:09:18,499 [6] INFO RollingFileAppenderInfo - Check interval : 12 ms
+2014-01-02 11:09:18,500 [6] INFO RollingFileAppenderInfo - checking file :D:\Temp\2013-12-31-13-07-50.wav
+2014-01-02 11:09:18,521 [6] INFO RollingFileAppenderInfo - Delete file : D:\Temp\2013-12-31-13-07-50.wav,time file last access time :31/12/2013 1:07:50 PM and time now :02/01/2014 11:09:18 AM
+2014-01-02 11:09:30,506 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-02 11:09:31,500 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-02 11:09:31,617 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-02 11:09:31,617 [3] INFO RollingFileAppenderInfo - audio sent byte length :65996,sample rate:16000
+2014-01-02 11:09:38,662 [4] INFO RollingFileAppenderInfo - new google API result :trial trial
+2014-01-02 11:09:38,663 [4] INFO RollingFileAppenderInfo - Recognize sentences : trial trial , word(s) found:trial
+2014-01-02 11:09:42,510 [5] INFO RollingFileAppenderInfo - got new mail :Find word match :trial trial
+2014-01-02 11:09:42,606 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-02 11:09:42,662 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-02 11:09:42,707 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-02 11:09:42,707 [3] INFO RollingFileAppenderInfo - audio sent byte length :56508,sample rate:16000
+2014-01-02 11:09:45,414 [4] INFO RollingFileAppenderInfo - new google API result :trial
+2014-01-02 11:09:45,414 [4] INFO RollingFileAppenderInfo - Recognize sentences : trial , word(s) found:trial
+2014-01-02 11:09:46,380 [5] INFO RollingFileAppenderInfo - Mailbox unavailable. The server response was: 5.4.5 Daily sending quota exceeded. m2sm98303105pbn.19 - gsmtp
+2014-01-02 11:09:46,380 [5] INFO RollingFileAppenderInfo - got new mail :Find word match :trial
+2014-01-02 11:09:50,040 [5] INFO RollingFileAppenderInfo - Mailbox unavailable. The server response was: 5.4.5 Daily sending quota exceeded. os1sm43898303pac.20 - gsmtp
+2014-01-02 11:09:54,706 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-02 11:09:55,415 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-02 11:09:55,463 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-02 11:09:55,463 [3] INFO RollingFileAppenderInfo - audio sent byte length :54559,sample rate:16000
+2014-01-02 11:09:57,746 [4] INFO RollingFileAppenderInfo - new google API result :try
+2014-01-02 11:09:57,746 [4] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-02 11:10:06,806 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-02 11:10:07,747 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-02 11:10:07,836 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-02 11:10:07,836 [3] INFO RollingFileAppenderInfo - audio sent byte length :56954,sample rate:16000
+2014-01-02 11:10:11,444 [4] INFO RollingFileAppenderInfo - new google API result :trial
+2014-01-02 11:10:11,444 [4] INFO RollingFileAppenderInfo - Recognize sentences : trial , word(s) found:trial
+2014-01-02 11:10:14,041 [5] INFO RollingFileAppenderInfo - got new mail :Find word match :trial
+2014-01-02 11:10:17,746 [5] INFO RollingFileAppenderInfo - Mailbox unavailable. The server response was: 5.4.5 Daily sending quota exceeded. gf5sm98301689pbc.22 - gsmtp
+2014-01-02 11:10:18,906 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-02 11:10:19,475 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-02 11:10:19,521 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-02 11:10:19,521 [3] INFO RollingFileAppenderInfo - audio sent byte length :56712,sample rate:16000
+2014-01-02 11:10:23,824 [4] INFO RollingFileAppenderInfo - new google API result :trial
+2014-01-02 11:10:23,824 [4] INFO RollingFileAppenderInfo - Recognize sentences : trial , word(s) found:trial
+2014-01-02 11:10:28,103 [4] INFO RollingFileAppenderInfo - Thread was being aborted.
+2014-01-02 11:10:28,134 [3] INFO RollingFileAppenderInfo - Thread was being aborted.
+2014-01-02 11:10:29,748 [5] INFO RollingFileAppenderInfo - Thread was being aborted.
+2014-01-02 11:10:29,757 [6] INFO RollingFileAppenderInfo - Thread was being aborted.
