@@ -32,11 +32,19 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <SignAssembly>False</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <DebugType>Full</DebugType>
+    <Optimize>True</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -52,6 +60,16 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>x86</PlatformTarget>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CUETools.Codecs">
       <HintPath>D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\CUETools.Codecs.dll</HintPath>
@@ -64,6 +82,9 @@
     </Reference>
     <Reference Include="Ionic.Utils.Zip">
       <HintPath>..\..\..\..\..\Documents\SharpDevelop Projects\Services\Services\bin\Debug\Ionic.Utils.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>C:\Users\BT\Desktop\MangaDownloadConsole\MangaDownloadConsole\MangaDownloadConsole\bin\Debug\log4net.dll</HintPath>
     </Reference>
     <Reference Include="NAudio, Version=1.7.0.14, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -98,7 +119,6 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="FftPitchDetector.cs" />
     <Compile Include="FileDeleteService.cs" />
-    <Compile Include="FileSendService.cs" />
     <Compile Include="GoogleAPIHelper.cs" />
     <Compile Include="IAudioPlayer.cs" />
     <Compile Include="IAudioRecorder.cs" />

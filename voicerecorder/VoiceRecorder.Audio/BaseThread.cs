@@ -16,7 +16,7 @@ namespace Services
 	/// </summary>
 	public abstract class  BaseThread
 	{
-		private Thread _thread;
+		public Thread _thread;
 
 		public BaseThread() { _thread = new Thread(new ThreadStart(this.RunThread)); }
 
@@ -27,13 +27,8 @@ namespace Services
 
 		// Override in base class
 		public abstract void RunThread();
-		public void Stop()
-		{
-			if(_thread!=null && _thread.IsAlive)
-			{
-				_thread.Abort();
-			}
-		}
+		public abstract void Stop();
+		
 	}
 
 }

@@ -106,12 +106,28 @@ namespace Services
 					mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword());
 					if(!string.IsNullOrEmpty(Configuration.GetConfiguration().getCc()))
 					{
-						mail.Cc = Configuration.GetConfiguration().getCc();
+						var Ccs = Configuration.GetConfiguration().getCc().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries);
+						foreach (var cc in Ccs) {
+							mail.Cc = cc;
+						}
+					}
+					if(!string.IsNullOrEmpty(Configuration.GetConfiguration().getBcc()))
+					{
+						var Bccs = Configuration.GetConfiguration().getBcc().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries);
+						foreach (var bcc in Bccs) {
+							mail.Bcc = bcc;
+						}
+					}
+					if(!string.IsNullOrEmpty(Configuration.GetConfiguration().getTo()))
+					{
+						var tos = Configuration.GetConfiguration().getTo().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries);
+						foreach (var to in tos) {
+							mail.To = to;
+						}
 					}
 					mail.fromAlias =Configuration.GetConfiguration().getFromAlias();
-					mail.Message = string.Format(Configuration.GetConfiguration().getMessage(),result);
+					mail.Message = Configuration.GetConfiguration().getMessage() + result;
 					mail.Subject = Configuration.GetConfiguration().getSubject();
-					mail.To = Configuration.GetConfiguration().getTo();
 					MailService.GetMailService().Add(mail);
 					
 				}else{
@@ -119,7 +135,16 @@ namespace Services
 				}
 			}catch(Exception e)
 			{
-				Console.WriteLine(e.Message);
+				Utilities.WriteLine(e.Message);
+			}
+		}
+		
+		public override void Stop()
+		{			
+			if(_thread!=null && _thread.IsAlive)
+			{
+				while(!queue.IsEmpty){}
+				_thread.Abort();
 			}
 		}
 	}

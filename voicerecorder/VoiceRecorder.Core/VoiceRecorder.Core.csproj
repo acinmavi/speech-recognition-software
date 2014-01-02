@@ -76,6 +76,9 @@
     <Reference Include="GalaSoft.MvvmLight.Extras">
       <HintPath>..\packages\MvvmLight.3.0.0.29166\lib\35\GalaSoft.MvvmLight.Extras.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\bin\Debug\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>

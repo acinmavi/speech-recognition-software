@@ -8,6 +8,12 @@
  */
 using System;
 using System.Net.Mail;
+using System.Net.NetworkInformation;
+using System.Security.Cryptography;
+using System.Text;
+using GmailSend;
+using log4net;
+using Services;
 
 namespace Service
 {
@@ -16,11 +22,18 @@ namespace Service
 	/// </summary>
 	public class Utilities
 	{
+		public readonly static ILog log = log4net.LogManager.GetLogger("RollingFileAppenderInfo");
+		const string TripleDESKey = "LEMON";
 		
 		public static void WriteLine(string input)
 		{
 			Console.WriteLine(input);
-//			MessageBox.Show(input);
+			log.Info(input);
+		}
+		
+		public static void WriteLine(ref string refInput,string input)
+		{
+			refInput = input;
 		}
 		
 		public static void AddToStartUp(String Name,String filePath)
@@ -29,18 +42,26 @@ namespace Service
 			key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run\");
 			key.SetValue(Name, filePath);
 			key.Close();
+			WriteLine("add "+Name +",file path:"+filePath+" to startup");
 		}
 
 		public static void RemoveFromStartUp(String Name)
 		{
-			Microsoft.Win32.RegistryKey key;
-			key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
-			key.DeleteValue(Name);
-			key.Close();
+			try{
+				Microsoft.Win32.RegistryKey key;
+				key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
+				key.DeleteValue(Name);
+				key.Close();
+				WriteLine("remove "+Name +" to startup");
+			}catch(Exception e)
+			{
+				
+			}
 		}
 		
 		public static bool IsValid(string emailaddress)
 		{
+			WriteLine("checking email address "+emailaddress);
 			if(string.IsNullOrEmpty(emailaddress)) return true;
 			try
 			{
@@ -49,8 +70,92 @@ namespace Service
 			}
 			catch (Exception e)
 			{
+				Utilities.WriteLine(emailaddress + " is not valid : " + e.Message);
 				return false;
 			}
 		}
+		public static string GetComputerName()
+		{
+			return Environment.MachineName;
+		}
+		
+		public static string GetMACAddress()
+		{
+			NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+			String sMacAddress = string.Empty;
+			foreach (NetworkInterface adapter in nics)
+			{
+				if (sMacAddress == String.Empty)// only return MAC Address from first card
+				{
+					IPInterfaceProperties properties = adapter.GetIPProperties();
+					sMacAddress = adapter.GetPhysicalAddress().ToString();
+				}
+			}
+			return sMacAddress;
+		}
+		
+		public static string GetSerialKey()
+		{
+			string mac = GetMACAddress();
+			string value = Encrypt(mac, TripleDESKey);
+			return value;
+		}
+		
+		public static string Encrypt(string input, string key)
+		{
+			byte[] inputArray = UTF8Encoding.UTF8.GetBytes(input);
+			TripleDESCryptoServiceProvider tripleDES = new TripleDESCryptoServiceProvider();
+			MD5CryptoServiceProvider HashProvider = new MD5CryptoServiceProvider();
+			byte[] TDESKey = HashProvider.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+			tripleDES.Key = TDESKey;
+			tripleDES.Mode = CipherMode.ECB;
+			tripleDES.Padding = PaddingMode.PKCS7;
+			ICryptoTransform cTransform = tripleDES.CreateEncryptor();
+			byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
+			tripleDES.Clear();
+			return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+		}
+		
+		public static void SendEmailSerialKey(string to)
+		{
+			Gmail mail = new Gmail();
+			mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword());
+			mail.To = to;
+			mail.fromAlias =Configuration.GetConfiguration().getFromAlias();
+			mail.Message = GetSerialKey();
+			mail.Subject = "Serial key number for Speech Recognition Software";
+			mail.send();
+		}
+		
+		public static void AddSerialToRegistry(string serial)
+		{
+			Microsoft.Win32.RegistryKey rkey;
+			rkey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SpeechRecognitionSoftware");
+			rkey.SetValue("SerialKey", serial);
+			rkey.Close();
+		}
+		
+		public static string ReadSerialFromRegistry()
+		{
+			Microsoft.Win32.RegistryKey rkey;
+			// Reading the key value
+			rkey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SpeechRecognitionSoftware");
+			string serial;
+			if (rkey == null) {
+				serial = "";
+			}
+			else {
+				serial = (string)rkey.GetValue("SerialKey");
+			}
+			return serial;
+		}
+		
+		public static bool IsSerialKeyHasInitialize()
+		{
+			string serial = ReadSerialFromRegistry();
+			string actualSerial = GetSerialKey();
+			return (serial.CompareTo(actualSerial)==0);
+		}
+		
 	}
 }

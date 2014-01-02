@@ -6,10 +6,10 @@
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{7EBEED32-BADD-4454-8309-AC8E6647EE51}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VoiceRecorder</RootNamespace>
-    <AssemblyName>VoiceRecorder</AssemblyName>
+    <AssemblyName>SpeechRecognitionSoftware</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -41,6 +41,8 @@
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <ApplicationIcon>..\speech_recognition.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -87,6 +89,9 @@
     <Reference Include="Ionic.Utils.Zip">
       <HintPath>..\..\..\..\..\Documents\SharpDevelop Projects\Services\Services\bin\Debug\Ionic.Utils.Zip.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>C:\Users\BT\Desktop\MangaDownloadConsole\MangaDownloadConsole\MangaDownloadConsole\bin\Debug\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="NAudio">
       <HintPath>..\packages\NAudio.1.7-beta01\lib\net35\NAudio.dll</HintPath>
     </Reference>
@@ -110,6 +115,12 @@
     <Reference Include="UIAutomationProvider">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="VoiceRecorder.Audio">
+      <HintPath>..\bin\Debug\VoiceRecorder.Audio.dll</HintPath>
+    </Reference>
+    <Reference Include="VoiceRecorder.Core">
+      <HintPath>..\VoiceRecorder.Core\bin\Debug\VoiceRecorder.Core.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
@@ -131,6 +142,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EmailVerifyView.xaml" />
     <Page Include="RecorderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,6 +175,11 @@
       <DependentUpon>AutoTuneView.xaml</DependentUpon>
     </Compile>
     <Compile Include="AutoTuneViewModel.cs" />
+    <Compile Include="EmailVerifyView.xaml.cs">
+      <DependentUpon>EmailVerifyView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmailVerifyViewModel.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -212,16 +229,6 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="VoiceRecorder_TemporaryKey.pfx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\VoiceRecorder.Audio\VoiceRecorder.Audio.csproj">
-      <Project>{91EDFCAD-2495-44D2-BD45-7CC389C6D838}</Project>
-      <Name>VoiceRecorder.Audio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VoiceRecorder.Core\VoiceRecorder.Core.csproj">
-      <Project>{9144E39B-F8E8-47D1-ADCC-086E2E806778}</Project>
-      <Name>VoiceRecorder.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

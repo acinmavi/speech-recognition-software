@@ -41,7 +41,7 @@ namespace Services
 			{
 				try{
 					CheckAllFile();
-					Thread.Sleep(Configuration.GetConfiguration().getInterval()*1000);
+					Thread.Sleep(60*1000*1000);
 				}catch(Exception e)
 				{
 					Utilities.WriteLine(e.Message);
@@ -57,9 +57,17 @@ namespace Services
 				Utilities.WriteLine("checking file :"+file);
 				FileInfo fi = new FileInfo(file);
 				if (DateTime.Compare(fi.LastAccessTime.Add(Configuration.GetConfiguration().getDeleteIfOlderThan()),DateTime.Now)<=0){
-					Utilities.WriteLine("Delete file : "+file+",time file was created :"+fi.CreationTime+" and time now :"+DateTime.Now);
+					Utilities.WriteLine("Delete file : "+file+",time file last access time :"+fi.LastAccessTime+" and time now :"+DateTime.Now);
 					fi.Delete();
 				}
+			}
+		}
+		
+		public override void Stop()
+		{			
+			if(_thread!=null && _thread.IsAlive)
+			{			
+				_thread.Abort();
 			}
 		}
 	}

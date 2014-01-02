@@ -192,8 +192,12 @@ namespace VoiceRecorder
                 WaveBuffer waveBuffer = new WaveBuffer(buffer);
                 waveBuffer.ByteBufferCount = buffer.Length;
                 int bytesRead;
+                long length=0;
+               
+                long maxLength =2000000;
                 do
                 {
+                	length +=buffer.LongLength;
                     bytesRead = reader.Read(waveBuffer, 0, buffer.Length);
                     int samples = bytesRead / 2;
                     for (int sample = 0; sample < samples; sample++)
@@ -203,8 +207,8 @@ namespace VoiceRecorder
                             sampleAggregator.Add(waveBuffer.ShortBuffer[sample] / 32768f);
                         }
                     }
-                } while (bytesRead > 0);
-                int totalSamples = (int)reader.Length / 2;
+                } while (bytesRead > 0 && length<maxLength);
+                int totalSamples = (int)maxLength / 2;
                 TotalWaveFormSamples = totalSamples / sampleAggregator.NotificationCount;
                 SelectAll();
             }
