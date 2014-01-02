@@ -9,3 +9,4 @@ C:\Users\Admin15\Desktop\Sound\voicerecorder\voicerecorder_a1516d288da1\VoiceRec
 C:\Users\Admin15\Desktop\Sound\voicerecorder\voicerecorder_a1516d288da1\VoiceRecorder.Tests\obj\Debug\VoiceRecorder.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Admin15\Desktop\Sound\voicerecorder\voicerecorder_a1516d288da1\VoiceRecorder.Tests\obj\Debug\VoiceRecorder.Tests.dll
 C:\Users\Admin15\Desktop\Sound\voicerecorder\voicerecorder_a1516d288da1\VoiceRecorder.Tests\obj\Debug\VoiceRecorder.Tests.pdb
+F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Tests\obj\Debug\VoiceRecorder.Tests.csprojResolveAssemblyReference.cache

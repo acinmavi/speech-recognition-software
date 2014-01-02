@@ -51,7 +51,7 @@ namespace VoiceRecorder {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/VoiceRecorder;component/autotuneview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SpeechRecognitionSoftware;component/autotuneview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\AutoTuneView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

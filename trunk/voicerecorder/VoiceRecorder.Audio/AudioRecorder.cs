@@ -19,14 +19,14 @@ namespace VoiceRecorder.Audio
 		WaveFormat recordingFormat;
 		WaveFileWriter realWriter;
 		string folderName;
-		double AudioThresh = 0.2;
+		double AudioThresh = 0.08;
 		
 		public event EventHandler Stopped = delegate { };
 		
 		public AudioRecorder()
 		{
 			sampleAggregator = new SampleAggregator();
-			RecordingFormat = new WaveFormat(44100, 1);
+			RecordingFormat = new WaveFormat(16000, 1);
 		}
 
 		public WaveFormat RecordingFormat
@@ -163,11 +163,11 @@ namespace VoiceRecorder.Audio
 		{
 			get
 			{
-				if(writer == null)
+				if(realWriter == null)
 				{
 					return TimeSpan.Zero;
 				}
-				return TimeSpan.FromSeconds((double)writer.Length / writer.WaveFormat.AverageBytesPerSecond);
+				return TimeSpan.FromSeconds((double)realWriter.Length / realWriter.WaveFormat.AverageBytesPerSecond);
 			}
 		}
 
@@ -175,8 +175,6 @@ namespace VoiceRecorder.Audio
 		{
 			byte[] buffer = e.Buffer;
 			int bytesRecorded = e.BytesRecorded;
-			WriteToFile(buffer, bytesRecorded);
-			WriteToTempFile(buffer,bytesRecorded,10);
 			for (int index = 0; index < e.BytesRecorded; index += 2)
 			{
 				short sample = (short)((buffer[index + 1] << 8) |
@@ -184,6 +182,10 @@ namespace VoiceRecorder.Audio
 				float sample32 = sample / 32768f;
 				sampleAggregator.Add(sample32);
 			}
+			
+			WriteToFile(buffer, bytesRecorded);
+			WriteToTempFile(buffer,bytesRecorded,Configuration.GetConfiguration().getInterval());
+			
 		}
 
 		private void WriteToFile(byte[] buffer, int bytesRecorded)
@@ -246,7 +248,7 @@ namespace VoiceRecorder.Audio
 			}
 			else
 			{
-				Console.WriteLine("silent detect!");
+				Utilities.WriteLine("silent detect!");
 				result = false;
 			}
 			return result;

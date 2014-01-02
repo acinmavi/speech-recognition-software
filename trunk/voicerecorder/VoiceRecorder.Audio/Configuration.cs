@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Nini.Config;
 using Service;
 
@@ -136,7 +137,7 @@ namespace Services
 			config.Set("Cc","");
 			config.Set("Bcc","");
 			config.Set("Subject","No-reply");
-			config.Set("Message","Find word match : {0}");
+			config.Set("Message","Find word match :");
 			config.Set("UserName","noreplyteacher@Gmail.com");
 			config.Set("Password","123456789a@");
 			
@@ -196,6 +197,11 @@ namespace Services
 			config.Set("AddToStartUp",isAddToStartup?"True":"False");
 			
 			source.Save();
+			if(!Directory.Exists(saveFolder))
+			{
+				Directory.CreateDirectory(saveFolder);
+			}
+			LoadConfigs();
 		}
 		
 		public List<string> getSpecialWords() {

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Input;
 using System.IO;
+using Service;
+using Services;
 using VoiceRecorder.Audio;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Command;
@@ -39,7 +41,6 @@ namespace VoiceRecorder
         void OnRecorderMaximumCalculated(object sender, MaxSampleEventArgs e)
         {
             lastPeak = Math.Max(e.MaxSample, Math.Abs(e.MinSample));
-            Console.WriteLine(lastPeak);
             RaisePropertyChanged("CurrentInputLevel");
             RaisePropertyChanged("RecordedTime");
         }
@@ -78,15 +79,36 @@ namespace VoiceRecorder
 
         private void BeginRecording()
         {
-            waveFileName = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".wav");
+//        	Stop();
+        	//StopAllService();
+        	//start all service
+        	StartAllService();
+        	waveFileName = Configuration.GetConfiguration().getSaveFolder() + "\\" + String.Format("{0:yyyy-MM-dd-HH-mm-ss}",DateTime.Now)+ ".wav";
             recorder.BeginRecording(waveFileName);
             RaisePropertyChanged("MicrophoneLevel");
             RaisePropertyChanged("ShowWaveForm");
         }
-
+	
+        private void StartAllService()
+        {
+        	SpeechRecognitionService.GetSpeechRecognitionService();
+        	ComparationService.GetComparationService();
+        	MailService.GetMailService();
+        	FileDeleteService.GetFileDeleteService();
+        }
+        
+        private void StopAllService()
+        {
+        	SpeechRecognitionService.GetSpeechRecognitionService().Stop();
+        	ComparationService.GetComparationService().Stop();
+        	MailService.GetMailService().Stop();
+        	FileDeleteService.GetFileDeleteService().Stop();
+        }
+        
         private void Stop()
         {
             recorder.Stop();
+            StopAllService();
         }
         
         public double MicrophoneLevel

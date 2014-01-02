@@ -7,15 +7,15 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VoiceRecorder")]
-[assembly: AssemblyDescription(".NET Voice Recorder Application")]
+[assembly: AssemblyTitle("SpeechRecognitionSoftware")]
+[assembly: AssemblyDescription(".NET Voice Recorder and Recognition Application")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("VoiceRecorder")]
 [assembly: AssemblyCopyright("Copyright © Mark Heath 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-
+[assembly: log4net.Config.XmlConfigurator(Watch = false)]
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.

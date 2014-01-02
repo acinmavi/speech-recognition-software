@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -37,7 +39,7 @@ namespace VoiceRecorder
 		private string deleteIfOlderThanMinute;
 		private string deleteIfOlderThanSecond;
 		public string googleRequestString;
-		private bool addToStartUp = false;
+		private bool addToStartUp;
 		
 		private int selectedToIndex;
 		private int selectedCCIndex;
@@ -234,7 +236,7 @@ namespace VoiceRecorder
 			}
 		}
 		
-		public int SelectedBccIndex
+		public int SelectedBCCIndex
 		{
 			get
 			{
@@ -245,7 +247,7 @@ namespace VoiceRecorder
 				if (selectedBccIndex != value)
 				{
 					selectedBccIndex = value;
-					RaisePropertyChanged("SelectedBccIndex");
+					RaisePropertyChanged("SelectedBCCIndex");
 				}
 			}
 		}
@@ -267,26 +269,58 @@ namespace VoiceRecorder
 		}
 		
 		
-	
+		
 		private ObservableCollection<string> listTo;
 		public ObservableCollection<string> ListTo
 		{
 			get { return listTo; }
+			set
+			{
+				if (listTo != value)
+				{
+					listTo = value;
+					RaisePropertyChanged("ListTo");
+				}
+			}
 		}
 		private ObservableCollection<string> listCC;
 		public ObservableCollection<string> ListCC
 		{
 			get { return listCC; }
+			set
+			{
+				if (listCC != value)
+				{
+					listCC = value;
+					RaisePropertyChanged("ListCC");
+				}
+			}
 		}
 		private ObservableCollection<string> listBCC;
 		public ObservableCollection<string> ListBCC
 		{
 			get { return listBCC; }
+			set
+			{
+				if (listBCC != value)
+				{
+					listBCC = value;
+					RaisePropertyChanged("ListBCC");
+				}
+			}
 		}
 		private ObservableCollection<string> listWords;
 		public ObservableCollection<string> ListWords
 		{
 			get { return listWords; }
+			set
+			{
+				if (listWords != value)
+				{
+					listWords = value;
+					RaisePropertyChanged("ListWords");
+				}
+			}
 		}
 		
 		public string SaveFolder
@@ -494,10 +528,14 @@ namespace VoiceRecorder
 					addToStartUp = value;
 					RaisePropertyChanged("AddToStartUp");
 				}
+				if(addToStartUp)
+				{
+					Utilities.AddToStartUp(Path.GetFileName(Assembly.GetEntryAssembly().GetName().CodeBase),System.Reflection.Assembly.GetExecutingAssembly().Location);
+				}else{
+					Utilities.RemoveFromStartUp(Path.GetFileName(Assembly.GetEntryAssembly().GetName().CodeBase));
+				}
 			}
 		}
-		
-		
 		
 		
 		private void InItConfiguration()
@@ -509,31 +547,38 @@ namespace VoiceRecorder
 			
 			try{
 				Configuration.GetConfiguration();
-				saveFolder = Configuration.GetConfiguration().getSaveFolder();
-				googleRequestString = Configuration.GetConfiguration().getGoogleRqString();
-				interval = Configuration.GetConfiguration().getInterval().ToString();
+				SaveFolder = Configuration.GetConfiguration().getSaveFolder();
+				GoogleRequestString = Configuration.GetConfiguration().getGoogleRqString();
+				Interval = Configuration.GetConfiguration().getInterval().ToString();
 				
-				deleteIfOlderThanDay = Configuration.GetConfiguration().getDeleteIfOlderThan().Days.ToString();
-				deleteIfOlderThanHour = Configuration.GetConfiguration().getDeleteIfOlderThan().Hours.ToString();
-				deleteIfOlderThanMinute = Configuration.GetConfiguration().getDeleteIfOlderThan().Minutes.ToString();
-				deleteIfOlderThanSecond = Configuration.GetConfiguration().getDeleteIfOlderThan().Seconds.ToString();
+				DeleteIfOlderThanDay = Configuration.GetConfiguration().getDeleteIfOlderThan().Days.ToString();
+				DeleteIfOlderThanHour = Configuration.GetConfiguration().getDeleteIfOlderThan().Hours.ToString();
+				DeleteIfOlderThanMinute = Configuration.GetConfiguration().getDeleteIfOlderThan().Minutes.ToString();
+				DeleteIfOlderThanSecond = Configuration.GetConfiguration().getDeleteIfOlderThan().Seconds.ToString();
 				
-				userName = Configuration.GetConfiguration().getUserName();
-				password = Configuration.GetConfiguration().getPassword();
-				subject = Configuration.GetConfiguration().getSubject();
-				message = Configuration.GetConfiguration().getMessage();
+				UserName = Configuration.GetConfiguration().getUserName();
+				Password = Configuration.GetConfiguration().getPassword();
+				Subject = Configuration.GetConfiguration().getSubject();
+				Message = Configuration.GetConfiguration().getMessage();
 				
-				listCC = new ObservableCollection<string>(Configuration.GetConfiguration().getCc().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries));
-				listBCC = new ObservableCollection<string>(Configuration.GetConfiguration().getBcc().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries));
-				listTo = new ObservableCollection<string>(Configuration.GetConfiguration().getTo().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries));
+				ListCC = new ObservableCollection<string>(Configuration.GetConfiguration().getCc().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries));
+				ListBCC = new ObservableCollection<string>(Configuration.GetConfiguration().getBcc().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries));
+				ListTo = new ObservableCollection<string>(Configuration.GetConfiguration().getTo().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries));
 				foreach (var element in Configuration.GetConfiguration().getSpecialWords()) {
 					listWords.Add(element);
 				}
+				ListWords =listWords;
 				
-				addToStartUp = Configuration.GetConfiguration().isAddToStartUp();
+				AddToStartUp = Configuration.GetConfiguration().isAddToStartUp();
 			}catch(Exception e)
 			{
-				MessageBox.Show(e.Message);
+				if(e is ArgumentException)
+				{
+					Utilities.WriteLine(e.Message);
+				}else{
+					Utilities.WriteLine(e.Message);
+					MessageBox.Show(e.Message);
+				}
 			}
 		}
 		

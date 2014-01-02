@@ -58,5 +58,13 @@ namespace Services
 				}
 			}
 		}
+		public override void Stop()
+		{
+			if(_thread!=null && _thread.IsAlive)
+			{
+				while(!queue.IsEmpty){}
+				_thread.Abort();
+			}
+		}
 	}
 }

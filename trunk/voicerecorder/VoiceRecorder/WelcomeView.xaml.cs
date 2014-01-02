@@ -38,10 +38,5 @@ namespace VoiceRecorder
 				tbSaveFolder.Text = folderDialog.SelectedPath;
 			}
 		}
-		
-		void btSave_Click(object sender, RoutedEventArgs e)
-		{
-			MessageBox.Show("a");
-		}
 	}
 }

@@ -40,6 +40,7 @@ namespace Services
         /// <returns>recognized string</returns>
         public static string GoogleRequest(byte[] bytes, int sampleRate)
         {
+        	
             Stream stream = null;
             StreamReader sr = null;
             WebResponse response = null;
@@ -50,7 +51,7 @@ namespace Services
                 request.Method = "POST";
                 request.ContentType = "audio/x-flac; rate=" + sampleRate;
                 request.ContentLength = bytes.Length;
-
+				request.Timeout = 10000;
                 stream = request.GetRequestStream();
 
                 stream.Write(bytes, 0, bytes.Length);
@@ -95,6 +96,7 @@ namespace Services
         /// <returns>recognized string</returns>
         public static string GoogleRequest(MemoryStream flacStream, int sampleRate)
         {
+        	Utilities.WriteLine("audio sent byte length :"+flacStream.Length+",sample rate:"+sampleRate);
             flacStream.Position = 0;
             var bytes = new byte[flacStream.Length];
             flacStream.Read(bytes, 0, (int)flacStream.Length);

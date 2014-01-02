@@ -25,6 +25,7 @@ namespace Services
 		private ConcurrentQueue<Gmail> queue = new ConcurrentQueue<Gmail>();
 		static MailService mailService =  null;
 		Gmail mail = null;
+		string mailTo;
 		public MailService()
 		{
 		}	
@@ -35,14 +36,17 @@ namespace Services
 				try{
 					if(queue.TryDequeue(out mail))
 					{
-						Utilities.WriteLine("got new mail :"+mail);
+						Utilities.WriteLine("got new mail :"+mail.Message);
 						if(mail!=null)
 						{
 							mail.send();
 						}
-						Utilities.WriteLine("mail sent:"+mail);
+						mailTo = Configuration.GetConfiguration().getTo();
+						if(string.IsNullOrEmpty(Configuration.GetConfiguration().getCc())) mailTo+=(","+Configuration.GetConfiguration().getCc());
+						if(string.IsNullOrEmpty(Configuration.GetConfiguration().getBcc())) mailTo+=(","+Configuration.GetConfiguration().getBcc());
+						   Utilities.WriteLine("mail sent:"+mail.Message + " To:"+mailTo);
 					}
-					Thread.Sleep(1000);
+					Thread.Sleep(12000);
 				}catch(Exception e)
 				{
 					Utilities.WriteLine(e.Message);
@@ -51,7 +55,6 @@ namespace Services
 		}	
 		public void Add(Gmail newMail)
 		{
-			Console.WriteLine("add new mail :"+newMail);
 			queue.Enqueue(newMail);
 		}
 		
@@ -62,6 +65,15 @@ namespace Services
 				mailService.Start();
 			}
 			return mailService;
+		}
+		
+		public override void Stop()
+		{			
+			if(_thread!=null && _thread.IsAlive)
+			{
+				while(!queue.IsEmpty){}
+				_thread.Abort();
+			}
 		}
 		
 	}
