@@ -564,10 +564,7 @@ namespace VoiceRecorder
 				ListCC = new ObservableCollection<string>(Configuration.GetConfiguration().getCc().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries));
 				ListBCC = new ObservableCollection<string>(Configuration.GetConfiguration().getBcc().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries));
 				ListTo = new ObservableCollection<string>(Configuration.GetConfiguration().getTo().Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries));
-				foreach (var element in Configuration.GetConfiguration().getSpecialWords()) {
-					listWords.Add(element);
-				}
-				ListWords =listWords;
+				ListWords =new ObservableCollection<string>(Configuration.GetConfiguration().getSpecialWords());
 				
 				AddToStartUp = Configuration.GetConfiguration().isAddToStartUp();
 			}catch(Exception e)

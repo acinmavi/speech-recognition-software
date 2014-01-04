@@ -7,6 +7,7 @@ using System.Net;
 using CUETools.Codecs.FLAKE;
 using CUETools.Codecs;
 using System.Text.RegularExpressions;
+using Service;
 
 namespace Services
 {

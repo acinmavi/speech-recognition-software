@@ -11,7 +11,8 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using GmailSend;
+using SendMail;
+using Service;
 
 namespace Services
 {
@@ -101,7 +102,7 @@ namespace Services
 				if(list.Count() > 0)
 				{
 					Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list));
-					Gmail mail = new Gmail();
+					Mail mail = new Mail();
 					mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword());
 					if(!string.IsNullOrEmpty(Configuration.GetConfiguration().getCc()))
 					{

@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\BT\Desktop\project\voicerecorder\VoiceRecorder.Core\obj\Debug\
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Core\obj\Debug\
 VoiceRecorder.Core
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 3-1484386738
 
 81739529970
-17342340330
+17-378666302
 PolygonWaveFormControl.xaml;RangeSelectionControl.xaml;WaveFileTrimmerControl.xaml;
 
 False

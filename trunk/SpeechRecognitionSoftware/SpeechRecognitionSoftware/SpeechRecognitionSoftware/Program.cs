@@ -8,6 +8,7 @@
  */
 using System;
 using System.Windows.Forms;
+using Service;
 
 namespace SpeechRecognitionSoftware
 {
@@ -24,7 +25,12 @@ namespace SpeechRecognitionSoftware
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainForm());
+			if(!Utilities.IsSerialKeyHasInitialize())
+			{
+				Application.Run(new RegistrerForm());
+			}else{
+				Application.Run(new MainForm());
+			}
 		}
 		
 	}

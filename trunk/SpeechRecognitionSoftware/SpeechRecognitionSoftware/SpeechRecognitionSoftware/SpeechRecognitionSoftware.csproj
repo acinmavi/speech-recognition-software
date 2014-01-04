@@ -4,12 +4,14 @@
     <ProjectGuid>{D41AD80C-D497-4AA0-B714-7EAA8C35B59B}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>SpeechRecognitionSoftware</RootNamespace>
     <AssemblyName>SpeechRecognitionSoftware</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NoWin32Manifest>False</NoWin32Manifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -37,11 +39,11 @@
     <Reference Include="CUETools.Codecs.FLAKE">
       <HintPath>..\..\..\..\Desktop\project\Services\Services\bin\Debug\CUETools.Codecs.FLAKE.dll</HintPath>
     </Reference>
-    <Reference Include="GMailSend">
-      <HintPath>..\..\..\..\Desktop\project\Services\Services\bin\Debug\GMailSend.dll</HintPath>
-    </Reference>
     <Reference Include="Ionic.Utils.Zip">
       <HintPath>..\..\..\..\Desktop\project\Services\Services\bin\Debug\Ionic.Utils.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\voicerecorder\bin\Debug\log4net.dll</HintPath>
     </Reference>
     <Reference Include="NAudio">
       <HintPath>..\..\..\..\Desktop\project\Services\Services\bin\Debug\NAudio.dll</HintPath>
@@ -81,6 +83,10 @@
     <Compile Include="RecordingService\IAudioRecorder.cs" />
     <Compile Include="RecordingService\RecordingState.cs" />
     <Compile Include="RecordingService\SampleAggregator.cs" />
+    <Compile Include="RegistrerForm.cs" />
+    <Compile Include="RegistrerForm.Designer.cs">
+      <DependentUpon>RegistrerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service\BaseThread.cs" />
     <Compile Include="Service\FileSendService.cs" />
     <Compile Include="Utilities.cs" />
@@ -88,6 +94,9 @@
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrerForm.resx">
+      <DependentUpon>RegistrerForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +106,15 @@
     <Folder Include="MailService" />
     <Folder Include="RecordingService" />
     <Folder Include="Service" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SendMail\SendMail.csproj">
+      <Project>{E19ECE53-B7A0-4C67-8E69-54B59D660D5A}</Project>
+      <Name>SendMail</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
