@@ -101,7 +101,9 @@ namespace Services
 			Cc	= MailConfig.Get("Cc","");
 			Bcc	= MailConfig.Get("Bcc","");
 			Subject= MailConfig.Get("Subject","");
+			Subject ="["+Utilities.GetComputerName()+"]"+Subject;
 			Message= MailConfig.Get("Message","");
+			Message = "["+Utilities.GetComputerName()+"]"+Message;
 			UserName	= MailConfig.Get("UserName","");
 			Password	= MailConfig.Get("Password","");
 			GoogleRequestString	= RecordServiceConfig.Get("GoogleRequestString","https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN");
