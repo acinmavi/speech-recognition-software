@@ -1,8 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-# SharpDevelop 4.2.1.8805
+# SharpDevelop 4.3
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeechRecognitionSoftware", "SpeechRecognitionSoftware\SpeechRecognitionSoftware.csproj", "{D41AD80C-D497-4AA0-B714-7EAA8C35B59B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendMail", "SendMail\SendMail.csproj", "{E19ECE53-B7A0-4C67-8E69-54B59D660D5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,5 +16,9 @@ Global
 		{D41AD80C-D497-4AA0-B714-7EAA8C35B59B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D41AD80C-D497-4AA0-B714-7EAA8C35B59B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D41AD80C-D497-4AA0-B714-7EAA8C35B59B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E19ECE53-B7A0-4C67-8E69-54B59D660D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E19ECE53-B7A0-4C67-8E69-54B59D660D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E19ECE53-B7A0-4C67-8E69-54B59D660D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E19ECE53-B7A0-4C67-8E69-54B59D660D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 EndGlobal

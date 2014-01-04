@@ -7,3 +7,13 @@ C:\Users\BT\Desktop\project\voicerecorder\VoiceRecorder.Audio\bin\Debug\NAudio.x
 C:\Users\BT\Desktop\project\voicerecorder\VoiceRecorder.Audio\obj\Debug\VoiceRecorder.Audio.csprojResolveAssemblyReference.cache
 C:\Users\BT\Desktop\project\voicerecorder\VoiceRecorder.Audio\obj\Debug\VoiceRecorder.Audio.dll
 C:\Users\BT\Desktop\project\voicerecorder\VoiceRecorder.Audio\obj\Debug\VoiceRecorder.Audio.pdb
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Audio\bin\Debug\VoiceRecorder.Audio.dll
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Audio\bin\Debug\VoiceRecorder.Audio.pdb
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Audio\bin\Debug\CUETools.Codecs.dll
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Audio\bin\Debug\CUETools.Codecs.FLAKE.dll
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Audio\bin\Debug\NAudio.dll
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Audio\bin\Debug\Nini.dll
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Audio\bin\Debug\NAudio.xml
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Audio\obj\Debug\VoiceRecorder.Audio.csprojResolveAssemblyReference.cache
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Audio\obj\Debug\VoiceRecorder.Audio.dll
+D:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\voicerecorder\VoiceRecorder.Audio\obj\Debug\VoiceRecorder.Audio.pdb

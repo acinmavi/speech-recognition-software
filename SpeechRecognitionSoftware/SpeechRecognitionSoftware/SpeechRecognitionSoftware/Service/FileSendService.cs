@@ -9,6 +9,7 @@
 using System;
 using System.IO;
 using System.Threading;
+using Service;
 using Services;
 
 namespace SpeechRecognitionSoftware

@@ -10,7 +10,9 @@ using System;
 using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading;
-using GmailSend;
+using SendMail;
+using Service;
+
 namespace Services
 {
 	/// <summary>
@@ -19,9 +21,9 @@ namespace Services
 	public class MailService: BaseThread
 	{
 		
-		private ConcurrentQueue<Gmail> queue = new ConcurrentQueue<Gmail>();
+		private ConcurrentQueue<Mail> queue = new ConcurrentQueue<Mail>();
 		static MailService mailService =  null;
-		Gmail mail = null;
+		Mail mail = null;
 		public MailService()
 		{
 		}	
@@ -46,7 +48,7 @@ namespace Services
 				}
 			}
 		}	
-		public void Add(Gmail newMail)
+		public void Add(Mail newMail)
 		{
 			Console.WriteLine("add new mail :"+newMail);
 			queue.Enqueue(newMail);

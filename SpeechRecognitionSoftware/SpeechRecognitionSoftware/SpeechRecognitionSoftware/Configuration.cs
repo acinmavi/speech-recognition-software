@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using Nini.Config;
+using Service;
 
 namespace Services
 {
@@ -33,6 +34,7 @@ namespace Services
 		public List<string> SpecialWords;
 		public string GoogleRequestString;
 		private bool addToStartUp = false;
+		private bool runHidden = false;
 		private int deviceSelectedIndex = 0;
 		public Configuration()
 		{
@@ -71,7 +73,8 @@ namespace Services
 			Utilities.WriteLine("DeleteIfOlderThan = " +DeleteIfOlderThan );
 			Utilities.WriteLine("SpecialWords= " + string.Join(";",SpecialWords));
 			Utilities.WriteLine("GoogleRequestString = " +GoogleRequestString );
-			Utilities.WriteLine("AddToStartUp = " +(addToStartUp?"True":"False") );
+			Utilities.WriteLine("addToStartUp = " +(addToStartUp?"True":"False") );
+			Utilities.WriteLine("runHidden = " +(runHidden?"True":"False") );
 			
 		}
 		
@@ -122,6 +125,7 @@ namespace Services
 			string[] allWords = SpeacialWordConfig.Get("SpecialWords","").Split(new char[]{'|'},StringSplitOptions.RemoveEmptyEntries);
 			SpecialWords = new List<string>(allWords);
 			addToStartUp = AppConfig.Get("AddToStartUp","false").Trim().ToUpper()=="TRUE"?true:false;
+			runHidden = AppConfig.Get("RunHidden","false").Trim().ToUpper()=="TRUE"?true:false;
 		}
 		
 		private void SetDefaultConfig()
@@ -155,13 +159,14 @@ namespace Services
 			
 			config = source.AddConfig("AppConfig");
 			config.Set("AddToStartUp","false");
+			config.Set("RunHidden","false");
 			
 			source.Save(newIni);
 		}
 		
 		public void SaveConfig(string to,string cc,string bcc,string subject,string message,string username
 		                        ,string password,string saveFolder,string googleRequestString,string interval,string day
-		                        ,string hour,string minute,string second,string specialWords,bool isAddToStartup,int deviceSelected)
+		                        ,string hour,string minute,string second,string specialWords,bool isAddToStartup,bool runHidden,int deviceSelected)
 		{
 			setDeviceSelected(deviceSelectedIndex);
 			string inipath = Environment.CurrentDirectory;
@@ -193,6 +198,7 @@ namespace Services
 			
 			config = source.Configs["AppConfig"];
 			config.Set("AddToStartUp",isAddToStartup?"True":"False");
+			config.Set("RunHidden",runHidden?"True":"False");
 			
 			source.Save();
 		}
@@ -281,6 +287,14 @@ namespace Services
 		public void setAddToStartUp(bool isAdd)
 		{
 			addToStartUp = isAdd;
+		}
+		public bool isRunHidden()
+		{
+			return runHidden;
+		}
+		public void setRunHidden(bool runHidden)
+		{
+			this.runHidden = runHidden;
 		}
 		
 		public void setDeviceSelected(int index)

