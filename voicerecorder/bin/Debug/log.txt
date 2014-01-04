@@ -2544,3 +2544,18 @@
 2014-01-02 11:10:28,134 [3] INFO RollingFileAppenderInfo - Thread was being aborted.
 2014-01-02 11:10:29,748 [5] INFO RollingFileAppenderInfo - Thread was being aborted.
 2014-01-02 11:10:29,757 [6] INFO RollingFileAppenderInfo - Thread was being aborted.
+2014-01-04 19:42:50,755 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com,dasd@dad
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - Cc = nhan.lam.do.an.java.csharp@gmail.com
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - Bcc = lampt.dce@gmail.com
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - Subject = No-reply
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - Message = Find word match :
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - UserName = noreplyteacher@gmail.com
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - Password = 123456789a@
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Temp
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;fat;man;he;get;tell;lose;month;eat;no
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-04 19:42:50,765 [1] INFO RollingFileAppenderInfo - AddToStartUp = False
+2014-01-04 19:42:50,782 [1] INFO RollingFileAppenderInfo - No value exists with that name.

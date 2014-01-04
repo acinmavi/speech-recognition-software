@@ -12023,3 +12023,367 @@
 2014-01-04 19:30:09,111 [1] INFO RollingFileAppenderInfo - 57308800---1800===3200
 2014-01-04 19:30:09,211 [1] INFO RollingFileAppenderInfo - 57305600---1800===3200
 2014-01-04 19:30:09,311 [1] INFO RollingFileAppenderInfo - 57302400---1800===3200
+2014-01-04 19:49:38,418 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-04 19:49:38,429 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-04 19:49:38,429 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-04 19:49:38,429 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-04 19:49:38,429 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-04 19:49:38,429 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match : {0}
+2014-01-04 19:49:38,429 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-04 19:49:38,429 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-04 19:49:38,429 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-04 19:49:38,429 [1] INFO RollingFileAppenderInfo - Interval = 15
+2014-01-04 19:49:38,430 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-04 19:49:38,430 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone number;trial
+2014-01-04 19:49:38,430 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-04 19:49:38,430 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-04 19:49:38,430 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-04 19:49:38,722 [1] INFO RollingFileAppenderInfo - 19872000---621===3200
+2014-01-04 19:49:38,820 [1] INFO RollingFileAppenderInfo - 19868800---621===3200
+2014-01-04 19:49:38,920 [1] INFO RollingFileAppenderInfo - 19865600---621===3200
+2014-01-04 19:49:39,020 [1] INFO RollingFileAppenderInfo - 19862400---621===3200
+2014-01-04 19:49:39,120 [1] INFO RollingFileAppenderInfo - 19859200---621===3200
+2014-01-04 19:49:39,220 [1] INFO RollingFileAppenderInfo - 19856000---621===3200
+2014-01-04 19:49:39,320 [1] INFO RollingFileAppenderInfo - 19852800---621===3200
+2014-01-04 19:49:39,420 [1] INFO RollingFileAppenderInfo - 19849600---621===3200
+2014-01-04 19:49:39,520 [1] INFO RollingFileAppenderInfo - 19846400---621===3200
+2014-01-04 19:49:39,620 [1] INFO RollingFileAppenderInfo - 19843200---621===3200
+2014-01-04 19:49:39,720 [1] INFO RollingFileAppenderInfo - 19840000---621===3200
+2014-01-04 19:49:39,820 [1] INFO RollingFileAppenderInfo - 19836800---621===3200
+2014-01-04 19:49:39,920 [1] INFO RollingFileAppenderInfo - 19833600---621===3200
+2014-01-04 19:49:40,020 [1] INFO RollingFileAppenderInfo - 19830400---621===3200
+2014-01-04 19:49:40,120 [1] INFO RollingFileAppenderInfo - 19827200---621===3200
+2014-01-04 19:49:40,220 [1] INFO RollingFileAppenderInfo - 19824000---621===3200
+2014-01-04 19:49:40,320 [1] INFO RollingFileAppenderInfo - 19820800---621===3200
+2014-01-04 19:49:40,421 [1] INFO RollingFileAppenderInfo - 19817600---621===3200
+2014-01-04 19:49:40,521 [1] INFO RollingFileAppenderInfo - 19814400---621===3200
+2014-01-04 19:49:40,621 [1] INFO RollingFileAppenderInfo - 19811200---621===3200
+2014-01-04 19:49:40,721 [1] INFO RollingFileAppenderInfo - 19808000---621===3200
+2014-01-04 19:49:40,821 [1] INFO RollingFileAppenderInfo - 19804800---621===3200
+2014-01-04 19:49:40,921 [1] INFO RollingFileAppenderInfo - 19801600---621===3200
+2014-01-04 19:49:41,021 [1] INFO RollingFileAppenderInfo - 19798400---621===3200
+2014-01-04 19:49:41,121 [1] INFO RollingFileAppenderInfo - 19795200---621===3200
+2014-01-04 19:49:41,221 [1] INFO RollingFileAppenderInfo - 19792000---621===3200
+2014-01-04 19:49:41,321 [1] INFO RollingFileAppenderInfo - 19788800---621===3200
+2014-01-04 19:49:41,421 [1] INFO RollingFileAppenderInfo - 19785600---621===3200
+2014-01-04 19:49:41,521 [1] INFO RollingFileAppenderInfo - 19782400---621===3200
+2014-01-04 19:49:41,621 [1] INFO RollingFileAppenderInfo - 19779200---621===3200
+2014-01-04 19:49:41,721 [1] INFO RollingFileAppenderInfo - 19776000---621===3200
+2014-01-04 19:49:41,821 [1] INFO RollingFileAppenderInfo - 19772800---621===3200
+2014-01-04 19:49:41,921 [1] INFO RollingFileAppenderInfo - 19769600---621===3200
+2014-01-04 19:49:42,021 [1] INFO RollingFileAppenderInfo - 19766400---621===3200
+2014-01-04 19:49:42,121 [1] INFO RollingFileAppenderInfo - 19763200---621===3200
+2014-01-04 19:49:42,221 [1] INFO RollingFileAppenderInfo - 19760000---621===3200
+2014-01-04 19:49:42,321 [1] INFO RollingFileAppenderInfo - 19756800---621===3200
+2014-01-04 19:49:42,421 [1] INFO RollingFileAppenderInfo - 19753600---621===3200
+2014-01-04 19:49:42,521 [1] INFO RollingFileAppenderInfo - 19750400---621===3200
+2014-01-04 19:49:42,621 [1] INFO RollingFileAppenderInfo - 19747200---621===3200
+2014-01-04 19:49:42,721 [1] INFO RollingFileAppenderInfo - 19744000---621===3200
+2014-01-04 19:49:42,821 [1] INFO RollingFileAppenderInfo - 19740800---621===3200
+2014-01-04 19:49:42,921 [1] INFO RollingFileAppenderInfo - 19737600---621===3200
+2014-01-04 19:49:43,021 [1] INFO RollingFileAppenderInfo - 19734400---621===3200
+2014-01-04 19:49:43,121 [1] INFO RollingFileAppenderInfo - 19731200---621===3200
+2014-01-04 19:49:43,221 [1] INFO RollingFileAppenderInfo - 19728000---621===3200
+2014-01-04 19:49:43,321 [1] INFO RollingFileAppenderInfo - 19724800---621===3200
+2014-01-04 19:49:43,421 [1] INFO RollingFileAppenderInfo - 19721600---621===3200
+2014-01-04 19:49:43,521 [1] INFO RollingFileAppenderInfo - 19718400---621===3200
+2014-01-04 19:49:43,621 [1] INFO RollingFileAppenderInfo - 19715200---621===3200
+2014-01-04 19:49:43,721 [1] INFO RollingFileAppenderInfo - 19712000---621===3200
+2014-01-04 19:49:43,821 [1] INFO RollingFileAppenderInfo - 19708800---621===3200
+2014-01-04 19:49:43,921 [1] INFO RollingFileAppenderInfo - 19705600---621===3200
+2014-01-04 19:49:44,021 [1] INFO RollingFileAppenderInfo - 19702400---621===3200
+2014-01-04 19:49:44,121 [1] INFO RollingFileAppenderInfo - 19699200---621===3200
+2014-01-04 19:49:44,221 [1] INFO RollingFileAppenderInfo - 19696000---621===3200
+2014-01-04 19:49:44,321 [1] INFO RollingFileAppenderInfo - 19692800---621===3200
+2014-01-04 19:49:44,421 [1] INFO RollingFileAppenderInfo - 19689600---621===3200
+2014-01-04 19:49:44,521 [1] INFO RollingFileAppenderInfo - 19686400---621===3200
+2014-01-04 19:49:44,621 [1] INFO RollingFileAppenderInfo - 19683200---621===3200
+2014-01-04 19:49:44,721 [1] INFO RollingFileAppenderInfo - 19680000---621===3200
+2014-01-04 19:49:44,821 [1] INFO RollingFileAppenderInfo - 19676800---621===3200
+2014-01-04 19:49:44,921 [1] INFO RollingFileAppenderInfo - 19673600---621===3200
+2014-01-04 19:49:45,021 [1] INFO RollingFileAppenderInfo - 19670400---621===3200
+2014-01-04 19:49:45,121 [1] INFO RollingFileAppenderInfo - 19667200---621===3200
+2014-01-04 19:49:45,221 [1] INFO RollingFileAppenderInfo - 19664000---621===3200
+2014-01-04 19:49:45,321 [1] INFO RollingFileAppenderInfo - 19660800---621===3200
+2014-01-04 19:49:45,421 [1] INFO RollingFileAppenderInfo - 19657600---621===3200
+2014-01-04 19:49:45,521 [1] INFO RollingFileAppenderInfo - 19654400---621===3200
+2014-01-04 19:49:45,621 [1] INFO RollingFileAppenderInfo - 19651200---621===3200
+2014-01-04 19:49:45,721 [1] INFO RollingFileAppenderInfo - 19648000---621===3200
+2014-01-04 19:49:45,821 [1] INFO RollingFileAppenderInfo - 19644800---621===3200
+2014-01-04 19:49:45,921 [1] INFO RollingFileAppenderInfo - 19641600---621===3200
+2014-01-04 19:50:04,829 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match : {0}
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - Interval = 15
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone number;trial
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-04 19:50:04,842 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-04 19:50:41,544 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - Interval = 15
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone number;trial
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-04 19:50:41,555 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-04 19:50:56,841 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:50:56,848 [3] INFO RollingFileAppenderInfo - Init speech recognition service
+2014-01-04 19:50:56,864 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:50:56,988 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:51:05,126 [5] INFO RollingFileAppenderInfo - Init comparation service
+2014-01-04 19:51:05,127 [5] INFO RollingFileAppenderInfo - list speacial words:email,phone number,trial
+2014-01-04 19:51:05,127 [5] INFO RollingFileAppenderInfo - new google API result :hello
+2014-01-04 19:51:05,134 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:51:11,941 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:51:12,127 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:51:12,227 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:51:20,721 [3] INFO RollingFileAppenderInfo - The remote server returned an error: (500) Internal Server Error.
+2014-01-04 19:51:27,041 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:51:27,731 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:51:27,829 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:51:35,638 [5] INFO RollingFileAppenderInfo - new google API result :hello yeah
+2014-01-04 19:51:35,639 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:51:42,140 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:51:42,680 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:51:42,782 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:51:47,870 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:51:47,871 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:51:57,240 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:51:57,870 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:51:57,982 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:52:03,802 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:52:03,802 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:52:12,340 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:52:12,802 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:52:12,918 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:52:19,038 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:52:19,038 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:52:27,441 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:52:28,038 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:52:28,138 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:52:36,522 [5] INFO RollingFileAppenderInfo - new google API result :hello
+2014-01-04 19:52:36,522 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:52:42,541 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:52:43,522 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:52:43,622 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:52:49,218 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:52:49,218 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:52:57,641 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:52:58,223 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:52:58,332 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:53:05,101 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:53:05,101 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:53:12,741 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:53:13,103 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:53:13,201 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:53:19,450 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:53:19,450 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:53:27,841 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:53:28,451 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:53:28,559 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:53:35,661 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:53:35,661 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:53:42,940 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:53:43,661 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:53:43,766 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:53:51,195 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:53:51,195 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:53:58,210 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:53:59,195 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:53:59,310 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:54:03,462 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:54:03,462 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:54:13,310 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:54:13,462 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:54:13,563 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:54:18,498 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:54:18,498 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:58:24,170 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - Interval = 15
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone number;trial
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-04 19:58:24,181 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-04 19:58:39,470 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:58:39,496 [3] INFO RollingFileAppenderInfo - Init speech recognition service
+2014-01-04 19:58:39,510 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:58:39,633 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:58:47,280 [5] INFO RollingFileAppenderInfo - Init comparation service
+2014-01-04 19:58:47,280 [5] INFO RollingFileAppenderInfo - list speacial words:email,phone number,trial
+2014-01-04 19:58:47,280 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:58:47,287 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:58:54,570 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:58:55,281 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:58:55,379 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:59:00,002 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:59:00,002 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:59:09,671 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:59:10,002 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:59:10,094 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:59:14,622 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:59:14,622 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:59:24,771 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:59:25,635 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:59:25,731 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:59:30,662 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:59:30,662 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:59:40,041 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:59:40,663 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:59:40,755 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:59:45,094 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 19:59:45,095 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 19:59:55,141 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 19:59:55,155 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 19:59:55,265 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 19:59:59,641 [1] INFO RollingFileAppenderInfo - 95 second reached,fill to another file
+2014-01-04 20:00:02,372 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:00:02,372 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:00:10,241 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:00:10,455 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:00:10,559 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:00:16,784 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:00:16,784 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:00:25,340 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:00:25,822 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:00:25,922 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:00:30,483 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:00:30,483 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:00:40,440 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:00:40,483 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:00:40,598 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:00:45,272 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:00:45,272 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:00:55,540 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:00:56,291 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:00:56,388 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:01:01,096 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:01:01,096 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:01:10,641 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:01:11,113 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:01:11,297 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:01:15,761 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:01:15,763 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:01:25,741 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:01:25,807 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:01:25,920 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:01:31,231 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:01:31,231 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:01:40,841 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:01:41,239 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:01:41,337 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:01:46,378 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:01:46,378 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:01:55,941 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:01:56,404 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:01:56,500 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:02:00,532 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:02:00,532 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:02:11,040 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:02:11,578 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:02:11,671 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:02:15,830 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:02:15,830 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:02:26,140 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:02:26,856 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:02:26,955 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:02:32,284 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:02:32,284 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:02:41,240 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:02:41,306 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:02:41,402 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:02:48,167 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:02:48,167 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:02:56,343 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:02:57,210 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:02:57,343 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:03:03,271 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:03:03,271 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:03:11,461 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:03:12,291 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:03:12,390 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:03:16,627 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:03:16,627 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:03:26,561 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:03:26,622 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:03:26,760 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:03:31,635 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:03:31,635 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:03:41,661 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:03:42,636 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:03:42,773 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:03:47,216 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:03:47,216 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:03:56,760 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:03:57,228 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:03:57,339 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:04:03,857 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:04:03,857 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:04:11,860 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:04:11,886 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:04:11,980 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:04:17,030 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:04:17,030 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:04:26,960 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:04:27,053 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:04:27,149 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:04:33,623 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:04:33,623 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:04:42,081 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:04:42,651 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:04:42,781 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:04:48,255 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:04:48,255 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:04:57,181 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:04:57,325 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:04:57,454 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:05:03,852 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:05:03,852 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:05:12,281 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:05:12,868 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:05:12,965 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:05:19,911 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:05:19,911 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:05:27,383 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:05:27,985 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:05:28,079 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:05:33,922 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:05:33,922 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:05:42,481 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:05:42,923 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:05:43,037 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:05:48,758 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:05:48,758 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:05:57,930 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:05:58,758 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:05:58,864 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:06:04,878 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:06:04,878 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-04 20:06:13,030 [1] INFO RollingFileAppenderInfo - 15 second reached,send to speech recognition service
+2014-01-04 20:06:13,886 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-04 20:06:13,975 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-04 20:06:17,675 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-04 20:06:17,675 [5] INFO RollingFileAppenderInfo - Not match any special words
