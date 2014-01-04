@@ -109,7 +109,7 @@ namespace Services
 						mail.Cc = Configuration.GetConfiguration().getCc();
 					}
 					mail.fromAlias =Configuration.GetConfiguration().getFromAlias();
-					mail.Message = string.Format(Configuration.GetConfiguration().getMessage(),result);
+					mail.Message = Configuration.GetConfiguration().getMessage()+result;
 					mail.Subject = Configuration.GetConfiguration().getSubject();
 					mail.To = Configuration.GetConfiguration().getTo();
 					MailService.GetMailService().Add(mail);

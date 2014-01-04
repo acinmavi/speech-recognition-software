@@ -76,7 +76,7 @@ namespace VoiceRecorder.Audio
 			{
 				throw new InvalidOperationException("Can't begin recording while we are in this state: " + recordingState.ToString());
 			}
-			temporaryfileName = Path.Combine(folderName,String.Format("{0:yyyy-MM-dd-HH-mm-ss-SSS}",DateTime.Now)+ ".wav");
+			temporaryfileName = Path.Combine(folderName,String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+ ".wav");
 			realWriter = new WaveFileWriter(waveFileName, recordingFormat);
 			writer = new WaveFileWriter(temporaryfileName,recordingFormat);
 			recordingState = RecordingState.Recording;
@@ -216,7 +216,6 @@ namespace VoiceRecorder.Audio
 			    || recordingState == RecordingState.RequestedStop)
 			{
 				var toWrite = (int)Math.Min(maxFileLength - realWriter.Length, bytesRecorded);
-				Utilities.WriteLine((maxFileLength- realWriter.Length)+"---"+maxlength.ToString()+"==="+toWrite);
 				if (toWrite > 0)
 				{
 					realWriter.Write(buffer, 0, bytesRecorded);
@@ -229,7 +228,7 @@ namespace VoiceRecorder.Audio
 					//enough maxlength seconds
 					Utilities.WriteLine(maxlength+" second reached,fill to another file");
 					realWriter.Close();
-					temporaryfileName = Path.Combine(folderName,String.Format("{0:yyyy-MM-dd-HH-mm-ss-SSS}",DateTime.Now)+ ".wav");
+					temporaryfileName = Path.Combine(folderName,String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+ ".wav");
 					realWriter = new WaveFileWriter(temporaryfileName,recordingFormat);
 				}
 			}
@@ -243,7 +242,6 @@ namespace VoiceRecorder.Audio
 			    || recordingState == RecordingState.RequestedStop)
 			{
 				var toWrite = (int)Math.Min(maxFileLength - writer.Length, bytesRecorded);
-//				Utilities.WriteLine("10s______"+(maxFileLength- writer.Length)+"---"+maxlength.ToString()+"==="+toWrite);
 				if (toWrite > 0)
 				{
 					writer.Write(buffer, 0, bytesRecorded);
@@ -258,7 +256,7 @@ namespace VoiceRecorder.Audio
 					MemoryStream memory = new MemoryStream(file);
 					SpeechRecognitionService.GetSpeechRecognitionService().Add(memory);
 					//File.Delete(temporaryfileName);
-					temporaryfileName = Path.Combine(folderName,"TempFile-"+String.Format("{0:yyyy-MM-dd-HH-mm-ss-SSS}",DateTime.Now)+ ".wav");
+					temporaryfileName = Path.Combine(folderName,"TempFile-"+String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+ ".wav");
 					writer = new WaveFileWriter(temporaryfileName,recordingFormat);
 				}
 			}
