@@ -38,4 +38,4 @@ F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRec
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.csproj.GenerateResource.Cache
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.exe
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.pdb
-F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\SendMail.exe
+F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\SendMail.dll

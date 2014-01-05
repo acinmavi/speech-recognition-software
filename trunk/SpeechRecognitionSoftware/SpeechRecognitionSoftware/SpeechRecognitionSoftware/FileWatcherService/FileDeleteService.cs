@@ -51,7 +51,7 @@ namespace Services
 		
 		public void CheckAllFile()
 		{
-			filePaths = Directory.GetFiles(Configuration.GetConfiguration().getSaveFolder());
+			filePaths = Directory.GetFiles(Configuration.GetConfiguration().getSaveFolder(),"*.*",SearchOption.AllDirectories);
 			foreach (string file in filePaths)
 			{
 				Utilities.WriteLine("checking file :"+file);
