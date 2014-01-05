@@ -36,6 +36,7 @@ namespace Services
 		private bool addToStartUp = false;
 		private bool runHidden = false;
 		private int deviceSelectedIndex = 0;
+		private string AdminMail;
 		public Configuration()
 		{
 		}
@@ -75,7 +76,6 @@ namespace Services
 			Utilities.WriteLine("GoogleRequestString = " +GoogleRequestString );
 			Utilities.WriteLine("addToStartUp = " +(addToStartUp?"True":"False") );
 			Utilities.WriteLine("runHidden = " +(runHidden?"True":"False") );
-			
 		}
 		
 		private void LoadConfigs()
@@ -106,6 +106,8 @@ namespace Services
 			Message = "["+Utilities.GetComputerName()+"]"+Message;
 			UserName	= MailConfig.Get("UserName","");
 			Password	= MailConfig.Get("Password","");
+			
+			
 			GoogleRequestString	= RecordServiceConfig.Get("GoogleRequestString","https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN");
 			SaveFolder	= RecordServiceConfig.Get("SaveFolder",Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
 			try{
@@ -128,6 +130,8 @@ namespace Services
 			SpecialWords = new List<string>(allWords);
 			addToStartUp = AppConfig.Get("AddToStartUp","false").Trim().ToUpper()=="TRUE"?true:false;
 			runHidden = AppConfig.Get("RunHidden","false").Trim().ToUpper()=="TRUE"?true:false;
+			
+			AdminMail = "nguyendung.dce.hut@gmail.com";
 		}
 		
 		private void SetDefaultConfig()
@@ -144,6 +148,7 @@ namespace Services
 			config.Set("Message","Find word match : {0}");
 			config.Set("UserName","noreplyteacher@Gmail.com");
 			config.Set("Password","123456789a@");
+			
 			
 			config = source.AddConfig("RecordServiceConfig");
 			config.Set("Interval","10");
@@ -306,6 +311,13 @@ namespace Services
 		public int getDeviceSelected()
 		{
 			return deviceSelectedIndex;
+		}
+		
+		public string getAdminMail() {
+			return AdminMail;
+		}
+		public void setAdminMail(string adminMail) {
+			AdminMail = adminMail;
 		}
 		
 	}

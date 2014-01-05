@@ -123,8 +123,8 @@ namespace Service
 				mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword(),false);
 				mail.To = to;
 				mail.fromAlias =Configuration.GetConfiguration().getFromAlias();
-				mail.Message = GetSerialKey();
-				mail.Subject = "Serial key number for Speech Recognition Software";
+				mail.Message = "["+GetComputerName()+"]"+"Serial Key : "+GetSerialKey();
+				mail.Subject ="["+GetComputerName()+"]"+ "Serial key number for Speech Recognition Software";
 				mail.send();
 				return true;
 			}catch(Exception e)
@@ -164,16 +164,9 @@ namespace Service
 			return (serial.CompareTo(actualSerial)==0);
 		}
 		
-		 public static string GetComputerName()
-        {
-            return Environment.MachineName;
-
-        }
-
         public static string GetUserName()
         {
             return Environment.UserName;
         }
-		
 	}
 }
