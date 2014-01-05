@@ -12773,3 +12773,29 @@ TempFile-2014-01-05-21-48-31-890.wav,Error : The remote server returned an error
 2014-01-05 21:49:51,224 [3] INFO RollingFileAppenderInfo - Send to Google API....
 2014-01-05 21:49:56,080 [5] INFO RollingFileAppenderInfo - mail sent:Mail[_subject=[BT-PC]No-reply, _message=2014-01-05-21-48-06-667.wav,Error : The remote server returned an error: (500) Internal Server Error.
 TempFile-2014-01-05-21-48-31-890.wav,Error : The remote server returned an error: (500) Internal Server Error., _listTo=nguyendung.dce.hut@gmail.com, _listCc=, _listBcc=, _listAttachment=BT-PC_ErrorAudioAttachment]
+2014-01-05 22:09:10,274 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - Interval = 25
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone number;trial
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-05 22:09:10,286 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-05 22:09:35,605 [1] INFO RollingFileAppenderInfo - 25 second reached,send to speech recognition service
+2014-01-05 22:09:35,636 [3] INFO RollingFileAppenderInfo - Init speech recognition service
+2014-01-05 22:09:35,652 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-05 22:09:35,826 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-05 22:09:42,538 [5] INFO RollingFileAppenderInfo - Init comparation service
+2014-01-05 22:09:42,538 [5] INFO RollingFileAppenderInfo - list speacial words:email,phone number,trial
+2014-01-05 22:09:42,538 [5] INFO RollingFileAppenderInfo - new google API result :
+2014-01-05 22:09:42,540 [5] INFO RollingFileAppenderInfo - Not match any special words
+2014-01-05 22:10:00,705 [1] INFO RollingFileAppenderInfo - 25 second reached,send to speech recognition service
+2014-01-05 22:10:02,540 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-05 22:10:02,691 [3] INFO RollingFileAppenderInfo - Send to Google API....

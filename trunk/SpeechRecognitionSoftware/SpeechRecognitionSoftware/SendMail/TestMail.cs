@@ -7,7 +7,9 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using NAudio.Wave;
 
 namespace SendMail
 {
@@ -45,7 +47,13 @@ namespace SendMail
 //			GmailTest();
 //			YmailTest();
 //			HotmailTest();
-			quranMailTest();
+//			quranMailTest();
+			try{
+			TestMergeAudio();
+			}catch(Exception e)
+			{
+				Console.WriteLine(e.ToString());
+			}
 			Console.WriteLine("done");
 			watch.Stop();
 			Console.WriteLine("time:"+watch.Elapsed);
@@ -117,6 +125,65 @@ namespace SendMail
 				Console.WriteLine(e.ToString());
 			}
 		}
+		
+		public static void TestMergeAudio()
+		{
+			string directory = "D:\\Test\\Store\\";
+			string file1 = directory+"TempFile-2014-01-05-21-48-31-890.wav";
+			string file2 = directory+"TempFile-2014-01-05-21-48-56-988.wav";
+			string file3 = directory+"TempFile-2014-01-05-21-49-22-088.wav";
+			string file4 = directory+"TempFile-2014-01-05-21-49-47-187.wav";
+			List<string> list = new List<string>();
+			list.Add(file1);
+			list.Add(file2);
+			list.Add(file3);
+			list.Add(file4);
+			string output = directory+"out.wav";
+			ConcatenateAudioFiles(output,list);
+			}
+		
+		public static void ConcatenateAudioFiles(string outputFile, IEnumerable<string> sourceFiles)
+		{
+			byte[] buffer = new byte[1024];
+			WaveFileWriter waveFileWriter = null;
+
+			try
+			{
+				foreach (string sourceFile in sourceFiles)
+				{
+					using (WaveFileReader reader = new WaveFileReader(sourceFile))
+					{
+						if (waveFileWriter == null)
+						{
+							// first time in create new Writer
+							waveFileWriter = new WaveFileWriter(outputFile, reader.WaveFormat);
+						}
+						else
+						{
+							if (!reader.WaveFormat.Equals(waveFileWriter.WaveFormat))
+							{
+								throw new InvalidOperationException("Can't concatenate WAV Files that don't share the same format");
+							}
+						}
+
+						int read;
+						while ((read = reader.Read(buffer, 0, buffer.Length)) > 0)
+						{
+							waveFileWriter.Write(buffer, 0, read);
+						}
+					}
+				}
+			}
+			finally
+			{
+				if (waveFileWriter != null)
+				{
+					waveFileWriter.Dispose();
+				}
+			}
+
+		}
+		
 
 	}
 }

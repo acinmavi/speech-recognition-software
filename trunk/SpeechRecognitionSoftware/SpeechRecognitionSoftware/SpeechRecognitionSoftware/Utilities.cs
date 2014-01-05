@@ -7,11 +7,13 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 using System.Net.Mail;
 using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 using log4net;
+using NAudio.Wave;
 using SendMail;
 using Services;
 
@@ -164,9 +166,51 @@ namespace Service
 			return (serial.CompareTo(actualSerial)==0);
 		}
 		
-        public static string GetUserName()
-        {
-            return Environment.UserName;
-        }
+		public static string GetUserName()
+		{
+			return Environment.UserName;
+		}
+		
+		public static void ConcatenateAudioFiles(string outputFile, IEnumerable<string> sourceFiles)
+		{
+			byte[] buffer = new byte[1024];
+			WaveFileWriter waveFileWriter = null;
+
+			try
+			{
+				foreach (string sourceFile in sourceFiles)
+				{
+					using (WaveFileReader reader = new WaveFileReader(sourceFile))
+					{
+						if (waveFileWriter == null)
+						{
+							// first time in create new Writer
+							waveFileWriter = new WaveFileWriter(outputFile, reader.WaveFormat);
+						}
+						else
+						{
+							if (!reader.WaveFormat.Equals(waveFileWriter.WaveFormat))
+							{
+								throw new InvalidOperationException("Can't concatenate WAV Files that don't share the same format");
+							}
+						}
+
+						int read;
+						while ((read = reader.Read(buffer, 0, buffer.Length)) > 0)
+						{
+							waveFileWriter.Write(buffer, 0, read);
+						}
+					}
+				}
+			}
+			finally
+			{
+				if (waveFileWriter != null)
+				{
+					waveFileWriter.Dispose();
+				}
+			}
+
+		}
 	}
 }

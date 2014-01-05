@@ -35,6 +35,9 @@
     <Reference Include="Ionic.Utils.Zip">
       <HintPath>..\..\..\voicerecorder\bin\Debug\Ionic.Utils.Zip.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\SpeechRecognitionSoftware\bin\Debug\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
