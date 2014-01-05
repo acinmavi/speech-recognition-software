@@ -88,7 +88,6 @@
       <DependentUpon>RegistrerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\BaseThread.cs" />
-    <Compile Include="Service\FileSendService.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>

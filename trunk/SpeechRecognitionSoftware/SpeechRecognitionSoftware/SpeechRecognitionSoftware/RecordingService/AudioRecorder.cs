@@ -76,7 +76,7 @@ namespace VoiceRecorder.Audio
 			{
 				throw new InvalidOperationException("Can't begin recording while we are in this state: " + recordingState.ToString());
 			}
-			temporaryfileName = Path.Combine(folderName,String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+ ".wav");
+			temporaryfileName = Path.Combine(folderName,"TempFile-"+String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+ ".wav");
 			realWriter = new WaveFileWriter(waveFileName, recordingFormat);
 			writer = new WaveFileWriter(temporaryfileName,recordingFormat);
 			recordingState = RecordingState.Recording;
@@ -252,9 +252,8 @@ namespace VoiceRecorder.Audio
 					Utilities.WriteLine(maxlength+" second reached,send to speech recognition service");
 					temporaryfileName = writer.Filename;
 					writer.Close();
-					byte[] file = File.ReadAllBytes(temporaryfileName);
-					MemoryStream memory = new MemoryStream(file);
-					SpeechRecognitionService.GetSpeechRecognitionService().Add(memory);
+					
+					SpeechRecognitionService.GetSpeechRecognitionService().Add(temporaryfileName);
 					//File.Delete(temporaryfileName);
 					temporaryfileName = Path.Combine(folderName,"TempFile-"+String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+ ".wav");
 					writer = new WaveFileWriter(temporaryfileName,recordingFormat);
