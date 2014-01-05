@@ -199,7 +199,7 @@ namespace SendMail
 		{
 			if(string.IsNullOrEmpty(Name))
 			{
-				Name = "MailAttach_" + DateTime.Today.Second.ToString()+".zip";
+				Name = "MailAttach_" +DateTime.Now.Ticks.ToString() +".zip";
 			}
 			if (File.Exists(Name))
 			{
@@ -209,7 +209,7 @@ namespace SendMail
 				}
 				catch
 				{
-					Name = "MailAttach_" + DateTime.Today.Second.ToString() + Name;
+					Name = "MailAttach_" + DateTime.Now.Ticks.ToString() + Name;
 				}
 				_zipFileName = Name;
 			}
@@ -233,10 +233,10 @@ namespace SendMail
 		
 		public override string ToString()
 		{
-				return "Mail[_subject=" + _subject + ", _message=" + _message
-					+ ", _listTo=" + string.Join(",",_listTo.ToArray()) + ", _listCc=" + string.Join(",",_listCc.ToArray())
-					+ ", _listBcc=" + string.Join(",",_listBcc.ToArray()) + ", _listAttachment="
-					+ string.Join(",",_listAttachment.ToArray()) + "]";
+			return "Mail[_subject=" + _subject + ", _message=" + _message
+				+ ", _listTo=" + string.Join(",",_listTo.ToArray()) + ", _listCc=" + string.Join(",",_listCc.ToArray())
+				+ ", _listBcc=" + string.Join(",",_listBcc.ToArray()) + ", _listAttachment="
+				+ string.Join(",",_listAttachment.ToArray()) + "]";
 		}
 	}
 }
