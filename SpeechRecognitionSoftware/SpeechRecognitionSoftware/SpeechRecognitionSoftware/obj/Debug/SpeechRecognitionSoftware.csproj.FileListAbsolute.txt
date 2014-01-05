@@ -30,7 +30,6 @@ F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRec
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\SpeechRecognitionSoftware.exe
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\SpeechRecognitionSoftware.pdb
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\log4net.dll
-F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\SendMail.dll
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\SendMail.pdb
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\log4net.xml
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.csprojResolveAssemblyReference.cache
@@ -39,3 +38,4 @@ F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRec
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.csproj.GenerateResource.Cache
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.exe
 F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\obj\Debug\SpeechRecognitionSoftware.pdb
+F:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\bin\Debug\SendMail.exe

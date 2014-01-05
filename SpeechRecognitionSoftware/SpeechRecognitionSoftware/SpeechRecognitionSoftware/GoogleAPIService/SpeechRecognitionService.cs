@@ -57,7 +57,7 @@ namespace Services
 						result = SoundRecognition.WavStreamToGoogle(memory);
 						ComparationService.GetComparationService().Add(result);
 					}
-					Thread.Sleep(5000);
+					Thread.Sleep(2000);
 				}catch(Exception e)
 				{
 					Utilities.WriteLine(e.Message);
