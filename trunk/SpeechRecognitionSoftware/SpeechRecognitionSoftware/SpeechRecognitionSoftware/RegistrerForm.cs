@@ -34,14 +34,20 @@ namespace SpeechRecognitionSoftware
 		void RegistrerFormLoad(object sender, EventArgs e)
 		{
 			lbStatus.Text = "Sending email...";
+			tbSerial.Enabled = false;
+			btRegister.Enabled = false;
 			Task.Factory.StartNew(()=>{
 			                      	return Utilities.SendEmailSerialKey();
 			                      }).ContinueWith((o)=>
 			                {
-			                	if(o.Result)
+			                	if(o.Result){
 			                		lbStatus.Text = "Mail sent,please check..";
-			                	else
-			                		lbStatus.Text = "Failed to send email,please check..";
+			                		tbSerial.Enabled = true;
+			                		btRegister.Enabled = true;
+			                	}
+			                	else{
+			                		lbStatus.Text = "Failed to send email,please check on log file";
+			                	}
 			                },TaskScheduler.FromCurrentSynchronizationContext());
 		}
 		
