@@ -71,12 +71,12 @@ namespace Services
 							{
 								Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list));
 								Utilities.WriteLine("We will wait and send mail with 5 minutes audio to admin");
-								DoWork();
+								DoWork(request);
 							}else{
 								Utilities.WriteLine("Not match with any special word,next");
 							}
 						}else{
-							DoWork();
+							DoWork(request);
 						}
 					}
 					Thread.Sleep(2000);
@@ -112,12 +112,13 @@ namespace Services
 			}
 		}
 		
-		public void DoWork()
+		public void DoWork(string filePath)
 		{
 			listFileSend = new List<string>();
-			list.Add(result);
+			list.Add(filePath);
 			if(list.Count >= Configuration.GetConfiguration().getFiveMinuteAudioFile())
 			{
+				Utilities.WriteLine("Start sending mail with 5 min audio attachment.");
 				Mail mail = new Mail();
 				mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword());
 				if(!string.IsNullOrEmpty(Configuration.GetConfiguration().getCc()))
@@ -129,11 +130,11 @@ namespace Services
 					mail.Bcc = Configuration.GetConfiguration().getBcc();
 				}
 				mail.fromAlias =Configuration.GetConfiguration().getFromAlias();
-				mail.Message = Configuration.GetConfiguration().getMessage()+result;
+				mail.Message = Configuration.GetConfiguration().getMessage()+list[0] + " and attach next 5 minutes audio" ;
 				mail.Subject = Configuration.GetConfiguration().getSubject();
 				mail.To = Configuration.GetConfiguration().getTo();
 				//merge audio file and send.
-				attachFile =Path.GetTempPath()+"\\"+Path.GetFileNameWithoutExtension(list[0]) +"-To-" +Path.GetFileNameWithoutExtension(list[list.Count-1])+".wav";
+				attachFile =Path.GetTempPath()+Path.GetFileNameWithoutExtension(list[0]) +"-To-" +Path.GetFileNameWithoutExtension(list[list.Count-1])+".wav";
 				attachFile = attachFile.Replace("TempFile","");
 				mail.attach(attachFile);
 				MailService.GetMailService().Add(mail);
