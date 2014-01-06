@@ -33,6 +33,7 @@ namespace Services
 		List<string> list = new List<string>();
 		List<string> listFileSend = null;
 		string attachFile;
+		string matchWord;
 		
 		public static SpeechRecognitionService GetSpeechRecognitionService()
 		{
@@ -65,11 +66,12 @@ namespace Services
 						result = SoundRecognition.WavStreamToGoogle(memory);
 						Utilities.WriteLine("Got result from google api : "+result);
 						//merge comparation service
-						if(listFileSend == null)
+						if(listFileSend == null || listFileSend.Count == 0)
 						{
 							listFileSend = new List<string>();
 							if(IsWordMatched(result))
 							{
+								
 								Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list));
 								Utilities.WriteLine("We will wait and send mail with 5 minutes audio to admin");
 								DoWork(request);
@@ -105,6 +107,10 @@ namespace Services
 		{
 			try{
 				list = listWord.Where(o=>result.ToUpper().Contains(o.ToUpper())).ToList();
+				if(list.Count > 0)
+				{
+					matchWord = string.Join(",",list.ToArray());
+				}
 				return list.Count > 0;
 			}catch(Exception e)
 			{
@@ -130,12 +136,13 @@ namespace Services
 					mail.Bcc = Configuration.GetConfiguration().getBcc();
 				}
 				mail.fromAlias =Configuration.GetConfiguration().getFromAlias();
-				mail.Message = Configuration.GetConfiguration().getMessage()+listFileSend[0] + " and attach next 5 minutes audio" ;
+				mail.Message = Configuration.GetConfiguration().getMessage()+matchWord + " and attach next 5 minutes audio" ;
 				mail.Subject = Configuration.GetConfiguration().getSubject();
 				mail.To = Configuration.GetConfiguration().getTo();
 				//merge audio file and send.
 				attachFile =Path.GetTempPath()+Path.GetFileNameWithoutExtension(listFileSend[0]) +"-To-" +Path.GetFileNameWithoutExtension(listFileSend[listFileSend.Count-1])+".wav";
-				attachFile = attachFile.Replace("TempFile","");
+				attachFile = attachFile.Replace("TempFile-","");
+				Utilities.ConcatenateAudioFiles(attachFile,listFileSend);
 				mail.attach(attachFile);
 				MailService.GetMailService().Add(mail);
 				listFileSend = null;

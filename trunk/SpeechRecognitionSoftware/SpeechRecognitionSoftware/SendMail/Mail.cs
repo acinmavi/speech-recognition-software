@@ -125,7 +125,7 @@ namespace SendMail
 			mailClient.Credentials = mailAuthentication;
 			this._authetication = true;
 		}
-		public Boolean auth(string username, string password,bool isUseSsl = true)
+		public Boolean auth(string username, string password,bool isUseSsl = false)
 		{
 			this._username = username;
 			this._password = password;
