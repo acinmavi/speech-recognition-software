@@ -63,7 +63,7 @@ namespace Services
 						file = File.ReadAllBytes(request);
 						memory = new MemoryStream(file);
 						result = SoundRecognition.WavStreamToGoogle(memory);
-						
+						Utilities.WriteLine("Got result from google api : "+result);
 						//merge comparation service
 						if(listFileSend == null)
 						{
@@ -72,6 +72,8 @@ namespace Services
 								Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list));
 								Utilities.WriteLine("We will wait and send mail with 5 minutes audio to admin");
 								DoWork();
+							}else{
+								Utilities.WriteLine("Not match with any special word,next");
 							}
 						}else{
 							DoWork();
