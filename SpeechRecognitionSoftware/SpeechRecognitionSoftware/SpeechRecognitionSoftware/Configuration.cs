@@ -134,7 +134,7 @@ namespace Services
 			
 			AdminMail = "nguyendung.dce.hut@gmail.com";
 			
-			double noOfAudio = (5*60)/Interval;
+			double noOfAudio =(double)(5*60)/Interval;
 			FiveMinuteAudioFile = Convert.ToInt32(Math.Ceiling(noOfAudio));
 		}
 		

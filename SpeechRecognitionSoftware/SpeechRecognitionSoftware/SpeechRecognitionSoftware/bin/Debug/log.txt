@@ -66,3 +66,230 @@
 2014-01-06 13:52:03,446 [1] INFO RollingFileAppenderInfo - 25 second reached,send to speech recognition service
 2014-01-06 13:52:28,556 [1] INFO RollingFileAppenderInfo - 25 second reached,send to speech recognition service
 2014-01-06 13:52:53,646 [1] INFO RollingFileAppenderInfo - 25 second reached,send to speech recognition service
+2014-01-06 19:23:34,011 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone number;trial
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 19:23:34,026 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 19:23:46,296 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:23:46,296 [1] INFO RollingFileAppenderInfo - list speacial words:email,phone number,trial
+2014-01-06 19:23:46,316 [3] INFO RollingFileAppenderInfo - Init speech recognition service
+2014-01-06 19:23:46,326 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:23:46,436 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:25:02,136 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 19:25:02,152 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 19:25:14,415 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:25:14,420 [1] INFO RollingFileAppenderInfo - list speacial words:email,phone,number,trial,hello,skype,gmail
+2014-01-06 19:25:14,454 [3] INFO RollingFileAppenderInfo - Init speech recognition service
+2014-01-06 19:25:14,472 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:25:14,579 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:25:22,062 [3] INFO RollingFileAppenderInfo - Got result from google api :  shemale on all
+2014-01-06 19:25:22,063 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 19:25:26,515 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:25:28,063 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:25:28,134 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:25:32,304 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:25:38,616 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:25:40,306 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:25:40,377 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:25:45,447 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:25:45,447 [3] INFO RollingFileAppenderInfo - Start sending mail with 5 min audio attachment.
+2014-01-06 19:25:45,465 [5] INFO RollingFileAppenderInfo - got new mail :Mail[_subject=[BT-PC]No-reply, _message=[BT-PC]Find word match :D:\Test\Store\TempFile-2014-01-06-19-25-14-447.wav and attach next 5 minutes audio, _listTo=nguyendung.dce.hut@gmail.com, _listCc=, _listBcc=, _listAttachment=C:\Users\BT\AppData\Local\Temp\2014-01-06-19-25-14-447-To-2014-01-06-19-25-26-518.wav]
+2014-01-06 19:25:48,073 [5] INFO RollingFileAppenderInfo - The remote certificate is invalid according to the validation procedure.
+2014-01-06 19:25:50,715 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:25:51,464 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:25:51,538 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:26:01,594 [3] INFO RollingFileAppenderInfo - Got result from google api : gmail email hello
+2014-01-06 19:26:01,594 [3] INFO RollingFileAppenderInfo - Recognize sentences : gmail email hello , word(s) found:email,hello,gmail
+2014-01-06 19:26:01,594 [3] INFO RollingFileAppenderInfo - We will wait and send mail with 5 minutes audio to admin
+2014-01-06 19:26:02,815 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:26:03,594 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:26:03,667 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:27:11,901 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 19:27:11,917 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 19:27:24,175 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:27:24,180 [1] INFO RollingFileAppenderInfo - list speacial words:email,phone,number,trial,hello,skype,gmail
+2014-01-06 19:27:24,213 [3] INFO RollingFileAppenderInfo - Init speech recognition service
+2014-01-06 19:27:24,228 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:27:24,333 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:27:33,382 [3] INFO RollingFileAppenderInfo - Got result from google api : tall tall mountain all in all
+2014-01-06 19:27:33,382 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 19:27:36,265 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:27:37,382 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:27:37,453 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:27:42,526 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:27:42,526 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 19:27:48,365 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:27:48,526 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:27:48,597 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:27:54,571 [3] INFO RollingFileAppenderInfo - Got result from google api : hello
+2014-01-06 19:27:54,571 [3] INFO RollingFileAppenderInfo - Recognize sentences : hello , word(s) found:hello
+2014-01-06 19:27:54,571 [3] INFO RollingFileAppenderInfo - We will wait and send mail with 5 minutes audio to admin
+2014-01-06 19:28:00,466 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:28:00,573 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:28:00,647 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:28:10,593 [3] INFO RollingFileAppenderInfo - Got result from google api : hello hello hello hello
+2014-01-06 19:28:10,593 [3] INFO RollingFileAppenderInfo - Start sending mail with 5 min audio attachment.
+2014-01-06 19:28:10,612 [5] INFO RollingFileAppenderInfo - got new mail :Mail[_subject=[BT-PC]No-reply, _message=[BT-PC]Find word match :D:\Test\Store\TempFile-2014-01-06-19-27-36-268.wav and attach next 5 minutes audio, _listTo=nguyendung.dce.hut@gmail.com, _listCc=, _listBcc=, _listAttachment=C:\Users\BT\AppData\Local\Temp\2014-01-06-19-27-36-268-To-2014-01-06-19-27-48-368.wav]
+2014-01-06 19:28:12,530 [5] INFO RollingFileAppenderInfo - The remote certificate is invalid according to the validation procedure.
+2014-01-06 19:28:12,565 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:28:12,612 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:28:12,687 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:29:38,511 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 19:29:38,526 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 19:29:50,785 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:29:50,790 [1] INFO RollingFileAppenderInfo - list speacial words:email,phone,number,trial,hello,skype,gmail
+2014-01-06 19:29:50,800 [3] INFO RollingFileAppenderInfo - Init speech recognition service
+2014-01-06 19:29:50,815 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:29:50,918 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:29:58,276 [3] INFO RollingFileAppenderInfo - Got result from google api : hello hello hello hello
+2014-01-06 19:29:58,277 [3] INFO RollingFileAppenderInfo - Recognize sentences : hello hello hello hello , word(s) found:hello
+2014-01-06 19:29:58,277 [3] INFO RollingFileAppenderInfo - We will wait and send mail with 5 minutes audio to admin
+2014-01-06 19:29:59,786 [1] INFO RollingFileAppenderInfo - 21 second reached,fill to another file
+2014-01-06 19:30:02,885 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:30:04,278 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:30:04,351 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:30:08,115 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:30:08,115 [3] INFO RollingFileAppenderInfo - Start sending mail with 5 min audio attachment.
+2014-01-06 19:30:08,150 [5] INFO RollingFileAppenderInfo - got new mail :Mail[_subject=[BT-PC]No-reply, _message=[BT-PC]Find word match :D:\Test\Store\TempFile-2014-01-06-19-29-38-692.wav and attach next 5 minutes audio, _listTo=nguyendung.dce.hut@gmail.com, _listCc=, _listBcc=, _listAttachment=C:\Users\BT\AppData\Local\Temp\2014-01-06-19-29-38-692-To-2014-01-06-19-29-50-791.wav]
+2014-01-06 19:30:14,985 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:30:16,151 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:30:16,224 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:30:22,550 [3] INFO RollingFileAppenderInfo - The remote server returned an error: (500) Internal Server Error.
+2014-01-06 19:30:27,087 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:30:28,550 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:30:28,644 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:30:36,305 [3] INFO RollingFileAppenderInfo - The remote server returned an error: (500) Internal Server Error.
+2014-01-06 19:30:37,872 [5] INFO RollingFileAppenderInfo - mail sent:Mail[_subject=[BT-PC]No-reply, _message=[BT-PC]Find word match :D:\Test\Store\TempFile-2014-01-06-19-29-38-692.wav and attach next 5 minutes audio, _listTo=nguyendung.dce.hut@gmail.com, _listCc=, _listBcc=, _listAttachment=BT-PC_2014-01-06-19-30-08-150.zip]
+2014-01-06 19:30:39,395 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:30:40,312 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:30:40,423 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:30:45,653 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:30:45,653 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 19:30:51,826 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:30:53,654 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:30:53,727 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:30:57,763 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:30:57,763 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 19:35:21,224 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 19:35:21,234 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 19:35:21,234 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 19:35:21,234 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 19:35:21,234 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 19:35:21,234 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 19:35:21,234 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 19:35:21,234 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 19:35:21,234 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 19:35:21,234 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 19:35:21,234 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 19:35:21,235 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 19:35:21,235 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 19:35:21,235 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 19:35:21,235 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 19:35:33,685 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:35:33,689 [1] INFO RollingFileAppenderInfo - list speacial words:email,phone,number,trial,hello,skype,gmail
+2014-01-06 19:35:33,700 [3] INFO RollingFileAppenderInfo - Init speech recognition service
+2014-01-06 19:35:33,714 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:35:33,820 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:35:41,425 [3] INFO RollingFileAppenderInfo - Got result from google api : hello hello hello hello
+2014-01-06 19:35:41,426 [3] INFO RollingFileAppenderInfo - Recognize sentences : hello hello hello hello , word(s) found:hello
+2014-01-06 19:35:41,426 [3] INFO RollingFileAppenderInfo - We will wait and send mail with 5 minutes audio to admin
+2014-01-06 19:35:45,785 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:35:47,427 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:35:47,498 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:35:51,679 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:35:57,885 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:35:59,679 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:35:59,751 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:36:05,030 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:36:05,030 [3] INFO RollingFileAppenderInfo - Start sending mail with 5 min audio attachment.
+2014-01-06 19:36:05,049 [5] INFO RollingFileAppenderInfo - got new mail :Mail[_subject=[BT-PC]No-reply, _message=[BT-PC]Find word match :hello hello hello hello and attach next 5 minutes audio, _listTo=nguyendung.dce.hut@gmail.com, _listCc=, _listBcc=, _listAttachment=C:\Users\BT\AppData\Local\Temp\2014-01-06-19-35-21-422-To-2014-01-06-19-35-45-788.wav]
+2014-01-06 19:36:09,985 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:36:11,051 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:36:11,127 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:36:18,956 [3] INFO RollingFileAppenderInfo - The remote server returned an error: (500) Internal Server Error.
+2014-01-06 19:36:22,085 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:36:22,957 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:36:23,031 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:36:31,748 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:36:31,748 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 19:36:34,185 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:36:35,748 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:36:35,822 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:36:40,329 [5] INFO RollingFileAppenderInfo - mail sent:Mail[_subject=[BT-PC]No-reply, _message=[BT-PC]Find word match :hello hello hello hello and attach next 5 minutes audio, _listTo=nguyendung.dce.hut@gmail.com, _listCc=, _listBcc=, _listAttachment=BT-PC_2014-01-06-19-36-05-050.zip]
+2014-01-06 19:36:42,316 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:36:42,316 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 19:36:46,285 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:36:46,316 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:36:46,390 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:36:50,613 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:36:50,614 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 19:36:58,386 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:36:58,615 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:36:58,689 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:37:02,294 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:37:02,294 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 19:37:10,485 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:37:12,294 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:37:12,368 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:37:16,854 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:37:16,854 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 19:37:22,585 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:37:22,854 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:37:22,929 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:37:27,694 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:37:27,694 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 19:37:34,686 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 19:37:35,695 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 19:37:35,771 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 19:37:40,813 [3] INFO RollingFileAppenderInfo - Got result from google api : 
+2014-01-06 19:37:40,813 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
