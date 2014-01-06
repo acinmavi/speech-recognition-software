@@ -1,0 +1,68 @@
+2014-01-06 13:47:52,361 [3] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 13:47:52,369 [3] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 13:47:52,369 [3] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 13:47:52,369 [3] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 13:47:52,369 [3] INFO RollingFileAppenderInfo - Subject = [DUNGNT]No-reply
+2014-01-06 13:47:52,369 [3] INFO RollingFileAppenderInfo - Message = [DUNGNT]Find word match :
+2014-01-06 13:47:52,369 [3] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 13:47:52,369 [3] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 13:47:52,369 [3] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 13:47:52,369 [3] INFO RollingFileAppenderInfo - Interval = 25
+2014-01-06 13:47:52,370 [3] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 13:47:52,370 [3] INFO RollingFileAppenderInfo - SpecialWords= email;phone number;trial
+2014-01-06 13:47:52,370 [3] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 13:47:52,370 [3] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 13:47:52,370 [3] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 13:48:14,028 [3] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - Subject = [DUNGNT]No-reply
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - Message = [DUNGNT]Find word match :
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - Interval = 25
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - SpecialWords= email;phone number;trial
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 13:48:14,037 [3] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 13:48:20,239 [3] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - Subject = [DUNGNT]No-reply
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - Message = [DUNGNT]Find word match :
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - Interval = 25
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - SpecialWords= email;phone number;trial
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 13:48:20,246 [3] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 13:48:41,376 [3] INFO RollingFileAppenderInfo - System.Net.Mail.SmtpException: Failure sending mail. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 66.7.223.34:26
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at SendMail.Mail.send() in d:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\speech-recognition-software\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SendMail\Mail.cs:line 188
+   at Service.Utilities.SendEmailSerialKey(String to) in d:\Dropbox\DungNT\Document\Project\SpeechRecognition\GmailSender\trunk\speech-recognition-software\SpeechRecognitionSoftware\SpeechRecognitionSoftware\SpeechRecognitionSoftware\Utilities.cs:line 130
+2014-01-06 13:50:23,146 [1] INFO RollingFileAppenderInfo - list speacial words:email,phone number,trial
+2014-01-06 13:50:48,156 [1] INFO RollingFileAppenderInfo - 25 second reached,send to speech recognition service
+2014-01-06 13:51:13,246 [1] INFO RollingFileAppenderInfo - 25 second reached,send to speech recognition service
+2014-01-06 13:51:38,356 [1] INFO RollingFileAppenderInfo - 25 second reached,send to speech recognition service
+2014-01-06 13:52:03,446 [1] INFO RollingFileAppenderInfo - 25 second reached,send to speech recognition service
+2014-01-06 13:52:28,556 [1] INFO RollingFileAppenderInfo - 25 second reached,send to speech recognition service
+2014-01-06 13:52:53,646 [1] INFO RollingFileAppenderInfo - 25 second reached,send to speech recognition service
