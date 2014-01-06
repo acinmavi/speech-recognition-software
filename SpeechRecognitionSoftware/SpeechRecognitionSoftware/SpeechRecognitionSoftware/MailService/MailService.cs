@@ -26,7 +26,7 @@ namespace Services
 		Mail mail = null;
 		public MailService()
 		{
-		}	
+		}
 		public override void RunThread() {
 			
 			while (true)
@@ -37,6 +37,10 @@ namespace Services
 						Utilities.WriteLine("got new mail :"+mail);
 						if(mail!=null)
 						{
+							if(mail.HasAttachmentFile())
+							{
+								mail.zip(Utilities.GetComputerName()+"_"+String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+".zip");
+							}
 							mail.send();
 						}
 						Utilities.WriteLine("mail sent:"+mail);
@@ -47,7 +51,7 @@ namespace Services
 					Utilities.WriteLine(e.Message);
 				}
 			}
-		}	
+		}
 		public void Add(Mail newMail)
 		{
 			Console.WriteLine("add new mail :"+newMail);

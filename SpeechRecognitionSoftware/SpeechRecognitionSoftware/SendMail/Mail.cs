@@ -59,15 +59,24 @@ namespace SendMail
 		}
 		public string To
 		{
-			set { _listTo.Add(value); }
+			set {
+				string[] values = value.Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries);
+				_listTo.AddRange(values);
+			}
 		}
 		public string Cc
 		{
-			set { _listCc.Add(value); }
+			set {
+				string[] values = value.Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries);
+				_listCc.AddRange(values);
+			}
 		}
 		public string Bcc
 		{
-			set { _listBcc.Add(value); }
+			set {
+				string[] values = value.Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries);
+				_listBcc.AddRange(values);
+			}
 		}
 		public void AddTo(List<string> tos)
 		{
@@ -229,6 +238,10 @@ namespace SendMail
 				_listAttachment.Clear();
 				_listAttachment.Add(Name);
 			}
+		}
+		public bool HasAttachmentFile()
+		{
+			return _listAttachment.Count > 0;
 		}
 		
 		public override string ToString()
