@@ -4,7 +4,7 @@
     <ProjectGuid>{D41AD80C-D497-4AA0-B714-7EAA8C35B59B}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>SpeechRecognitionSoftware</RootNamespace>
     <AssemblyName>SpeechRecognitionSoftware</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>

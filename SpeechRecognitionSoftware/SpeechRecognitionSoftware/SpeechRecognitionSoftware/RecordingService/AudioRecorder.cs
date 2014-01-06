@@ -20,7 +20,7 @@ namespace VoiceRecorder.Audio
 		WaveFileWriter realWriter;
 		string folderName;
 		string temporaryfileName;
-		double AudioThresh = 0.08;
+		double AudioThresh = 0.09;
 		bool isFirstTime = true;
 		int timePeriod = 1800;//30 minutes
 		public event EventHandler Stopped = delegate { };
@@ -197,6 +197,8 @@ namespace VoiceRecorder.Audio
 				int sample = (int)((buffer[index + 1] << 8) |
 				                   buffer[index + 0]);
 				float sample32 = sample / 32768f;
+				if(sample32 > AudioThresh)
+				Console.WriteLine(sample32);
 				sampleAggregator.Add(sample32);
 			}
 			if(isFirstTime)
@@ -269,17 +271,18 @@ namespace VoiceRecorder.Audio
 			bool Tr = false;
 			double Sum2 = 0;
 			int Count = e.BytesRecorded / 2;
+			double Tmp;
 			for (int index = 0; index < e.BytesRecorded; index += 2)
 			{
 				var t = ((e.Buffer[index + 1] << 8) | e.Buffer[index + 0]);
-				double Tmp = (double)((e.Buffer[index + 1] << 8) | e.Buffer[index + 0]);
+				Tmp = (double)((e.Buffer[index + 1] << 8) | e.Buffer[index + 0]);
 				Tmp /= 32768.0;
 				Sum2 += Tmp * Tmp;
-				if (Tmp > AudioThresh)
+				if (Tmp > AudioThresh){
 					Tr = true;
+				}
 			}
 			Sum2 /= Count;
-
 			// If the Mean-Square is greater than a threshold, set a flag to indicate that noise has happened
 			if (Tr || Sum2 > AudioThresh)
 			{
@@ -292,5 +295,6 @@ namespace VoiceRecorder.Audio
 			}
 			return result;
 		}
+		
 	}
 }
