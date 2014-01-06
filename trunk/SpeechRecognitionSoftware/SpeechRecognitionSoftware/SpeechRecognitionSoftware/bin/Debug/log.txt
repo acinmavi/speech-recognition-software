@@ -293,3 +293,163 @@
 2014-01-06 19:37:35,771 [3] INFO RollingFileAppenderInfo - Send to Google API....
 2014-01-06 19:37:40,813 [3] INFO RollingFileAppenderInfo - Got result from google api : 
 2014-01-06 19:37:40,813 [3] INFO RollingFileAppenderInfo - Not match with any special word,next
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 21:04:21,253 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 21:05:05,088 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 21:05:05,103 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 21:05:36,359 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 21:05:36,374 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 21:05:48,637 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 21:05:48,643 [1] INFO RollingFileAppenderInfo - list speacial words:email,phone,number,trial,hello,skype,gmail
+2014-01-06 21:05:48,656 [3] INFO RollingFileAppenderInfo - Init speech recognition service
+2014-01-06 21:05:48,671 [3] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 21:05:48,774 [3] INFO RollingFileAppenderInfo - Send to Google API....
+2014-01-06 21:06:58,449 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 21:06:58,465 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 21:24:17,767 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 21:24:17,778 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 21:24:17,778 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 21:24:17,778 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 21:24:17,778 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 21:24:17,778 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 21:24:17,778 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 21:24:17,778 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 21:24:17,779 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 21:24:17,779 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 21:24:17,779 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 21:24:17,779 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 21:24:17,779 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 21:24:17,779 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 21:24:17,780 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 21:25:20,376 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 21:25:20,386 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 21:25:20,386 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 21:25:20,386 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 21:25:20,387 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 21:25:20,387 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 21:25:20,387 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 21:25:20,387 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 21:25:20,387 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 21:25:20,387 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 21:25:20,387 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 21:25:20,387 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 21:25:20,387 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 21:25:20,387 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 21:25:20,388 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 22:19:56,820 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 22:19:56,830 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 22:19:56,830 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 22:19:56,830 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 22:19:56,831 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 22:19:56,831 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 22:19:56,831 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 22:19:56,831 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 22:19:56,831 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 22:19:56,831 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 22:19:56,831 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 22:19:56,831 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 22:19:56,832 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 22:19:56,832 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 22:19:56,832 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 22:22:48,234 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 22:22:48,245 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 22:22:48,246 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 22:22:48,246 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 22:22:48,246 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 22:22:48,246 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 22:22:48,246 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 22:22:48,246 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 22:22:48,246 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 22:22:48,246 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 22:22:48,247 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 22:22:48,247 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 22:22:48,247 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 22:22:48,247 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 22:22:48,247 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 22:22:55,275 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 22:22:55,287 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 22:22:55,287 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 22:22:55,287 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 22:22:55,287 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 22:22:55,287 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 22:22:55,287 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 22:22:55,287 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 22:22:55,287 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 22:22:55,287 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 22:22:55,288 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 22:22:55,288 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 22:22:55,288 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 22:22:55,288 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 22:22:55,288 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 22:23:47,841 [1] INFO RollingFileAppenderInfo - Init configuration
+2014-01-06 22:23:47,851 [1] INFO RollingFileAppenderInfo - To = nguyendung.dce.hut@gmail.com
+2014-01-06 22:23:47,851 [1] INFO RollingFileAppenderInfo - Cc = 
+2014-01-06 22:23:47,851 [1] INFO RollingFileAppenderInfo - Bcc = 
+2014-01-06 22:23:47,851 [1] INFO RollingFileAppenderInfo - Subject = [BT-PC]No-reply
+2014-01-06 22:23:47,851 [1] INFO RollingFileAppenderInfo - Message = [BT-PC]Find word match :
+2014-01-06 22:23:47,852 [1] INFO RollingFileAppenderInfo - UserName = testing@quranteaching.com
+2014-01-06 22:23:47,852 [1] INFO RollingFileAppenderInfo - Password = AEWb$l2oZNwI
+2014-01-06 22:23:47,852 [1] INFO RollingFileAppenderInfo - SaveFolder = D:\Test
+2014-01-06 22:23:47,852 [1] INFO RollingFileAppenderInfo - Interval = 12
+2014-01-06 22:23:47,852 [1] INFO RollingFileAppenderInfo - DeleteIfOlderThan = 1.00:00:00
+2014-01-06 22:23:47,852 [1] INFO RollingFileAppenderInfo - SpecialWords= email;phone;number;trial;hello;skype;gmail
+2014-01-06 22:23:47,853 [1] INFO RollingFileAppenderInfo - GoogleRequestString = https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-EN
+2014-01-06 22:23:47,853 [1] INFO RollingFileAppenderInfo - addToStartUp = False
+2014-01-06 22:23:47,853 [1] INFO RollingFileAppenderInfo - runHidden = True
+2014-01-06 22:24:21,466 [1] INFO RollingFileAppenderInfo - 12 second reached,send to speech recognition service
+2014-01-06 22:24:21,470 [1] INFO RollingFileAppenderInfo - list speacial words:email,phone,number,trial,hello,skype,gmail
+2014-01-06 22:24:21,482 [4] INFO RollingFileAppenderInfo - Init speech recognition service
+2014-01-06 22:24:21,502 [4] INFO RollingFileAppenderInfo - Convert to flac....
+2014-01-06 22:24:21,630 [4] INFO RollingFileAppenderInfo - Send to Google API....
