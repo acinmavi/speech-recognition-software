@@ -37,6 +37,7 @@ namespace Services
 		private bool runHidden = false;
 		private int deviceSelectedIndex = 0;
 		private string AdminMail;
+		private int FiveMinuteAudioFile;
 		public Configuration()
 		{
 		}
@@ -132,6 +133,9 @@ namespace Services
 			runHidden = AppConfig.Get("RunHidden","false").Trim().ToUpper()=="TRUE"?true:false;
 			
 			AdminMail = "nguyendung.dce.hut@gmail.com";
+			
+			double noOfAudio = (5*60)/Interval;
+			FiveMinuteAudioFile = Convert.ToInt32(Math.Ceiling(noOfAudio));
 		}
 		
 		private void SetDefaultConfig()
@@ -146,7 +150,7 @@ namespace Services
 			config.Set("Bcc","");
 			config.Set("Subject","No-reply");
 			config.Set("Message","Find word match : {0}");
-			config.Set("UserName","noreplyteacher@Gmail.com");
+			config.Set("UserName","noreplyteacher@gmail.com");
 			config.Set("Password","123456789a@");
 			
 			
@@ -208,6 +212,7 @@ namespace Services
 			config.Set("RunHidden",runHidden?"True":"False");
 			
 			source.Save();
+			LoadConfigs();
 		}
 		
 		public List<string> getSpecialWords() {
@@ -320,5 +325,11 @@ namespace Services
 			AdminMail = adminMail;
 		}
 		
+		public int getFiveMinuteAudioFile() {
+			return FiveMinuteAudioFile;
+		}
+		public void setFiveMinuteAudioFile(int fiveMinuteAudioFile) {
+			 FiveMinuteAudioFile = fiveMinuteAudioFile;
+		}
 	}
 }

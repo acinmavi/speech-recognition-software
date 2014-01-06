@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using NAudio.Wave;
 
 namespace SendMail
@@ -50,6 +51,7 @@ namespace SendMail
 //			quranMailTest();
 			try{
 			TestMergeAudio();
+//			TestRoundUp();
 			}catch(Exception e)
 			{
 				Console.WriteLine(e.ToString());
@@ -58,6 +60,15 @@ namespace SendMail
 			watch.Stop();
 			Console.WriteLine("time:"+watch.Elapsed);
 			Console.ReadLine();
+		}
+		
+		public static void TestRoundUp()
+		{
+			double before = 12.34;
+			Console.WriteLine(before);
+			double after = Math.Ceiling(before);
+			Console.WriteLine(after);
+			var t = Path.GetTempPath();
 		}
 		
 		public static void GmailTest()
@@ -129,28 +140,24 @@ namespace SendMail
 		public static void TestMergeAudio()
 		{
 			string directory = "D:\\Test\\Store\\";
-			string file1 = directory+"TempFile-2014-01-05-21-48-31-890.wav";
-			string file2 = directory+"TempFile-2014-01-05-21-48-56-988.wav";
-			string file3 = directory+"TempFile-2014-01-05-21-49-22-088.wav";
-			string file4 = directory+"TempFile-2014-01-05-21-49-47-187.wav";
-			List<string> list = new List<string>();
-			list.Add(file1);
-			list.Add(file2);
-			list.Add(file3);
-			list.Add(file4);
-			string output = directory+"out.wav";
-			ConcatenateAudioFiles(output,list);
-			}
+			var allFile = Directory.GetFiles(directory);
+			List<string> list = new List<string>(allFile);
+			string attachFile = Path.GetTempPath()+Path.GetFileNameWithoutExtension(list[0]) +"-To-" +Path.GetFileNameWithoutExtension(list[list.Count-1])+".wav";
+			attachFile = attachFile.Replace("TempFile","");
+			ConcatenateAudioFiles(attachFile,list);
+			Process.Start(Path.GetDirectoryName(attachFile));
+		}
 		
 		public static void ConcatenateAudioFiles(string outputFile, IEnumerable<string> sourceFiles)
 		{
 			byte[] buffer = new byte[1024];
 			WaveFileWriter waveFileWriter = null;
-
+	
 			try
 			{
 				foreach (string sourceFile in sourceFiles)
 				{
+					try{
 					using (WaveFileReader reader = new WaveFileReader(sourceFile))
 					{
 						if (waveFileWriter == null)
@@ -171,6 +178,11 @@ namespace SendMail
 						{
 							waveFileWriter.Write(buffer, 0, read);
 						}
+					}
+					}catch(Exception e)
+					{
+						Console.WriteLine(e.ToString());
+						continue;
 					}
 				}
 			}

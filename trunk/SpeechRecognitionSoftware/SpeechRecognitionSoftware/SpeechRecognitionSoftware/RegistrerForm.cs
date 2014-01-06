@@ -33,7 +33,7 @@ namespace SpeechRecognitionSoftware
 		
 		void RegistrerFormLoad(object sender, EventArgs e)
 		{
-			lbStatus.Text = "Sending email...";
+			lbStatus.Text = "Please wait,sending email...";
 			tbSerial.Enabled = false;
 			btRegister.Enabled = false;
 			Task.Factory.StartNew(()=>{
