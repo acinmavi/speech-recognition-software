@@ -67,6 +67,7 @@ namespace Services
 						//merge comparation service
 						if(listFileSend == null)
 						{
+							listFileSend = new List<string>();
 							if(IsWordMatched(result))
 							{
 								Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list));
@@ -114,7 +115,6 @@ namespace Services
 		
 		public void DoWork(string filePath)
 		{
-			listFileSend = new List<string>();
 			listFileSend.Add(filePath);
 			if(listFileSend.Count >= Configuration.GetConfiguration().getFiveMinuteAudioFile())
 			{
