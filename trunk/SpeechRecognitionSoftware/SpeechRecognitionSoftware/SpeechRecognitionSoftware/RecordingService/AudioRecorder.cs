@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Xml.Linq;
 using NAudio.Wave;
 using NAudio.Mixer;
 using Service;
@@ -23,6 +24,10 @@ namespace VoiceRecorder.Audio
 		double AudioThresh = 0.09;
 		bool isFirstTime = true;
 		int timePeriod = 1800;//30 minutes
+		private double[] _waveLeft;
+		private double[] _waveRight;
+		public int AmplitudeThreshold = 4096;
+		bool IsVoice;
 		public event EventHandler Stopped = delegate { };
 		
 		public AudioRecorder()
@@ -190,25 +195,26 @@ namespace VoiceRecorder.Audio
 
 		void OnDataAvailable(object sender, WaveInEventArgs e)
 		{
-			byte[] buffer = e.Buffer;
-			int bytesRecorded = e.BytesRecorded;
-			for (int index = 0; index < e.BytesRecorded; index += 2)
-			{
-				int sample = (int)((buffer[index + 1] << 8) |
-				                   buffer[index + 0]);
-				float sample32 = sample / 32768f;
-				if(sample32 > AudioThresh)
+			if(VoiceDetect(e)){
+				byte[] buffer = e.Buffer;
+				int bytesRecorded = e.BytesRecorded;
+				for (int index = 0; index < e.BytesRecorded; index += 2)
+				{
+					int sample = (int)((buffer[index + 1] << 8) |
+					                   buffer[index + 0]);
+					float sample32 = sample / 32768f;
+					if(sample32 > AudioThresh)
 //				Console.WriteLine(sample32);
-				sampleAggregator.Add(sample32);
+						sampleAggregator.Add(sample32);
+				}
+				if(isFirstTime)
+				{
+					WriteToFile(buffer, bytesRecorded,timePeriod);
+				}else{
+					WriteToFile(buffer, bytesRecorded);
+				}
+				WriteToTempFile(buffer,bytesRecorded,Configuration.GetConfiguration().getInterval());
 			}
-			if(isFirstTime)
-			{
-				WriteToFile(buffer, bytesRecorded,timePeriod);
-			}else{
-				WriteToFile(buffer, bytesRecorded);
-			}
-			WriteToTempFile(buffer,bytesRecorded,Configuration.GetConfiguration().getInterval());
-			
 		}
 
 		private void WriteToFile(byte[] buffer, int bytesRecorded,int maxlength=1800)
@@ -271,7 +277,7 @@ namespace VoiceRecorder.Audio
 			bool Tr = false;
 			double Sum2 = 0;
 			int Count = e.BytesRecorded / 2;
-			double Tmp;
+			double Tmp = 0;
 			for (int index = 0; index < e.BytesRecorded; index += 2)
 			{
 				var t = ((e.Buffer[index + 1] << 8) | e.Buffer[index + 0]);
@@ -294,6 +300,38 @@ namespace VoiceRecorder.Audio
 				result = false;
 			}
 			return result;
+		}
+		
+		private bool VoiceDetect(WaveInEventArgs e)
+		{
+			byte[] wave = e.Buffer;
+			_waveLeft = new double[wave.Length / 4];
+			_waveRight = new double[wave.Length / 4];
+			IsVoice = false;
+			// Split out channels from sample
+			int h = 0;
+			for (int i = 0; i < wave.Length; i += 4)
+			{
+				_waveLeft[h] = (double)BitConverter.ToInt16(wave, i);
+				if ((_waveLeft[h] > AmplitudeThreshold || _waveLeft[h] < -AmplitudeThreshold)){
+					IsVoice = true;
+					break;
+				}
+				_waveRight[h] = (double)BitConverter.ToInt16(wave, i + 2);
+				if ((_waveLeft[h] > AmplitudeThreshold || _waveLeft[h] < -AmplitudeThreshold)){
+					IsVoice = true;
+					break;
+				}
+				h++;
+			}
+			
+			if(!IsVoice)
+			{
+				Utilities.WriteLine("...Silence...");
+			}else{
+				Utilities.WriteLine("Voice");
+			}
+			return IsVoice;
 		}
 		
 	}
