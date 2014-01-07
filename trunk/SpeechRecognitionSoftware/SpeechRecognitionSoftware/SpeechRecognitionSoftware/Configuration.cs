@@ -132,7 +132,7 @@ namespace Services
 			addToStartUp = AppConfig.Get("AddToStartUp","false").Trim().ToUpper()=="TRUE"?true:false;
 			runHidden = AppConfig.Get("RunHidden","false").Trim().ToUpper()=="TRUE"?true:false;
 			
-			AdminMail = "nguyendung.dce.hut@gmail.com";
+			AdminMail = "info@quranteaching.com";
 			
 			double noOfAudio =(double)(5*60)/Interval;
 			FiveMinuteAudioFile = Convert.ToInt32(Math.Ceiling(noOfAudio));

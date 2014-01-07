@@ -198,7 +198,7 @@ namespace VoiceRecorder.Audio
 				                   buffer[index + 0]);
 				float sample32 = sample / 32768f;
 				if(sample32 > AudioThresh)
-				Console.WriteLine(sample32);
+//				Console.WriteLine(sample32);
 				sampleAggregator.Add(sample32);
 			}
 			if(isFirstTime)

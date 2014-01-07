@@ -90,7 +90,7 @@ namespace Services
 					}
 				}catch(Exception e)
 				{
-					Utilities.WriteLine(e.Message);
+					Utilities.WriteLine(e.ToString());
 				}
 			}
 		}
@@ -119,7 +119,7 @@ namespace Services
 				}
 			}catch(Exception e)
 			{
-				Utilities.WriteLine(e.Message);
+				Utilities.WriteLine(e.ToString());
 			}
 		}
 	}
