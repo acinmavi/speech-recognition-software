@@ -11,6 +11,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Service;
+using Services;
 
 namespace SpeechRecognitionSoftware
 {
@@ -37,7 +38,7 @@ namespace SpeechRecognitionSoftware
 			tbSerial.Enabled = false;
 			btRegister.Enabled = false;
 			Task.Factory.StartNew(()=>{
-			                      	return Utilities.SendEmailSerialKey();
+			                      	return Utilities.SendEmailSerialKey(Configuration.GetConfiguration().getAdminMail());
 			                      }).ContinueWith((o)=>
 			                {
 			                	if(o.Result){

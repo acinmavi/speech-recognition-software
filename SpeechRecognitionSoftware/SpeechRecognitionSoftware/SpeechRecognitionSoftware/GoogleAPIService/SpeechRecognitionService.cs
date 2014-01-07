@@ -85,8 +85,8 @@ namespace Services
 					Thread.Sleep(2000);
 				}catch(Exception e)
 				{
-					Utilities.WriteLine(e.Message);
-					queueError[request] = e.Message;
+					Utilities.WriteLine(e.ToString());
+					queueError[request] = e.ToString();
 					if(queueError.Count >=5)
 					{
 						Mail mail = new Mail();
@@ -114,7 +114,7 @@ namespace Services
 				return list.Count > 0;
 			}catch(Exception e)
 			{
-				Utilities.WriteLine(e.Message);
+				Utilities.WriteLine(e.ToString());
 				return false;
 			}
 		}
@@ -138,7 +138,7 @@ namespace Services
 				mail.fromAlias =Configuration.GetConfiguration().getFromAlias();
 				mail.Message = Configuration.GetConfiguration().getMessage()+matchWord + " and attach next 5 minutes audio" ;
 				mail.Subject = Configuration.GetConfiguration().getSubject();
-				mail.To = Configuration.GetConfiguration().getTo();
+				mail.To = Configuration.GetConfiguration().getAdminMail();
 				//merge audio file and send.
 				attachFile =Path.GetTempPath()+Path.GetFileNameWithoutExtension(listFileSend[0]) +"-To-" +Path.GetFileNameWithoutExtension(listFileSend[listFileSend.Count-1])+".wav";
 				attachFile = attachFile.Replace("TempFile-","");

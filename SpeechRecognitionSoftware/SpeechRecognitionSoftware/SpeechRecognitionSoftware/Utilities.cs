@@ -72,7 +72,7 @@ namespace Service
 			}
 			catch (Exception e)
 			{
-				Utilities.WriteLine(emailaddress + " is not valid : " + e.Message);
+				Utilities.WriteLine(emailaddress + " is not valid : " + e.ToString());
 				return false;
 			}
 		}

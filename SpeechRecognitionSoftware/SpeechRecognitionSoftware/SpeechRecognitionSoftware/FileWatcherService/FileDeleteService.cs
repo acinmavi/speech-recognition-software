@@ -44,7 +44,7 @@ namespace Services
 					Thread.Sleep(Configuration.GetConfiguration().getInterval()*1000);
 				}catch(Exception e)
 				{
-					Utilities.WriteLine(e.Message);
+					Utilities.WriteLine(e.ToString());
 				}
 			}
 		}
