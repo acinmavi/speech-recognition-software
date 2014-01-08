@@ -34,6 +34,7 @@ namespace Services
 		List<string> listFileSend = null;
 		string attachFile;
 		string matchWord;
+		int RETRY = 3;
 		
 		public static SpeechRecognitionService GetSpeechRecognitionService()
 		{
@@ -61,13 +62,28 @@ namespace Services
 				try{
 					if(queue.TryDequeue(out request))
 					{
-						file = File.ReadAllBytes(request);
-						memory = new MemoryStream(file);
-						result = SoundRecognition.WavStreamToGoogle(memory);
-						Utilities.WriteLine("Got result from google api : "+result);
 						//merge comparation service
 						if(listFileSend == null || listFileSend.Count == 0)
 						{
+							file = File.ReadAllBytes(request);
+							memory = new MemoryStream(file);
+							for (int i = 0; i <= RETRY;i++) {
+								try{
+									result = SoundRecognition.WavStreamToGoogle(memory);
+									break;
+								}catch(Exception e)
+								{
+									Utilities.WriteLine("got exception when sending to google api,detail : "+e.ToString());
+									if(i!=0)
+									Utilities.WriteLine("retry " +i+" to send to google Api");
+									if(i==RETRY)
+									{
+										throw new Exception("Max retry reached,detail error :"+e.Message);
+									}
+								}
+							}
+							Utilities.WriteLine("Got result from google api : "+result);
+							
 							listFileSend = new List<string>();
 							if(IsWordMatched(result))
 							{
@@ -86,16 +102,16 @@ namespace Services
 				}catch(Exception e)
 				{
 					Utilities.WriteLine(e.ToString());
-					queueError[request] = e.ToString();
+					queueError[request] = e.Message;
 					if(queueError.Count >=5)
 					{
 						Mail mail = new Mail();
 						mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword(),false);
-						mail.fromAlias ="["+Utilities.GetComputerName()+"]" +"Error audio";
+						mail.fromAlias ="["+Utilities.GetComputerName()+"]" +"Error audio report";
 						mail.Message = string.Join("\r\n", queueError.Select(x => Path.GetFileName(x.Key) + ",Error : " + x.Value).ToArray());
 						mail.Subject = Configuration.GetConfiguration().getSubject();
 						mail.To = Configuration.GetConfiguration().getAdminMail();
-						mail.attach(queueError.Keys.ToList());
+//						mail.attach(queueError.Keys.ToList());
 						MailService.GetMailService().Add(mail);
 						queueError.Clear();
 					}

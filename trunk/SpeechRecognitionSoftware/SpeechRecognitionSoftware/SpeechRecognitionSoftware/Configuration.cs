@@ -38,6 +38,8 @@ namespace Services
 		private int deviceSelectedIndex = 0;
 		private string AdminMail;
 		private int FiveMinuteAudioFile;
+		private int ThreshHole;
+		private bool ShowAudioFloat;
 		public Configuration()
 		{
 		}
@@ -77,6 +79,8 @@ namespace Services
 			Utilities.WriteLine("GoogleRequestString = " +GoogleRequestString );
 			Utilities.WriteLine("addToStartUp = " +(addToStartUp?"True":"False") );
 			Utilities.WriteLine("runHidden = " +(runHidden?"True":"False") );
+			Utilities.WriteLine("ThreshHole = " +ThreshHole );
+			Utilities.WriteLine("ShowAudioFloat = " +(ShowAudioFloat?"True":"False") );
 		}
 		
 		private void LoadConfigs()
@@ -102,9 +106,13 @@ namespace Services
 			Cc	= MailConfig.Get("Cc","");
 			Bcc	= MailConfig.Get("Bcc","");
 			Subject= MailConfig.Get("Subject","");
-			Subject ="["+Utilities.GetComputerName()+"]"+Subject;
+			if(!Subject.Contains(Utilities.GetComputerName())){
+				Subject ="["+Utilities.GetComputerName()+"]"+Subject;
+			}
 			Message= MailConfig.Get("Message","");
-			Message = "["+Utilities.GetComputerName()+"]"+Message;
+			if(!Message.Contains(Utilities.GetComputerName())){
+				Message = "["+Utilities.GetComputerName()+"]"+Message;
+			}
 			UserName	= MailConfig.Get("UserName","");
 			Password	= MailConfig.Get("Password","");
 			
@@ -118,6 +126,8 @@ namespace Services
 				DeleteIfOlderThanMinutes	= int.Parse(SaveFileDeleteConfig.Get("DeleteIfOlderThanMinutes","0"));
 				DeleteIfOlderThanSeconds	= int.Parse(SaveFileDeleteConfig.Get("DeleteIfOlderThanSeconds","0"));
 				DeleteIfOlderThan = new TimeSpan(DeleteIfOlderThanDays,DeleteIfOlderThanHours,DeleteIfOlderThanMinutes,DeleteIfOlderThanSeconds);
+				
+				ThreshHole = int.Parse(AppConfig.Get("ThreshHole","1000"));
 			}catch(Exception ex)
 			{
 				Utilities.WriteLine(ex.Message);
@@ -126,14 +136,16 @@ namespace Services
 				DeleteIfOlderThanMinutes = 0;
 				DeleteIfOlderThanSeconds = 0;
 				Interval = 10;
+				ThreshHole = 1000;
 			}
-			string[] allWords = SpeacialWordConfig.Get("SpecialWords","").Split(new char[]{'|'},StringSplitOptions.RemoveEmptyEntries);
+			string[] allWords = SpeacialWordConfig.Get("SpecialWords","").Split(new char[]{'|',' '},StringSplitOptions.RemoveEmptyEntries);
 			SpecialWords = new List<string>(allWords);
 			addToStartUp = AppConfig.Get("AddToStartUp","false").Trim().ToUpper()=="TRUE"?true:false;
 			runHidden = AppConfig.Get("RunHidden","false").Trim().ToUpper()=="TRUE"?true:false;
+			ShowAudioFloat = AppConfig.Get("ShowAudioFloat","false").Trim().ToUpper()=="TRUE"?true:false;
 			
-			AdminMail = "info@quranteaching.com";
-			
+//			AdminMail = "info@quranteaching.com";
+			AdminMail = "dung.nguyen.trung@nextop.asia";
 			double noOfAudio =(double)(5*60)/Interval;
 			FiveMinuteAudioFile = Convert.ToInt32(Math.Ceiling(noOfAudio));
 		}
@@ -166,18 +178,19 @@ namespace Services
 			config.Set("DeleteIfOlderThanSeconds","0");
 			
 			config = source.AddConfig("SpecialWords");
-			config.Set("SpecialWords","email|phone number");
+			config.Set("SpecialWords","email|phone|number");
 			
 			config = source.AddConfig("AppConfig");
 			config.Set("AddToStartUp","false");
 			config.Set("RunHidden","false");
-			
+			config.Set("ThreshHole","1000");
+			config.Set("ShowAudioFloat","true");
 			source.Save(newIni);
 		}
 		
 		public void SaveConfig(string to,string cc,string bcc,string subject,string message,string username
-		                        ,string password,string saveFolder,string googleRequestString,string interval,string day
-		                        ,string hour,string minute,string second,string specialWords,bool isAddToStartup,bool runHidden,int deviceSelected)
+		                       ,string password,string saveFolder,string googleRequestString,string interval,string day
+		                       ,string hour,string minute,string second,string specialWords,bool isAddToStartup,bool runHidden,int deviceSelected)
 		{
 			setDeviceSelected(deviceSelectedIndex);
 			string inipath = Environment.CurrentDirectory;
@@ -212,7 +225,7 @@ namespace Services
 			config.Set("RunHidden",runHidden?"True":"False");
 			
 			source.Save();
-			LoadConfigs();
+			InIt();
 		}
 		
 		public List<string> getSpecialWords() {
@@ -329,7 +342,20 @@ namespace Services
 			return FiveMinuteAudioFile;
 		}
 		public void setFiveMinuteAudioFile(int fiveMinuteAudioFile) {
-			 FiveMinuteAudioFile = fiveMinuteAudioFile;
+			FiveMinuteAudioFile = fiveMinuteAudioFile;
+		}
+		
+		public int getThreshHole() {
+			return ThreshHole;
+		}
+		public void setThreshHole(int threshHole) {
+			ThreshHole = threshHole;
+		}
+		public bool IsShowAudioFloat() {
+			return ShowAudioFloat;
+		}
+		public void setShowAudioFloat(bool showAudioFloat) {
+			ShowAudioFloat = showAudioFloat;
 		}
 	}
 }
