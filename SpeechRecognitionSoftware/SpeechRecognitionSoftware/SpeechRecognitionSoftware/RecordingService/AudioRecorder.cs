@@ -26,7 +26,6 @@ namespace VoiceRecorder.Audio
 		int timePeriod = 1800;//30 minutes
 		private double[] _waveLeft;
 		private double[] _waveRight;
-		public int AmplitudeThreshold = 4096;
 		bool IsVoice;
 		public event EventHandler Stopped = delegate { };
 		
@@ -313,23 +312,25 @@ namespace VoiceRecorder.Audio
 			for (int i = 0; i < wave.Length; i += 4)
 			{
 				_waveLeft[h] = (double)BitConverter.ToInt16(wave, i);
-				if ((_waveLeft[h] > AmplitudeThreshold || _waveLeft[h] < -AmplitudeThreshold)){
+				if ((_waveLeft[h] > Configuration.GetConfiguration().getThreshHole() || _waveLeft[h] < -Configuration.GetConfiguration().getThreshHole())){
 					IsVoice = true;
 					break;
 				}
 				_waveRight[h] = (double)BitConverter.ToInt16(wave, i + 2);
-				if ((_waveLeft[h] > AmplitudeThreshold || _waveLeft[h] < -AmplitudeThreshold)){
+				if ((_waveLeft[h] > Configuration.GetConfiguration().getThreshHole() || _waveLeft[h] < -Configuration.GetConfiguration().getThreshHole())){
 					IsVoice = true;
 					break;
 				}
 				h++;
 			}
 			
-			if(!IsVoice)
-			{
-				Utilities.WriteLine("...Silence...");
-			}else{
-				Utilities.WriteLine("Voice");
+			if(Configuration.GetConfiguration().IsShowAudioFloat()){
+				if(!IsVoice)
+				{
+					Utilities.WriteLine("...Silence Detected..."+Math.Max(_waveLeft.Select(o=>Math.Abs(o)).Max(),_waveRight.Select(o=>Math.Abs(o)).Max()));
+				}else{
+					Utilities.WriteLine("...Voice Detected..."+Math.Max(_waveLeft.Select(o=>Math.Abs(o)).Max(),_waveRight.Select(o=>Math.Abs(o)).Max()));
+				}
 			}
 			return IsVoice;
 		}
