@@ -28,7 +28,7 @@ namespace VoiceRecorder.Audio
 		private double[] _waveRight;
 		bool IsVoice;
 		public event EventHandler Stopped = delegate { };
-		
+		static int TimeSilentDetected = -1;
 		public AudioRecorder()
 		{
 			sampleAggregator = new SampleAggregator();
@@ -323,15 +323,18 @@ namespace VoiceRecorder.Audio
 				}
 				h++;
 			}
-			
 			if(Configuration.GetConfiguration().IsShowAudioFloat()){
 				if(!IsVoice)
 				{
+					TimeSilentDetected++;
 					Utilities.WriteLine("...Silence Detected..."+Math.Max(_waveLeft.Select(o=>Math.Abs(o)).Max(),_waveRight.Select(o=>Math.Abs(o)).Max()));
 				}else{
+					TimeSilentDetected = -1;
 					Utilities.WriteLine("...Voice Detected..."+Math.Max(_waveLeft.Select(o=>Math.Abs(o)).Max(),_waveRight.Select(o=>Math.Abs(o)).Max()));
 				}
 			}
+			IsVoice = IsVoice || (TimeSilentDetected<=(Configuration.GetConfiguration().getStopRecordWhenSilentAfter()*10));
+			Utilities.WriteLine(TimeSilentDetected.ToString());
 			return IsVoice;
 		}
 		

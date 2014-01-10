@@ -89,7 +89,7 @@ namespace Services
 							{
 								
 								Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list));
-								Utilities.WriteLine("We will wait and send mail with 5 minutes audio to admin");
+								Utilities.WriteLine("We will wait and send mail with "+Configuration.GetConfiguration().getAudioLengthSend()+" minutes audio to admin");
 								DoWork(request);
 							}else{
 								Utilities.WriteLine("Not match with any special word,next");
@@ -105,8 +105,8 @@ namespace Services
 					queueError[request] = e.Message;
 					if(queueError.Count >=5)
 					{
-						Mail mail = new Mail();
-						mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword(),false);
+						Mail mail = new Mail(Configuration.GetConfiguration().getSmtpServer(),Configuration.GetConfiguration().getSmtpPort());
+						mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword(),Configuration.GetConfiguration().IsUseSsl());
 						mail.fromAlias ="["+Utilities.GetComputerName()+"]" +"Error audio report";
 						mail.Message = string.Join("\r\n", queueError.Select(x => Path.GetFileName(x.Key) + ",Error : " + x.Value).ToArray());
 						mail.Subject = Configuration.GetConfiguration().getSubject();
@@ -140,9 +140,9 @@ namespace Services
 			listFileSend.Add(filePath);
 			if(listFileSend.Count >= Configuration.GetConfiguration().getFiveMinuteAudioFile())
 			{
-				Utilities.WriteLine("Start sending mail with 5 min audio attachment.");
-				Mail mail = new Mail();
-				mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword());
+				Utilities.WriteLine("Start sending mail with "+Configuration.GetConfiguration().getAudioLengthSend()+" min audio attachment.");
+				Mail mail = new Mail(Configuration.GetConfiguration().getSmtpServer(),Configuration.GetConfiguration().getSmtpPort());
+				mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword(),Configuration.GetConfiguration().IsUseSsl());
 				if(!string.IsNullOrEmpty(Configuration.GetConfiguration().getCc()))
 				{
 					mail.Cc = Configuration.GetConfiguration().getCc();
@@ -152,7 +152,7 @@ namespace Services
 					mail.Bcc = Configuration.GetConfiguration().getBcc();
 				}
 				mail.fromAlias =Configuration.GetConfiguration().getFromAlias();
-				mail.Message = Configuration.GetConfiguration().getMessage()+matchWord + " and attach next 5 minutes audio" ;
+				mail.Message = Configuration.GetConfiguration().getMessage()+matchWord + " and attach next "+Configuration.GetConfiguration().getAudioLengthSend()+" minutes audio" ;
 				mail.Subject = Configuration.GetConfiguration().getSubject();
 				mail.To = Configuration.GetConfiguration().getAdminMail();
 				//merge audio file and send.

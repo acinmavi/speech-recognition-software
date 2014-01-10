@@ -40,6 +40,11 @@ namespace Services
 		private int FiveMinuteAudioFile;
 		private int ThreshHole;
 		private bool ShowAudioFloat;
+		private int StopRecordWhenSilentAfter;
+		private float AudioLengthSend;
+		private int smtpPort;
+		private string smtpServer;
+		private bool isUseSsl;
 		public Configuration()
 		{
 		}
@@ -144,10 +149,53 @@ namespace Services
 			runHidden = AppConfig.Get("RunHidden","false").Trim().ToUpper()=="TRUE"?true:false;
 			ShowAudioFloat = AppConfig.Get("ShowAudioFloat","false").Trim().ToUpper()=="TRUE"?true:false;
 			
-//			AdminMail = "info@quranteaching.com";
-			AdminMail = "dung.nguyen.trung@nextop.asia";
-			double noOfAudio =(double)(5*60)/Interval;
+			AdminMail = AppConfig.Get("AdminMail","");
+			if(string.IsNullOrEmpty(AdminMail)){
+				AdminMail = "info@quranteaching.com";
+			}
+			
+			if(AppConfig.Contains("StopRecordWhenSilentAfter"))
+			{
+				if(!int.TryParse(AppConfig.Get("StopRecordWhenSilentAfter"),out StopRecordWhenSilentAfter))
+					StopRecordWhenSilentAfter = 0;
+			}else{
+				StopRecordWhenSilentAfter = 0;
+			}
+			
+			if(AppConfig.Contains("AudioLengthSend"))
+			{
+				if(!float.TryParse(AppConfig.Get("AudioLengthSend"),out AudioLengthSend))
+					AudioLengthSend = 0;
+			}else{
+				AudioLengthSend = 5;
+			}
+			double noOfAudio =(double)(AudioLengthSend*60)/Interval;
 			FiveMinuteAudioFile = Convert.ToInt32(Math.Ceiling(noOfAudio));
+			
+			
+			smtpServer = AppConfig.Get("SmtpServer","");
+			if(string.IsNullOrEmpty(smtpServer)){
+				smtpServer = "mail.quranteaching.com";
+			}
+			
+			if(AppConfig.Contains("SmtpPort"))
+			{
+				if(!int.TryParse(AppConfig.Get("SmtpPort"),out smtpPort))
+					smtpPort = 26;
+			}else{
+				smtpPort = 26;
+			}
+			
+			if(AppConfig.Contains("IsUseSsl"))
+			{
+				if(AppConfig.Get("IsUseSsl").ToUpper() == "TRUE"){
+					isUseSsl = true;
+				}else{
+					isUseSsl = false;
+				}
+			}else{
+				isUseSsl = false;
+			}
 		}
 		
 		private void SetDefaultConfig()
@@ -356,6 +404,41 @@ namespace Services
 		}
 		public void setShowAudioFloat(bool showAudioFloat) {
 			ShowAudioFloat = showAudioFloat;
+		}
+		public int getStopRecordWhenSilentAfter() {
+			return StopRecordWhenSilentAfter;
+		}
+
+		public void setStopRecordWhenSilentAfter(int stopRecordWhenSilentAfter) {
+			StopRecordWhenSilentAfter = stopRecordWhenSilentAfter;
+		}
+		
+		public int getSmtpPort() {
+			return smtpPort;
+		}
+
+		public void setSmtpPort(int smtpPort) {
+			this.smtpPort = smtpPort;
+		}
+
+		public string getSmtpServer() {
+			return smtpServer;
+		}
+
+		public void setSmtpServer(string smtpServer) {
+			this.smtpServer = smtpServer;
+		}
+
+		public bool IsUseSsl() {
+			return isUseSsl;
+		}
+
+		public void setUseSsl(bool isUseSsl) {
+			this.isUseSsl = isUseSsl;
+		}
+		
+		public float getAudioLengthSend() {
+			return AudioLengthSend;
 		}
 	}
 }

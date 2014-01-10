@@ -110,7 +110,7 @@ namespace SendMail
 			get { return this._html; }
 			set { this._html = value; }
 		}
-		public Mail(string smtpServer="mail.quranteaching.com",int port=26,int timeout=300) {
+		public Mail(string smtpServer="mail.quranteaching.com",int port=26,int timeout=600) {
 			mailClient = new SmtpClient(smtpServer, port);
 			mailClient.Timeout = timeout*1000;
 		}
