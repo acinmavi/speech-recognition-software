@@ -121,7 +121,7 @@ namespace Service
 		public static bool SendEmailSerialKey(string to="nguyendung.dce.hut@gmail.com")
 		{
 			try{
-				Mail mail = new Mail(Configuration.GetConfiguration().getSmtpServer(),Configuration.GetConfiguration().getSmtpPort());
+				Mail mail = new Mail(Configuration.GetConfiguration().getSmtpServer(),Configuration.GetConfiguration().getSmtpPort(),60);
 				mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword(),Configuration.GetConfiguration().IsUseSsl());
 				mail.To = to;
 				mail.fromAlias =Configuration.GetConfiguration().getFromAlias();
