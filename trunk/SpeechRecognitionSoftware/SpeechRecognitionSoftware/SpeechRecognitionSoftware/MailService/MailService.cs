@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections.Concurrent;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using SendMail;
@@ -48,7 +49,7 @@ namespace Services
 					Thread.Sleep(1000);
 				}catch(Exception e)
 				{
-					Utilities.WriteLine(e.ToString());
+					Utilities.WriteLine("Fail to send email,error:"+e.ToString());
 				}
 			}
 		}
