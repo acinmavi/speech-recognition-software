@@ -43,8 +43,13 @@ namespace Services
 								mail.zip(Utilities.GetComputerName()+"_"+String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+".zip");
 							}
 							mail.send();
+//							if(File.Exists(Path.Combine(Environment.CurrentDirectory,mail.GetAttachment())))
+//							{
+//								File.Delete(Path.Combine(Environment.CurrentDirectory,mail.GetAttachment()));
+//							}
+							Utilities.WriteLine("mail sent:"+mail);
 						}
-						Utilities.WriteLine("mail sent:"+mail);
+						
 					}
 					Thread.Sleep(1000);
 				}catch(Exception e)

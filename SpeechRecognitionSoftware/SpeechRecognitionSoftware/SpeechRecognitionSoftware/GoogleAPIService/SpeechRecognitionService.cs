@@ -65,17 +65,18 @@ namespace Services
 						//merge comparation service
 						if(listFileSend == null || listFileSend.Count == 0)
 						{
-							file = File.ReadAllBytes(request);
-							memory = new MemoryStream(file);
+							
 							for (int i = 0; i <= RETRY;i++) {
 								try{
+									file = File.ReadAllBytes(request);
+									memory = new MemoryStream(file);
 									result = SoundRecognition.WavStreamToGoogle(memory);
 									break;
 								}catch(Exception e)
 								{
 									Utilities.WriteLine("got exception when sending to google api,detail : "+e.ToString());
 									if(i!=0)
-									Utilities.WriteLine("retry " +i+" to send to google Api");
+										Utilities.WriteLine("retry " +i+" to send to google Api");
 									if(i==RETRY)
 									{
 										throw new Exception("Max retry reached,detail error :"+e.Message);

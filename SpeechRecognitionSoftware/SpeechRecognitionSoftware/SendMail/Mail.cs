@@ -203,6 +203,13 @@ namespace SendMail
 		{
 			_listAttachment.AddRange(files);
 		}
+		public string GetAttachment()
+		{
+			if(_listAttachment.Count > 0)
+				return _listAttachment[0];
+			else
+				return "";
+		}
 
 		public void zip(string Name=null, string Password=null)
 		{

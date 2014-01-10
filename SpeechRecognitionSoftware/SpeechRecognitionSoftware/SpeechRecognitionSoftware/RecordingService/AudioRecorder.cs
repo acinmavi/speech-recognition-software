@@ -26,6 +26,7 @@ namespace VoiceRecorder.Audio
 		int timePeriod = 1800;//30 minutes
 		private double[] _waveLeft;
 		private double[] _waveRight;
+		
 		bool IsVoice;
 		public event EventHandler Stopped = delegate { };
 		static int TimeSilentDetected = -1;
@@ -91,7 +92,11 @@ namespace VoiceRecorder.Audio
 				var now = DateTime.Now;
 				if(now.Minute > 30)
 				{
-					next = new DateTime(now.Year,now.Month,now.Day,now.Hour+1,0,0);
+					if(now.Hour <23)
+						next = new DateTime(now.Year,now.Month,now.Day,now.Hour+1,0,0);
+					else
+						next = new DateTime(now.Year,now.Month,now.Day+1,0,0,0);
+					
 					timePeriod = (int)TimeSpan.FromTicks(next.Ticks-now.Ticks).TotalSeconds;
 				}else if(now.Minute < 30){
 					next = new DateTime(now.Year,now.Month,now.Day,now.Hour,30,0);
@@ -312,11 +317,13 @@ namespace VoiceRecorder.Audio
 			for (int i = 0; i < wave.Length; i += 4)
 			{
 				_waveLeft[h] = (double)BitConverter.ToInt16(wave, i);
+				
 				if ((_waveLeft[h] > Configuration.GetConfiguration().getThreshHole() || _waveLeft[h] < -Configuration.GetConfiguration().getThreshHole())){
 					IsVoice = true;
 					break;
 				}
 				_waveRight[h] = (double)BitConverter.ToInt16(wave, i + 2);
+				
 				if ((_waveLeft[h] > Configuration.GetConfiguration().getThreshHole() || _waveLeft[h] < -Configuration.GetConfiguration().getThreshHole())){
 					IsVoice = true;
 					break;
