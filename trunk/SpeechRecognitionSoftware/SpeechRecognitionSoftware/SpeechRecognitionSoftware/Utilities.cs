@@ -27,9 +27,11 @@ namespace Service
 		public readonly static ILog log = log4net.LogManager.GetLogger("RollingFileAppenderInfo");
 		const string TripleDESKey = "LEMON";
 		
-		public static void WriteLine(string input)
+		public static void WriteLine(string input,bool console=false)
 		{
+			if(console){
 			Console.WriteLine(input);
+			}
 			log.Info(input);
 		}
 		

@@ -75,6 +75,7 @@ namespace Services
 								}catch(Exception e)
 								{
 									Utilities.WriteLine("got exception when sending to google api,detail : "+e.ToString());
+									Utilities.WriteLine("google return:"+e.Message,true);
 									if(i!=0)
 										Utilities.WriteLine("retry " +i+" to send to google Api");
 									if(i==RETRY)
@@ -83,17 +84,17 @@ namespace Services
 									}
 								}
 							}
-							Utilities.WriteLine("Got result from google api : "+result);
+							Utilities.WriteLine("Got result from google api : "+result,true);
 							
 							listFileSend = new List<string>();
 							if(IsWordMatched(result))
 							{
 								
-								Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list));
+								Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list),true);
 								Utilities.WriteLine("We will wait and send mail with "+Configuration.GetConfiguration().getAudioLengthSend()+" minutes audio to admin");
 								DoWork(request);
 							}else{
-								Utilities.WriteLine("Not match with any special word,next");
+								Utilities.WriteLine("Not match with any special word,next",true);
 							}
 						}else{
 							DoWork(request);
@@ -141,7 +142,7 @@ namespace Services
 			listFileSend.Add(filePath);
 			if(listFileSend.Count >= Configuration.GetConfiguration().getFiveMinuteAudioFile())
 			{
-				Utilities.WriteLine("Start sending mail with "+Configuration.GetConfiguration().getAudioLengthSend()+" min audio attachment.");
+				Utilities.WriteLine("Start sending mail with "+Configuration.GetConfiguration().getAudioLengthSend()+" min audio attachment.",true);
 				Mail mail = new Mail(Configuration.GetConfiguration().getSmtpServer(),Configuration.GetConfiguration().getSmtpPort());
 				mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword(),Configuration.GetConfiguration().IsUseSsl());
 				if(!string.IsNullOrEmpty(Configuration.GetConfiguration().getCc()))

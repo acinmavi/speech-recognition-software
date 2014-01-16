@@ -65,7 +65,7 @@ namespace Services
 			}
 			catch (Exception ex)
 			{
-				Utilities.WriteLine(ex.Message);
+				Utilities.WriteLine(ex.ToString());
 				SetDefaultConfig();
 				LoadConfigs();
 			}
@@ -135,7 +135,7 @@ namespace Services
 				ThreshHole = int.Parse(AppConfig.Get("ThreshHole","1000"));
 			}catch(Exception ex)
 			{
-				Utilities.WriteLine(ex.Message);
+				Utilities.WriteLine(ex.ToString());
 				DeleteIfOlderThanDays    = 1;
 				DeleteIfOlderThanHours   = 0;
 				DeleteIfOlderThanMinutes = 0;

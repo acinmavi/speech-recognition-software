@@ -47,7 +47,7 @@ namespace Services
 //							{
 //								File.Delete(Path.Combine(Environment.CurrentDirectory,mail.GetAttachment()));
 //							}
-							Utilities.WriteLine("mail sent:"+mail);
+							Utilities.WriteLine("mail sent:"+mail,true);
 						}
 						
 					}
@@ -55,6 +55,7 @@ namespace Services
 				}catch(Exception e)
 				{
 					Utilities.WriteLine("Fail to send email,error:"+e.ToString());
+					Utilities.WriteLine("Can not send mail : "+mail,true);
 				}
 			}
 		}
