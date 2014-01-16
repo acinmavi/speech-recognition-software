@@ -84,13 +84,14 @@ namespace Services
 				try{
 					if(queue.TryDequeue(out result))
 					{
-						Utilities.WriteLine("new google API result :"+result);
+						Utilities.WriteLine("new google API result :"+result,true);
 						CheckResult(result);
 						Thread.Sleep(1000);
 					}
 				}catch(Exception e)
 				{
 					Utilities.WriteLine(e.ToString());
+					Utilities.WriteLine(e.Message,true);
 				}
 			}
 		}
@@ -101,7 +102,7 @@ namespace Services
 				list = listWord.Where(o=>result.ToUpper().Contains(o.ToUpper())).ToList();
 				if(list.Count() > 0)
 				{
-					Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list));
+					Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list),true);
 					Mail mail = new Mail();
 					mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword());
 					if(!string.IsNullOrEmpty(Configuration.GetConfiguration().getCc()))
@@ -115,7 +116,7 @@ namespace Services
 					MailService.GetMailService().Add(mail);
 					
 				}else{
-					Utilities.WriteLine("Not match any special words");
+					Utilities.WriteLine("Not match any special words",true);
 				}
 			}catch(Exception e)
 			{

@@ -341,7 +341,7 @@ namespace VoiceRecorder.Audio
 				}
 			}
 			IsVoice = IsVoice || (TimeSilentDetected<=(Configuration.GetConfiguration().getStopRecordWhenSilentAfter()*10));
-			Utilities.WriteLine(TimeSilentDetected.ToString());
+			//Utilities.WriteLine(TimeSilentDetected.ToString());
 			return IsVoice;
 		}
 		
