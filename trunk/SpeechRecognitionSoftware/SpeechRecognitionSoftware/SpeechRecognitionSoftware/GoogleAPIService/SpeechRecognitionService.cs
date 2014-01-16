@@ -65,7 +65,6 @@ namespace Services
 						//merge comparation service
 						if(listFileSend == null || listFileSend.Count == 0)
 						{
-							
 							for (int i = 0; i <= RETRY;i++) {
 								try{
 									file = File.ReadAllBytes(request);
@@ -75,7 +74,7 @@ namespace Services
 								}catch(Exception e)
 								{
 									Utilities.WriteLine("got exception when sending to google api,detail : "+e.ToString());
-									Utilities.WriteLine("google return:"+e.Message,true);
+									Utilities.WriteLine("google return:"+e.Message);
 									if(i!=0)
 										Utilities.WriteLine("retry " +i+" to send to google Api");
 									if(i==RETRY)
@@ -84,19 +83,25 @@ namespace Services
 									}
 								}
 							}
-							Utilities.WriteLine("Got result from google api : "+result,true);
+							Utilities.WriteLine("Got result from google api : "+result);
 							
 							listFileSend = new List<string>();
 							if(IsWordMatched(result))
 							{
-								
 								Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list),true);
 								Utilities.WriteLine("We will wait and send mail with "+Configuration.GetConfiguration().getAudioLengthSend()+" minutes audio to admin");
 								DoWork(request);
 							}else{
-								Utilities.WriteLine("Not match with any special word,next",true);
+								Utilities.WriteLine("Not match with any special word,next");
 							}
 						}else{
+							file = File.ReadAllBytes(request);
+							memory = new MemoryStream(file);
+							result = SoundRecognition.WavStreamToGoogle(memory);
+							if(IsWordMatched(result))
+							{
+								Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list),true);
+							}
 							DoWork(request);
 						}
 					}
@@ -105,7 +110,9 @@ namespace Services
 				{
 					Utilities.WriteLine(e.ToString());
 					queueError[request] = e.Message;
-					if(queueError.Count >=5)
+					DateTime now = DateTime.Now;
+					DateTime compare = new DateTime(now.Year,now.Month,now.Day,23,55,00);
+					if(compare.CompareTo(now) <= 0)
 					{
 						Mail mail = new Mail(Configuration.GetConfiguration().getSmtpServer(),Configuration.GetConfiguration().getSmtpPort());
 						mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword(),Configuration.GetConfiguration().IsUseSsl());
@@ -124,7 +131,7 @@ namespace Services
 		public bool IsWordMatched(string result)
 		{
 			try{
-				list = listWord.Where(o=>result.ToUpper().Contains(o.ToUpper())).ToList();
+				list = listWord.Where(o=>result.ToUpper().Contains(o.ToUpper())).Distinct().ToList();
 				if(list.Count > 0)
 				{
 					matchWord = string.Join(",",list.ToArray());
@@ -142,7 +149,7 @@ namespace Services
 			listFileSend.Add(filePath);
 			if(listFileSend.Count >= Configuration.GetConfiguration().getFiveMinuteAudioFile())
 			{
-				Utilities.WriteLine("Start sending mail with "+Configuration.GetConfiguration().getAudioLengthSend()+" min audio attachment.",true);
+				Utilities.WriteLine("Start sending mail with "+Configuration.GetConfiguration().getAudioLengthSend()+" min audio attachment.");
 				Mail mail = new Mail(Configuration.GetConfiguration().getSmtpServer(),Configuration.GetConfiguration().getSmtpPort());
 				mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword(),Configuration.GetConfiguration().IsUseSsl());
 				if(!string.IsNullOrEmpty(Configuration.GetConfiguration().getCc()))
