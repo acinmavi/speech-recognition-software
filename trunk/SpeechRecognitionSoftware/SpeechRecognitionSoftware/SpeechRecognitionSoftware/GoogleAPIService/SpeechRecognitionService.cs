@@ -74,7 +74,7 @@ namespace Services
 								}catch(Exception e)
 								{
 									Utilities.WriteLine("got exception when sending to google api,detail : "+e.ToString());
-									Utilities.WriteLine("google return:"+e.Message);
+									Utilities.WriteLine("google return:"+e.Message,true);
 									if(i!=0)
 										Utilities.WriteLine("retry " +i+" to send to google Api");
 									if(i==RETRY)
