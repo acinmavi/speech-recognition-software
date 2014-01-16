@@ -84,14 +84,14 @@ namespace Services
 				try{
 					if(queue.TryDequeue(out result))
 					{
-						Utilities.WriteLine("new google API result :"+result,true);
+						Utilities.WriteLine("new google API result :"+result);
 						CheckResult(result);
 						Thread.Sleep(1000);
 					}
 				}catch(Exception e)
 				{
 					Utilities.WriteLine(e.ToString());
-					Utilities.WriteLine(e.Message,true);
+					Utilities.WriteLine(e.Message);
 				}
 			}
 		}
@@ -116,7 +116,7 @@ namespace Services
 					MailService.GetMailService().Add(mail);
 					
 				}else{
-					Utilities.WriteLine("Not match any special words",true);
+					Utilities.WriteLine("Not match any special words");
 				}
 			}catch(Exception e)
 			{

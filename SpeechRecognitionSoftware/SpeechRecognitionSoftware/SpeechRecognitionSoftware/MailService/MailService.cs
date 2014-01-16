@@ -47,7 +47,7 @@ namespace Services
 //							{
 //								File.Delete(Path.Combine(Environment.CurrentDirectory,mail.GetAttachment()));
 //							}
-							Utilities.WriteLine("mail sent:"+mail,true);
+							Utilities.WriteLine("mail sent:"+mail);
 						}
 						
 					}
@@ -55,13 +55,13 @@ namespace Services
 				}catch(Exception e)
 				{
 					Utilities.WriteLine("Fail to send email,error:"+e.ToString());
-					Utilities.WriteLine("Can not send mail : "+mail,true);
+					Utilities.WriteLine("Can not send mail : "+mail);
 				}
 			}
 		}
 		public void Add(Mail newMail)
 		{
-			Console.WriteLine("add new mail :"+newMail);
+			Utilities.WriteLine("add new mail :"+newMail);
 			queue.Enqueue(newMail);
 		}
 		
