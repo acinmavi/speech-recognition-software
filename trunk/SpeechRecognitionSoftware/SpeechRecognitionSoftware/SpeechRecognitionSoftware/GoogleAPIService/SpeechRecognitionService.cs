@@ -34,7 +34,7 @@ namespace Services
 		List<string> listFileSend = null;
 		string attachFile;
 		string matchWord;
-		int RETRY = 3;
+		int RETRY = 0;
 		
 		public static SpeechRecognitionService GetSpeechRecognitionService()
 		{
@@ -83,7 +83,7 @@ namespace Services
 									}
 								}
 							}
-							Utilities.WriteLine("Got result from google api : "+result);
+							Utilities.WriteLine("Got result from google api : "+result,true);
 							
 							listFileSend = new List<string>();
 							if(IsWordMatched(result))
@@ -98,6 +98,7 @@ namespace Services
 							file = File.ReadAllBytes(request);
 							memory = new MemoryStream(file);
 							result = SoundRecognition.WavStreamToGoogle(memory);
+							Utilities.WriteLine("Got result from google api : "+result,true);
 							if(IsWordMatched(result))
 							{
 								Utilities.WriteLine("Recognize sentences : " +result + " , word(s) found:"+string.Join(",",list),true);
