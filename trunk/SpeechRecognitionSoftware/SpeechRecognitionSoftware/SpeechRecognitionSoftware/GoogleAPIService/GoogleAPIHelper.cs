@@ -50,7 +50,7 @@ namespace Services
                 request.Method = "POST";
                 request.ContentType = "audio/x-flac; rate=" + sampleRate;
                 request.ContentLength = bytes.Length;
-
+                request.Timeout = Configuration.GetConfiguration().getTimeout()*1000;
                 stream = request.GetRequestStream();
 
                 stream.Write(bytes, 0, bytes.Length);

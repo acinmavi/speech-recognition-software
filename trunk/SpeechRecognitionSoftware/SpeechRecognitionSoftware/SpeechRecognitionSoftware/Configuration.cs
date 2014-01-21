@@ -45,6 +45,7 @@ namespace Services
 		private int smtpPort;
 		private string smtpServer;
 		private bool isUseSsl;
+		private int Timeout;
 		public Configuration()
 		{
 		}
@@ -195,6 +196,15 @@ namespace Services
 				}
 			}else{
 				isUseSsl = false;
+			}
+			
+			
+			if(AppConfig.Contains("Timeout"))
+			{
+				if(!int.TryParse(AppConfig.Get("Timeout"),out Timeout))
+					Timeout = 60;
+			}else{
+				Timeout = 60;
 			}
 		}
 		
@@ -440,5 +450,10 @@ namespace Services
 		public float getAudioLengthSend() {
 			return AudioLengthSend;
 		}
+		
+		public int getTimeout() {
+			return Timeout;
+		}
+
 	}
 }
