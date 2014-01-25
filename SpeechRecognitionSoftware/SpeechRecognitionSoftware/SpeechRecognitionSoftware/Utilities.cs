@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Mail;
 using System.Net.NetworkInformation;
 using System.Security.Cryptography;
@@ -30,7 +31,7 @@ namespace Service
 		public static void WriteLine(string input,bool console=false)
 		{
 			if(console){
-			Console.WriteLine(input);
+				Console.WriteLine(input);
 			}
 			log.Info(input);
 		}
@@ -213,6 +214,37 @@ namespace Service
 				}
 			}
 
+		}
+		
+		
+		public static string UnescapeXml(string s)
+		{
+			string unxml = WebUtility.HtmlDecode(s);
+			if ( !string.IsNullOrEmpty( unxml ) )
+			{
+				// replace entities with literal values
+				unxml = unxml.Replace( "&apos;", "'" );
+				unxml = unxml.Replace( "&quot;", "\"" );
+				unxml = unxml.Replace( "&gt;", ">;" );
+				unxml = unxml.Replace( "&lt;", "<" );
+				unxml = unxml.Replace( "&amp;", "&" );
+			}
+			return unxml;
+		}
+		
+		/// <summary>
+		/// download html string from address
+		/// </summary>
+		/// <param name="address"></param>
+		/// <returns></returns>
+		public static string DownloadString (string address)
+		{
+			using(WebClient client = new WebClient ())
+			{
+				client.Encoding = Encoding.UTF8;
+				string reply = client.DownloadString (address);
+				return UnescapeXml(reply);
+			}
 		}
 	}
 }
