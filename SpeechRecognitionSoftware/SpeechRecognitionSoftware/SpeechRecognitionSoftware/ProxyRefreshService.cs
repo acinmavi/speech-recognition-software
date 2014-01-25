@@ -8,9 +8,11 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 using Service;
 using Services;
 
@@ -33,17 +35,28 @@ namespace SpeechRecognitionSoftware
 			while (true)
 			{
 				try{
-					Utilities.WriteLine("start get fresh proxies");
+					Stopwatch sw = new Stopwatch();
+					sw.Start();
+					Console.WriteLine("start get fresh proxies",true);
 					data = Utilities.DownloadString(url);
 					datas = data.Split(new char[] {'\n','\r'},StringSplitOptions.RemoveEmptyEntries);
-					var array =Regex.Matches(data, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\:\d{1,8}\b", RegexOptions.IgnoreCase).Cast<Match>()
+					var tmpProxies =Regex.Matches(data, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\:\d{1,8}\b", RegexOptions.IgnoreCase).Cast<Match>()
 						.Select(m => m.Groups[0].Value)
-						.ToArray();;
-					
-						Thread.Sleep(60000);
+						.ToList();
+					Parallel.ForEach(tmpProxies,(proxy) => {
+					                 	Console.WriteLine("scanning " + proxy);
+					                 	bool isok = Utilities.ScanPort(proxy);
+					                 	Console.WriteLine("finish scanning " + proxy + " ,result :"+(isok?"OK":"NOK"));
+					                 	if(isok){
+					                 		proxies.Add(proxy);
+					                 	}
+					                 });
+					sw.Stop();
+					Console.WriteLine(sw.Elapsed.ToString(),true);
+					Thread.Sleep(60000);
 				}catch(Exception e)
 				{
-					Utilities.WriteLine(e.ToString());
+					Console.WriteLine(e.ToString());
 				}
 			}
 		}
