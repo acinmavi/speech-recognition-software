@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
 using log4net;
@@ -245,6 +246,48 @@ namespace Service
 				string reply = client.DownloadString (address);
 				return UnescapeXml(reply);
 			}
+		}
+		
+		public static bool ScanPort(string sIP, int Port)
+		{
+			TcpClient aSocket;
+			IPAddress IP;
+			if(!IPAddress.TryParse(sIP,out IP)) return false;
+			aSocket = new TcpClient();			
+			try
+			{
+				aSocket.Connect(IP, Port);
+			}
+			catch(Exception ex)
+			{
+				// Something went wrong
+				return false;
+			}
+			if(aSocket.Connected)
+			{
+				// Got connected to Address+Port
+				aSocket.Close();
+				aSocket = null;
+				return true;
+			}
+			else
+			{
+				// Not connected
+				aSocket.Close();
+				aSocket = null;
+				return false;
+			}
+		}
+		
+		public static bool ScanPort(string sIPandPort)
+		{
+			//split
+			string[] ipAndPorts = sIPandPort.Split(new char[]{':'},StringSplitOptions.RemoveEmptyEntries);
+			if(ipAndPorts.Length!=2) return false;
+			
+			int port;
+			if(!int.TryParse(ipAndPorts[1],out port)) return false;
+			return ScanPort(ipAndPorts[0],port);
 		}
 	}
 }
