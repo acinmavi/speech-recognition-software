@@ -23,6 +23,7 @@ namespace VoiceRecorder.Audio
 		string temporaryfileName;
 		double AudioThresh = 0.09;
 		bool isFirstTime = true;
+		bool isFirstTimeWriteTempFile = true;
 		int timePeriod = 1800;//30 minutes
 		private double[] _waveLeft;
 		private double[] _waveRight;
@@ -30,6 +31,7 @@ namespace VoiceRecorder.Audio
 		bool IsVoice;
 		public event EventHandler Stopped = delegate { };
 		static int TimeSilentDetected = -1;
+		public static bool IsSilenceNow = false;
 		public AudioRecorder()
 		{
 			sampleAggregator = new SampleAggregator();
@@ -249,6 +251,10 @@ namespace VoiceRecorder.Audio
 		}
 		private void WriteToTempFile(byte[] buffer, int bytesRecorded,int maxlength)
 		{
+			if(isFirstTimeWriteTempFile){
+				Utilities.WriteLine(String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+"---start speaking",true);
+				isFirstTimeWriteTempFile = false;
+			}
 			long maxFileLength = this.recordingFormat.AverageBytesPerSecond * maxlength;
 			if (recordingState == RecordingState.Recording
 			    || recordingState == RecordingState.RequestedStop)
@@ -269,6 +275,7 @@ namespace VoiceRecorder.Audio
 					//File.Delete(temporaryfileName);
 					temporaryfileName = Path.Combine(folderName,"TempFile-"+String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+ ".wav");
 					writer = new WaveFileWriter(temporaryfileName,recordingFormat);
+					Utilities.WriteLine(String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+"---start speaking",true);
 				}
 			}
 		}
@@ -336,11 +343,15 @@ namespace VoiceRecorder.Audio
 					TimeSilentDetected++;
 					Utilities.WriteLine("...Silence Detected..."+Math.Max(_waveLeft.Select(o=>Math.Abs(o)).Max(),_waveRight.Select(o=>Math.Abs(o)).Max()));
 				}else{
+					IsSilenceNow = false;
 					TimeSilentDetected = -1;
 					Utilities.WriteLine("...Voice Detected..."+Math.Max(_waveLeft.Select(o=>Math.Abs(o)).Max(),_waveRight.Select(o=>Math.Abs(o)).Max()));
 				}
 			}
 			IsVoice = IsVoice || (TimeSilentDetected<=(Configuration.GetConfiguration().getStopRecordWhenSilentAfter()*10));
+			if(TimeSilentDetected>(Configuration.GetConfiguration().getSilenceTimeToSendErrorAudio()*10)){
+				IsSilenceNow  =true;
+			}
 			//Utilities.WriteLine(TimeSilentDetected.ToString());
 			return IsVoice;
 		}

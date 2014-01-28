@@ -9,11 +9,14 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Threading;
 using SendMail;
 using Service;
 using System.Linq;
+using SpeechRecognitionSoftware;
+
 namespace Services
 {
 	/// <summary>
@@ -35,6 +38,7 @@ namespace Services
 		string attachFile;
 		string matchWord;
 		int RETRY = 0;
+		public static List<string> allListAudio = new List<string>();
 		
 		public static SpeechRecognitionService GetSpeechRecognitionService()
 		{
@@ -53,6 +57,7 @@ namespace Services
 		public void Add(string newRequest)
 		{
 			queue.Enqueue(newRequest);
+			allListAudio.Add(newRequest);
 		}
 		
 		public override void RunThread() {
@@ -83,7 +88,8 @@ namespace Services
 									}
 								}
 							}
-							Utilities.WriteLine("Got result from google api : "+result,true);
+							
+							Utilities.WriteLine(String.Format("{0:yyyy-MM-dd-HH-mm-ss-fff}",DateTime.Now)+"---Got result from google api : "+result,true);
 							
 							listFileSend = new List<string>();
 							if(IsWordMatched(result))
@@ -111,9 +117,14 @@ namespace Services
 				{
 					Utilities.WriteLine(e.ToString());
 					queueError[request] = e.Message;
+					ErrorAudioSendingService.getErrorAudioSendingService().Add(request);
 					DateTime now = DateTime.Now;
-					DateTime compare = new DateTime(now.Year,now.Month,now.Day,23,55,00);
-					if(compare.CompareTo(now) <= 0)
+					DateTime compare = DateTime.ParseExact(request,
+                                        "yyyy-MM-dd-HH-mm-ss-fff",
+                                        CultureInfo.InvariantCulture,
+                                        DateTimeStyles.None);
+					DateTime compare2 = new DateTime(compare.Year,compare.Month,compare.Day,23,59,00);
+					if(compare.CompareTo(now) < 0)
 					{
 						Mail mail = new Mail(Configuration.GetConfiguration().getSmtpServer(),Configuration.GetConfiguration().getSmtpPort());
 						mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword(),Configuration.GetConfiguration().IsUseSsl());
@@ -124,6 +135,7 @@ namespace Services
 //						mail.attach(queueError.Keys.ToList());
 						MailService.GetMailService().Add(mail);
 						queueError.Clear();
+						allListAudio.Clear();
 					}
 				}
 			}

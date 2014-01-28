@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="ComparationService\ComparationService.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="ErrorAudioSendingService.cs" />
     <Compile Include="FileWatcherService\FileDeleteService.cs" />
     <Compile Include="GoogleAPIService\GoogleAPIHelper.cs" />
     <Compile Include="GoogleAPIService\SpeechRecognitionService.cs" />
@@ -78,6 +79,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyRefreshService.cs" />
     <Compile Include="RecordingService\AudioRecorder.cs" />
     <Compile Include="RecordingService\IAudioRecorder.cs" />
     <Compile Include="RecordingService\RecordingState.cs" />

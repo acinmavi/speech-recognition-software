@@ -252,7 +252,8 @@ namespace Service
 		{
 			TcpClient aSocket;
 			IPAddress IP;
-			if(!IPAddress.TryParse(sIP,out IP)) return false;
+			bool result = false;
+			if(!IPAddress.TryParse(sIP,out IP)) result = false;
 			aSocket = new TcpClient();			
 			try
 			{
@@ -261,22 +262,26 @@ namespace Service
 			catch(Exception ex)
 			{
 				// Something went wrong
-				return false;
+				result = false;
 			}
 			if(aSocket.Connected)
 			{
 				// Got connected to Address+Port
 				aSocket.Close();
 				aSocket = null;
-				return true;
+				result = true;
 			}
 			else
 			{
 				// Not connected
 				aSocket.Close();
 				aSocket = null;
-				return false;
+				result = false;
 			}
+			if(result){
+				Configuration.GetConfiguration().addWebProxy(new WebProxy(sIP,Port));
+			}
+			return result;
 		}
 		
 		public static bool ScanPort(string sIPandPort)

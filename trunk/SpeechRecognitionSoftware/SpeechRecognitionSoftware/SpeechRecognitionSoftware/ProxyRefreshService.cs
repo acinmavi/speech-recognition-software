@@ -25,7 +25,6 @@ namespace SpeechRecognitionSoftware
 	{
 		static ProxyRefreshService proxyRefreshService =  null;
 		string data;
-		List<string> proxies = new List<string>();
 		string url = "http://proxy-ip-list.com/download/free-proxy-list.txt";
 		string[] datas;
 		public ProxyRefreshService()
@@ -38,22 +37,21 @@ namespace SpeechRecognitionSoftware
 					Stopwatch sw = new Stopwatch();
 					sw.Start();
 					Console.WriteLine("start get fresh proxies",true);
-					data = Utilities.DownloadString(url);
+					Configuration.GetConfiguration().clearListProxy();
+					data = Utilities.DownloadString(Configuration.GetConfiguration().getProxyListUrl());
 					datas = data.Split(new char[] {'\n','\r'},StringSplitOptions.RemoveEmptyEntries);
 					var tmpProxies =Regex.Matches(data, @"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\:\d{1,8}\b", RegexOptions.IgnoreCase).Cast<Match>()
 						.Select(m => m.Groups[0].Value)
 						.ToList();
 					Parallel.ForEach(tmpProxies,(proxy) => {
-					                 	Console.WriteLine("scanning " + proxy);
+//					                 	Console.WriteLine("scanning " + proxy);
 					                 	bool isok = Utilities.ScanPort(proxy);
-					                 	Console.WriteLine("finish scanning " + proxy + " ,result :"+(isok?"OK":"NOK"));
-					                 	if(isok){
-					                 		proxies.Add(proxy);
-					                 	}
+//					                 	Console.WriteLine("finish scanning " + proxy + " ,result :"+(isok?"OK":"NOK"));
+					                 
 					                 });
 					sw.Stop();
-					Console.WriteLine(sw.Elapsed.ToString(),true);
-					Thread.Sleep(60000);
+//					Console.WriteLine(sw.Elapsed.ToString(),true);
+					Thread.Sleep(60*1000*1000);
 				}catch(Exception e)
 				{
 					Console.WriteLine(e.ToString());
