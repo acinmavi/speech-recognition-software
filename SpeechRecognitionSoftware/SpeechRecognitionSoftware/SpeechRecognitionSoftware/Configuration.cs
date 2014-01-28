@@ -8,8 +8,12 @@
  */
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Windows.Forms;
 using Nini.Config;
 using Service;
+using SpeechRecognitionSoftware;
 
 namespace Services
 {
@@ -46,6 +50,12 @@ namespace Services
 		private string smtpServer;
 		private bool isUseSsl;
 		private int Timeout;
+		private List<WebProxy> listProxy = new List<WebProxy>();
+		private string proxyFileName = "proxies.txt";
+		private bool isUseProxy = false;
+		static int proxyIndex = -1;
+		private string proxyUrl;
+		private int SilenceTimeToSendErrorAudio;
 		public Configuration()
 		{
 		}
@@ -86,7 +96,8 @@ namespace Services
 			Utilities.WriteLine("addToStartUp = " +(addToStartUp?"True":"False") );
 			Utilities.WriteLine("runHidden = " +(runHidden?"True":"False") );
 			Utilities.WriteLine("ThreshHole = " +ThreshHole );
-			Utilities.WriteLine("ShowAudioFloat = " +(ShowAudioFloat?"True":"False") );
+			Utilities.WriteLine("ShowAudioFloat = " +(ShowAudioFloat?"True":"False"));
+			
 		}
 		
 		private void LoadConfigs()
@@ -198,6 +209,25 @@ namespace Services
 				isUseSsl = false;
 			}
 			
+			if(AppConfig.Contains("IsUseProxy"))
+			{
+				if(AppConfig.Get("IsUseProxy").ToUpper() == "TRUE"){
+					isUseProxy = true;
+				}else{
+					isUseProxy = false;
+				}
+			}else{
+				isUseProxy = true;
+			}
+			if(isUseProxy){
+//				string proxyFile = Path.Combine(Environment.CurrentDirectory,proxyFileName);
+//				if(File.Exists(proxyFile))
+//					listProxy = getListProxyFromFile(proxyFile);
+				
+				ProxyRefreshService.GetProxyRefreshService();
+			}
+
+			
 			
 			if(AppConfig.Contains("Timeout"))
 			{
@@ -205,6 +235,19 @@ namespace Services
 					Timeout = 60;
 			}else{
 				Timeout = 60;
+			}
+			
+			proxyUrl = AppConfig.Get("ProxyListUrl","");
+			if(string.IsNullOrEmpty(proxyUrl)){
+				smtpServer = "http://proxy-ip-list.com/download/free-proxy-list.txt";
+			}
+			
+			if(AppConfig.Contains("SilenceTimeToSendErrorAudio"))
+			{
+				if(!int.TryParse(AppConfig.Get("SilenceTimeToSendErrorAudio"),out SilenceTimeToSendErrorAudio))
+					SilenceTimeToSendErrorAudio = 10;
+			}else{
+				SilenceTimeToSendErrorAudio = 10;
 			}
 		}
 		
@@ -284,6 +327,26 @@ namespace Services
 			
 			source.Save();
 			InIt();
+		}
+		
+		private List<WebProxy> getListProxyFromFile(string file)
+		{
+			List<WebProxy> list = new List<WebProxy>();
+			string[] lines = System.IO.File.ReadAllLines(file);
+			WebProxy proxy = null;
+			int port;
+			foreach (var line in lines) {
+				string[] info = line.Split(new char[]{':'},StringSplitOptions.RemoveEmptyEntries);
+				if(info.Length == 2)
+				{
+					if(int.TryParse(info[1],out port)){
+						proxy = new WebProxy(info[0],port);
+						Utilities.WriteLine(info[0]+"---" + port);
+						list.Add(proxy);
+					}
+				}
+			}
+			return list;
 		}
 		
 		public List<string> getSpecialWords() {
@@ -451,9 +514,58 @@ namespace Services
 			return AudioLengthSend;
 		}
 		
+		public List<WebProxy> getListWebProxy() {
+			return listProxy;
+		}
+		
+		public void addWebProxy(WebProxy proxy) {
+			if(listProxy == null) listProxy = new List<WebProxy>();
+			listProxy.Add(proxy);
+		}
+		public void addWebProxy(string ip,int port) {
+			if(listProxy == null) listProxy = new List<WebProxy>();
+			WebProxy proxy = new WebProxy(ip,port);
+			listProxy.Add(proxy);
+		}
+		
+		public void removeWebProxy(WebProxy proxy) {
+			if(listProxy == null) return;
+			listProxy.Remove(proxy);
+		}
+		
+		public WebProxy getWebProxy(int index) {
+			if(index ==-1 ||  listProxy.Count < index) return null;
+			return listProxy[index];
+		}
 		public int getTimeout() {
 			return Timeout;
 		}
 
+		public WebProxy getNextWebProxy() {
+			if(proxyIndex ==-1 ||  listProxy.Count < proxyIndex)
+			{	
+				proxyIndex++;
+				return null;
+			}
+			WebProxy proxy =  listProxy[proxyIndex];
+			proxyIndex++;
+			if(proxyIndex>(listProxy.Count -1))
+				proxyIndex = -1;
+			
+			return proxy;
+		}
+		
+		public void clearListProxy()
+		{
+			listProxy.Clear();
+		}
+
+		public string getProxyListUrl() {
+			return proxyUrl;
+		}
+		
+		public int getSilenceTimeToSendErrorAudio() {
+			return SilenceTimeToSendErrorAudio;
+		}
 	}
 }
