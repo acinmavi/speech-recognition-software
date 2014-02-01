@@ -31,7 +31,7 @@ namespace Service
 		
 		public static void WriteLine(string input,bool console=false)
 		{
-			if(console){
+			if(console && Configuration.GetConfiguration().IsShowBlackScreen()){
 				Console.WriteLine(input);
 			}
 			log.Info(input);
