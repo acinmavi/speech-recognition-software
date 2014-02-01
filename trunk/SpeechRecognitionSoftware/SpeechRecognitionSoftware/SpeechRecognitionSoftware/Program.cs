@@ -9,6 +9,8 @@
 using System;
 using System.Windows.Forms;
 using Service;
+using System.Runtime.InteropServices;
+using Services;
 
 namespace SpeechRecognitionSoftware
 {
@@ -17,6 +19,8 @@ namespace SpeechRecognitionSoftware
 	/// </summary>
 	internal sealed class Program
 	{
+		[DllImport("kernel32.dll", SetLastError=true)]
+		private static extern int FreeConsole();
 		/// <summary>
 		/// Program entry point.
 		/// </summary>
@@ -25,6 +29,10 @@ namespace SpeechRecognitionSoftware
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+			if(!Configuration.GetConfiguration().IsShowBlackScreen())
+			{
+				 FreeConsole(); 
+			}
 			if(!Utilities.IsSerialKeyHasInitialize())
 			{
 				Application.Run(new RegistrerForm());

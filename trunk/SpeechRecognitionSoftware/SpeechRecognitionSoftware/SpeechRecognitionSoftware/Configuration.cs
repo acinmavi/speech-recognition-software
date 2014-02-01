@@ -58,6 +58,7 @@ namespace Services
 		static int currentProxy = -1;
 		private string proxyUrl;
 		private int SilenceTimeToSendErrorAudio;
+		private bool ShowBlackScreen;
 		public Configuration()
 		{
 		}
@@ -250,6 +251,17 @@ namespace Services
 					SilenceTimeToSendErrorAudio = 10;
 			}else{
 				SilenceTimeToSendErrorAudio = 10;
+			}
+			
+			if(AppConfig.Contains("ShowBlackScreen"))
+			{
+				if(AppConfig.Get("ShowBlackScreen").ToUpper() == "TRUE"){
+					ShowBlackScreen = true;
+				}else{
+					ShowBlackScreen = false;
+				}
+			}else{
+				ShowBlackScreen = false;
 			}
 		}
 		
@@ -512,6 +524,14 @@ namespace Services
 			this.isUseSsl = isUseSsl;
 		}
 		
+		public bool IsShowBlackScreen() {
+			return ShowBlackScreen;
+		}
+
+		public void setShowBlackScreen(bool ShowBlackScreen) {
+			this.ShowBlackScreen = ShowBlackScreen;
+		}
+		
 		public float getAudioLengthSend() {
 			return AudioLengthSend;
 		}
@@ -544,18 +564,24 @@ namespace Services
 		}
 
 		public WebProxy getNextWebProxy() {
+			WebProxy proxy = null;
 			currentProxy = proxyIndex;
 			if(listProxy.Count <= 0) return null;
 			if(proxyIndex ==-1 ||  listProxy.Count < proxyIndex)
 			{
 				proxyIndex++;
-				return null;
+			}else{
+				 proxy =  listProxy[proxyIndex];
+				proxyIndex++;
+				if(proxyIndex>(listProxy.Count -1))
+					proxyIndex = -1;
 			}
-			WebProxy proxy =  listProxy[proxyIndex];
-			proxyIndex++;
-			if(proxyIndex>(listProxy.Count -1))
-				proxyIndex = -1;
-			
+			try{
+				Utilities.WriteLine("current list proxy : "+string.Join("----",listProxy.Select(o=>(o.Address.Host+":"+o.Address.Port)).ToList()),true);
+			}catch(Exception e)
+			{
+				Utilities.WriteLine(e.ToString());
+			}
 			return proxy;
 		}
 		
@@ -563,9 +589,9 @@ namespace Services
 		{
 			try{
 				if(listProxy.Count > 0 && currentProxy!=-1){
-					Utilities.WriteLine("Delete proxy that not working : " + listProxy[currentProxy].Address.Host+":"+listProxy[currentProxy].Address.Port);
+					Utilities.WriteLine("Delete proxy that not working : " + listProxy[currentProxy].Address.Host+":"+listProxy[currentProxy].Address.Port,true);
 					listProxy.RemoveAt(currentProxy);
-					Utilities.WriteLine("current list proxy : "+string.Join("----",listProxy.Select(o=>(o.Address.Host+":"+o.Address.Port)).ToList()));
+					Utilities.WriteLine("current list proxy : "+string.Join("----",listProxy.Select(o=>(o.Address.Host+":"+o.Address.Port)).ToList()),true);
 					currentProxy = proxyIndex = -1;
 				}
 			}catch(Exception e)

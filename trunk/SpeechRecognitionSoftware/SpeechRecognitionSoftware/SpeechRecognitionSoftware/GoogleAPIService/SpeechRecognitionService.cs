@@ -121,7 +121,6 @@ namespace Services
 				{
 					try{
 					Utilities.WriteLine(e.ToString());
-					
 					Configuration.GetConfiguration().removeCurrentProxy();
 					queueError[request] = e.Message;
 					ErrorAudioSendingService.getErrorAudioSendingService().Add(request);
