@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using Nini.Config;
@@ -54,6 +55,7 @@ namespace Services
 		private string proxyFileName = "proxies.txt";
 		private bool isUseProxy = false;
 		static int proxyIndex = -1;
+		static int currentProxy = -1;
 		private string proxyUrl;
 		private int SilenceTimeToSendErrorAudio;
 		public Configuration()
@@ -542,8 +544,10 @@ namespace Services
 		}
 
 		public WebProxy getNextWebProxy() {
+			currentProxy = proxyIndex;
+			if(listProxy.Count <= 0) return null;
 			if(proxyIndex ==-1 ||  listProxy.Count < proxyIndex)
-			{	
+			{
 				proxyIndex++;
 				return null;
 			}
@@ -553,6 +557,21 @@ namespace Services
 				proxyIndex = -1;
 			
 			return proxy;
+		}
+		
+		public void removeCurrentProxy()
+		{
+			try{
+				if(listProxy.Count > 0 && currentProxy!=-1){
+					Utilities.WriteLine("Delete proxy that not working : " + listProxy[currentProxy].Address.Host+":"+listProxy[currentProxy].Address.Port);
+					listProxy.RemoveAt(currentProxy);
+					Utilities.WriteLine("current list proxy : "+string.Join("----",listProxy.Select(o=>(o.Address.Host+":"+o.Address.Port)).ToList()));
+					currentProxy = proxyIndex = -1;
+				}
+			}catch(Exception e)
+			{
+				Utilities.WriteLine(e.ToString());
+			}
 		}
 		
 		public void clearListProxy()

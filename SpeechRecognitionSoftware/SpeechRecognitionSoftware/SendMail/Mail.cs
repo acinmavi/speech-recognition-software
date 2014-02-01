@@ -215,7 +215,9 @@ namespace SendMail
 		{
 			if(string.IsNullOrEmpty(Name))
 			{
-				Name = "MailAttach_" +DateTime.Now.Ticks.ToString() +".zip";
+				Name = Path.Combine(Path.GetTempPath(),"MailAttach_" +DateTime.Now.Ticks.ToString() +".zip");
+			}else{
+				Name = Path.Combine(Path.GetTempPath(),Name);
 			}
 			if (File.Exists(Name))
 			{
@@ -225,7 +227,7 @@ namespace SendMail
 				}
 				catch
 				{
-					Name = "MailAttach_" + DateTime.Now.Ticks.ToString() + Name;
+					Name =  Path.Combine(Path.GetTempPath(),"MailAttach_" + DateTime.Now.Ticks.ToString() + Name);
 				}
 				_zipFileName = Name;
 			}
