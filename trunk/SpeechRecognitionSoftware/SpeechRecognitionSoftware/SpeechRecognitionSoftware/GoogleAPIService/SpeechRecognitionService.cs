@@ -72,9 +72,11 @@ namespace Services
 						{
 							for (int i = 0; i <= RETRY;i++) {
 								try{
+									Utilities.WriteLine("sending " + Path.GetFileName(request) + " to google api");
 									file = File.ReadAllBytes(request);
 									memory = new MemoryStream(file);
 									result = SoundRecognition.WavStreamToGoogle(memory);
+									Utilities.WriteLine("get result of " + Path.GetFileName(request) + " from google api : "+result);
 									break;
 								}catch(Exception e)
 								{
@@ -101,9 +103,11 @@ namespace Services
 								Utilities.WriteLine("Not match with any special word,next");
 							}
 						}else{
+							Utilities.WriteLine("sending " + Path.GetFileName(request) + " to google api");
 							file = File.ReadAllBytes(request);
 							memory = new MemoryStream(file);
 							result = SoundRecognition.WavStreamToGoogle(memory);
+							Utilities.WriteLine("get result of " + Path.GetFileName(request) + " from google api : "+result);
 							Utilities.WriteLine("Got result from google api : "+result,true);
 							if(IsWordMatched(result))
 							{
@@ -115,16 +119,20 @@ namespace Services
 					Thread.Sleep(2000);
 				}catch(Exception e)
 				{
+					try{
 					Utilities.WriteLine(e.ToString());
+					
+					Configuration.GetConfiguration().removeCurrentProxy();
 					queueError[request] = e.Message;
 					ErrorAudioSendingService.getErrorAudioSendingService().Add(request);
 					DateTime now = DateTime.Now;
-					DateTime compare = DateTime.ParseExact(request,
+					string requestDate = Path.GetFileName(request).Replace("TempFile-","").Replace(".wav","");
+					DateTime compare = DateTime.ParseExact(requestDate,
                                         "yyyy-MM-dd-HH-mm-ss-fff",
                                         CultureInfo.InvariantCulture,
                                         DateTimeStyles.None);
-					DateTime compare2 = new DateTime(compare.Year,compare.Month,compare.Day,23,59,00);
-					if(compare.CompareTo(now) < 0)
+					DateTime compare2 = new DateTime(compare.Year,compare.Month,compare.Day,23,59,50);
+					if(compare2.CompareTo(now) < 0)
 					{
 						Mail mail = new Mail(Configuration.GetConfiguration().getSmtpServer(),Configuration.GetConfiguration().getSmtpPort());
 						mail.auth(Configuration.GetConfiguration().getUserName(),Configuration.GetConfiguration().getPassword(),Configuration.GetConfiguration().IsUseSsl());
@@ -136,6 +144,11 @@ namespace Services
 						MailService.GetMailService().Add(mail);
 						queueError.Clear();
 						allListAudio.Clear();
+					}
+					}catch(Exception ex)
+					{
+						Utilities.WriteLine(ex.ToString());
+						return;
 					}
 				}
 			}

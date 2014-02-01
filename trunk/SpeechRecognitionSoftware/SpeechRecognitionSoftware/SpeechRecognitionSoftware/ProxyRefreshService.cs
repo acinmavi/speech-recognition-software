@@ -44,9 +44,9 @@ namespace SpeechRecognitionSoftware
 						.Select(m => m.Groups[0].Value)
 						.ToList();
 					Parallel.ForEach(tmpProxies,(proxy) => {
-//					                 	Console.WriteLine("scanning " + proxy);
+					                 	Utilities.WriteLine("scanning " + proxy);
 					                 	bool isok = Utilities.ScanPort(proxy);
-//					                 	Console.WriteLine("finish scanning " + proxy + " ,result :"+(isok?"OK":"NOK"));
+					                 	Utilities.WriteLine("finish scanning " + proxy + " ,result :"+(isok?"OK":"NOK"));
 					                 
 					                 });
 					sw.Stop();
